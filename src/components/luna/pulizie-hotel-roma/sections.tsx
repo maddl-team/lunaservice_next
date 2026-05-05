@@ -157,7 +157,7 @@ function IncludedServicesSection() {
             </div>
             <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
             <p className="mt-[14px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
-            {item.linkLabel ? (
+            {"linkLabel" in item && item.linkLabel ? (
               <Link href="/pulizie-hotel-roma/sanificazione/" className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">
                 {item.linkLabel}
               </Link>
