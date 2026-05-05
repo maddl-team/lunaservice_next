@@ -42,103 +42,103 @@ export function LunaBottomSections() {
         <div className="mx-auto w-[calc(100vw-48px)] rounded-[32px] bg-[#99cc33]">
           <div className="mx-auto w-[1440px] max-w-[1440px] px-[56px] py-[120px]">
             <div className="grid grid-cols-[1fr_1.1fr] items-start gap-[80px]">
-          <div className="sticky top-[100px]">
-            <div className="mb-[28px] inline-flex rounded-[999px] bg-[#1a1f0d] px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#99cc33]">
-              Preventivo
-            </div>
-            <h2 className="m-0 font-serif text-[68px] leading-[1] tracking-[-0.025em] text-[#1a1f0d]">
-              Richiedi il tuo <em className="not-italic">preventivo gratuito</em>
-            </h2>
-            <p className="mt-[32px] max-w-[460px] text-[18px] leading-[1.55] text-[#2e3818]">
-              Dicci qualcosa sulla tua struttura e ti risponderemo entro poche ore con una proposta personalizzata. Il
-              sopralluogo è gratuito e senza impegno.
-            </p>
-            <div className="mt-[40px] rounded-[20px] bg-[#1a1f0d] px-[28px] py-[24px] text-[#99cc33]">
-              <div className="mb-[6px] font-mono text-[11px] uppercase tracking-[0.08em] opacity-70">
-                Tempo medio risposta
+              <div className="sticky top-[100px]">
+                <div className="mb-[28px] inline-flex rounded-[999px] bg-[#1a1f0d] px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#99cc33]">
+                  Preventivo
+                </div>
+                <h2 className="m-0 font-serif text-[68px] leading-[1] tracking-[-0.025em] text-[#1a1f0d]">
+                  Richiedi il tuo <em className="not-italic">Preventivo gratuito</em>
+                </h2>
+                <p className="mt-[32px] max-w-[460px] text-[18px] leading-[1.55] text-[#2e3818]">
+                  Dicci qualcosa sulla tua struttura e ti risponderemo entro poche ore con una proposta personalizzata. Il
+                  sopralluogo è gratuito e senza impegno.
+                </p>
+                <div className="mt-[40px] rounded-[20px] bg-[#1a1f0d] px-[28px] py-[24px] text-[#99cc33]">
+                  <div className="mb-[6px] font-mono text-[11px] uppercase tracking-[0.08em] opacity-70">
+                    Tempo medio risposta
+                  </div>
+                  <div className="font-serif text-[56px] leading-[1] tracking-[-0.02em] text-[#fbf9f3]">2h 14min</div>
+                  <div className="mt-[8px] text-[13px] opacity-70">nelle ore lavorative · ultima settimana</div>
+                </div>
+                <div className="mt-[24px] flex flex-col gap-[12px] text-[15px] text-[#1a1f0d]">
+                  <div>
+                    📞 <strong>+39 06 0000 0000</strong> · lun-sab 7-20
+                  </div>
+                  <div>
+                    💬 <strong>WhatsApp diretto</strong> · risposta entro 1h
+                  </div>
+                  <div>
+                    ✉ <strong>preventivi@lunaservice.it</strong>
+                  </div>
+                </div>
               </div>
-              <div className="font-serif text-[56px] leading-[1] tracking-[-0.02em] text-[#fbf9f3]">2h 14min</div>
-              <div className="mt-[8px] text-[13px] opacity-70">nelle ore lavorative · ultima settimana</div>
-            </div>
-            <div className="mt-[24px] flex flex-col gap-[12px] text-[15px] text-[#1a1f0d]">
-              <div>
-                📞 <strong>+39 06 0000 0000</strong> · lun-sab 7-20
-              </div>
-              <div>
-                💬 <strong>WhatsApp diretto</strong> · risposta entro 1h
-              </div>
-              <div>
-                ✉ <strong>preventivi@lunaservice.it</strong>
-              </div>
-            </div>
-          </div>
 
               <form className="flex flex-col gap-[24px] rounded-[28px] bg-white px-[48px] pb-[40px] pt-[48px]">
-            <div className="grid grid-cols-2 gap-[16px]">
-              <div>
-                <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Nome e cognome*</label>
-                <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="Mario Rossi" />
-              </div>
-              <div>
-                <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Email*</label>
-                <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="mario@hotel.it" />
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-[16px]">
-              <div>
-                <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Telefono</label>
-                <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="+39 …" />
-              </div>
-              <div>
-                <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di struttura*</label>
-                <select className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]">
-                  <option>Seleziona…</option>
-                  <option>Hotel / Albergo</option>
-                  <option>B&B</option>
-                  <option>Casa vacanza</option>
-                  <option>Affittacamere</option>
-                  <option>Ostello</option>
-                  <option>Condominio</option>
-                  <option>Altro</option>
-                </select>
-              </div>
-            </div>
-            <div>
-              <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di intervento*</label>
-              <div className="mt-[4px] grid grid-cols-2 gap-[10px]">
-                {[
-                  "Servizio continuativo",
-                  "Intervento straordinario",
-                  "Sanificazione",
-                  "Non so ancora, vorrei un consiglio",
-                ].map((opt, i) => (
-                  <label
-                    key={opt}
-                    className={`flex cursor-pointer items-center gap-[12px] rounded-[14px] px-[16px] py-[14px] text-[14px] ${i === 0 ? "border border-[#1a1f0d] bg-[#1a1f0d] text-[#99cc33]" : "border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] text-[#161714]"}`}
-                  >
-                    <span className="inline-flex h-[14px] w-[14px] items-center justify-center rounded-full border border-current">
-                      {i === 0 && <span className="h-[6px] w-[6px] rounded-full bg-current" />}
-                    </span>
-                    {opt}
-                  </label>
-                ))}
-              </div>
-            </div>
-            <div>
-              <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Messaggio / note</label>
-              <textarea className="min-h-[110px] w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="Descrivici brevemente la tua struttura e cosa ti serve…" />
-            </div>
-            <div className="flex items-start gap-[10px] text-[12.5px] leading-[1.5] text-[#6e6f68]">
-              <input type="checkbox" className="mt-[4px]" />
-              <span>
-                Ho letto la <a className="text-[#161714] underline">Privacy Policy</a> e acconsento al trattamento dei
-                miei dati personali (GDPR · Reg. UE 2016/679).
-              </span>
-            </div>
-            <button className="mt-[8px] inline-flex items-center justify-center gap-[12px] rounded-[999px] bg-[#161714] px-[28px] py-[20px] text-[15px] text-[#fbf9f3]">
-              Invia la richiesta — ti rispondiamo entro poche ore
-              <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#99cc33] text-[13px] text-[#161714]">→</span>
-            </button>
+                <div className="grid grid-cols-2 gap-[16px]">
+                  <div>
+                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Nome e cognome*</label>
+                    <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="Mario Rossi" />
+                  </div>
+                  <div>
+                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Email*</label>
+                    <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="mario@hotel.it" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-[16px]">
+                  <div>
+                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Telefono</label>
+                    <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="+39 …" />
+                  </div>
+                  <div>
+                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di struttura*</label>
+                    <select className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]">
+                      <option>Seleziona…</option>
+                      <option>Hotel / Albergo</option>
+                      <option>B&B</option>
+                      <option>Casa vacanza</option>
+                      <option>Affittacamere</option>
+                      <option>Ostello</option>
+                      <option>Condominio</option>
+                      <option>Altro</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di intervento*</label>
+                  <div className="mt-[4px] grid grid-cols-2 gap-[10px]">
+                    {[
+                      "Servizio continuativo",
+                      "Intervento straordinario",
+                      "Sanificazione",
+                      "Non so ancora, vorrei un consiglio",
+                    ].map((opt, i) => (
+                      <label
+                        key={opt}
+                        className={`flex cursor-pointer items-center gap-[12px] rounded-[14px] px-[16px] py-[14px] text-[14px] ${i === 0 ? "border border-[#1a1f0d] bg-[#1a1f0d] text-[#99cc33]" : "border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] text-[#161714]"}`}
+                      >
+                        <span className="inline-flex h-[14px] w-[14px] items-center justify-center rounded-full border border-current">
+                          {i === 0 && <span className="h-[6px] w-[6px] rounded-full bg-current" />}
+                        </span>
+                        {opt}
+                      </label>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Messaggio / note</label>
+                  <textarea className="min-h-[110px] w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="Descrivici brevemente la tua struttura e cosa ti serve…" />
+                </div>
+                <div className="flex items-start gap-[10px] text-[12.5px] leading-[1.5] text-[#6e6f68]">
+                  <input type="checkbox" className="mt-[4px]" />
+                  <span>
+                    Ho letto la <a className="text-[#161714] underline">Privacy Policy</a> e acconsento al trattamento dei
+                    miei dati personali (GDPR · Reg. UE 2016/679).
+                  </span>
+                </div>
+                <button className="mt-[8px] inline-flex items-center justify-center gap-[12px] rounded-[999px] bg-[#161714] px-[28px] py-[20px] text-[15px] text-[#fbf9f3]">
+                  Invia la richiesta — ti rispondiamo entro poche ore
+                  <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#99cc33] text-[13px] text-[#161714]">→</span>
+                </button>
               </form>
             </div>
           </div>
@@ -225,73 +225,73 @@ export function LunaBottomSections() {
       <section className="relative left-1/2 w-screen -translate-x-1/2 pb-[24px]">
         <footer className="mx-auto w-[calc(100vw-48px)] rounded-[32px] bg-[#161714] px-[56px] pb-[40px] pt-[80px] text-[#fbf9f3]">
           <div className="mb-[64px] grid grid-cols-[1.4fr_1fr] items-center gap-[60px] rounded-[32px] bg-[#99cc33] px-[56px] py-[64px] text-[#1a1f0d]">
-          <h3 className="m-0 font-serif text-[56px] leading-[1] tracking-[-0.025em]">
-            Pronto a delegare le pulizie del tuo hotel?
-          </h3>
-          <div className="flex flex-col items-start gap-[12px]">
-            <button className="inline-flex w-fit items-center gap-[10px] rounded-[999px] bg-[#1a1f0d] px-[26px] py-[18px] text-[15px] text-[#99cc33]">
-              Richiedi preventivo gratuito
-              <span className="inline-flex h-[26px] w-[26px] items-center justify-center rounded-full bg-[#99cc33] text-[12px] text-[#1a1f0d]">
-                →
-              </span>
-            </button>
-            <button className="rounded-[999px] border border-[#1a1f0d] bg-transparent px-[26px] py-[18px] text-[15px] text-[#1a1f0d]">
-              Scrivici su WhatsApp
-            </button>
+            <h3 className="m-0 font-serif text-[56px] leading-[1] tracking-[-0.025em]">
+              Pronto a delegare le pulizie del tuo hotel?
+            </h3>
+            <div className="flex flex-col items-start gap-[12px]">
+              <button className="inline-flex w-fit items-center gap-[10px] rounded-[999px] bg-[#1a1f0d] px-[26px] py-[18px] text-[15px] text-[#99cc33]">
+                Richiedi preventivo gratuito
+                <span className="inline-flex h-[26px] w-[26px] items-center justify-center rounded-full bg-[#99cc33] text-[12px] text-[#1a1f0d]">
+                  →
+                </span>
+              </button>
+              <button className="rounded-[999px] border border-[#1a1f0d] bg-transparent px-[26px] py-[18px] text-[15px] text-[#1a1f0d]">
+                Scrivici su WhatsApp
+              </button>
+            </div>
           </div>
-        </div>
           <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-[48px] border-b border-b-[rgba(255,255,255,0.12)] pb-[40px]">
-          <div>
-            <div className="mb-[20px] flex items-center gap-[10px]">
-              <svg width="28" height="28" viewBox="0 0 32 32">
-                <circle cx="16" cy="16" r="14" fill="#fbf9f3" />
-                <path d="M 16 4 A 12 12 0 0 0 16 28 A 8 12 0 0 1 16 4" fill="#99cc33" />
-              </svg>
-              <span className="font-serif text-[24px]">Luna Service</span>
-            </div>
-            <div className="text-[14.5px] leading-[1.65] text-[rgba(251,249,243,0.7)]">
-              Impresa di pulizie professionali a Roma, specializzata in hotel, strutture ricettive e condomini.
-              <br />
-              <br />
-              Via [indirizzo], Roma 00100
-              <br />
-              P.IVA [da inserire]
-              <br />
-              <br />
-              <a className="text-[#99cc33]">preventivi@lunaservice.it</a>
-              <br />
-              +39 06 0000 0000
-            </div>
-          </div>
-          {[
-            {
-              t: "Servizi",
-              l: [
-                "Pulizie Hotel Roma",
-                "B&B e Affittacamere",
-                "Case Vacanza",
-                "Pulizie Condominiali",
-                "Pulizie Straordinarie",
-                "Sanificazione",
-              ],
-            },
-            { t: "Azienda", l: ["Chi Siamo", "Aree Servite", "Blog / Risorse", "Lavora con Noi", "Contatti"] },
-            { t: "Legale", l: ["Privacy Policy", "Cookie Policy", "Note Legali"] },
-          ].map((col) => (
-            <div key={col.t}>
-              <div className="mb-[16px] font-mono text-[11px] uppercase tracking-[0.08em] text-[rgba(255,255,255,0.45)]">
-                {col.t}
+            <div>
+              <div className="mb-[20px] flex items-center gap-[10px]">
+                <svg width="28" height="28" viewBox="0 0 32 32">
+                  <circle cx="16" cy="16" r="14" fill="#fbf9f3" />
+                  <path d="M 16 4 A 12 12 0 0 0 16 28 A 8 12 0 0 1 16 4" fill="#99cc33" />
+                </svg>
+                <span className="font-serif text-[24px]">Luna Service</span>
               </div>
-              <ul className="m-0 flex list-none flex-col gap-[10px] p-0 text-[14.5px]">
-                {col.l.map((item) => (
-                  <li key={item} className="cursor-pointer text-[rgba(251,249,243,0.85)]">
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <div className="text-[14.5px] leading-[1.65] text-[rgba(251,249,243,0.7)]">
+                Impresa di pulizie professionali a Roma, specializzata in hotel, strutture ricettive e condomini.
+                <br />
+                <br />
+                Via [indirizzo], Roma 00100
+                <br />
+                P.IVA [da inserire]
+                <br />
+                <br />
+                <a className="text-[#99cc33]">preventivi@lunaservice.it</a>
+                <br />
+                +39 06 0000 0000
+              </div>
             </div>
-          ))}
-        </div>
+            {[
+              {
+                t: "Servizi",
+                l: [
+                  "Pulizie Hotel Roma",
+                  "B&B e Affittacamere",
+                  "Case Vacanza",
+                  "Pulizie Condominiali",
+                  "Pulizie Straordinarie",
+                  "Sanificazione",
+                ],
+              },
+              { t: "Azienda", l: ["Chi Siamo", "Aree Servite", "Blog / Risorse", "Lavora con Noi", "Contatti"] },
+              { t: "Legale", l: ["Privacy Policy", "Cookie Policy", "Note Legali"] },
+            ].map((col) => (
+              <div key={col.t}>
+                <div className="mb-[16px] font-mono text-[11px] uppercase tracking-[0.08em] text-[rgba(255,255,255,0.45)]">
+                  {col.t}
+                </div>
+                <ul className="m-0 flex list-none flex-col gap-[10px] p-0 text-[14.5px]">
+                  {col.l.map((item) => (
+                    <li key={item} className="cursor-pointer text-[rgba(251,249,243,0.85)]">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
           <div className="flex justify-between border-t border-t-[rgba(255,255,255,0.12)] pt-[28px] text-[12px] text-[rgba(255,255,255,0.5)]">
             <span>© 2026 Luna Service S.r.l. — Tutti i diritti riservati</span>
             <span>Impresa di pulizie professionali · Roma · Italia</span>
