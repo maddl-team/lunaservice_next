@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { PrimaryCtaButton, SecondaryCtaButton, StatCard } from "@/components/luna/ui";
+import { PrimaryCtaButton, SecondaryCtaButton, SiteHeaderPill, TrustStatsStrip } from "@/components/luna/ui";
 
 const navItems = [
   "Hotel",
@@ -14,34 +14,7 @@ const navItems = [
 export function LunaHeaderHero() {
   return (
     <>
-      <nav className="sticky top-[12px] md:top-[24px] z-20 bg-transparent px-[12px] md:px-[56px] py-[12px] md:py-[24px]">
-        <div className="grid grid-cols-[1fr_auto] md:grid-cols-[180px_1fr_auto] items-center gap-[12px] md:gap-[24px] rounded-[999px] bg-white px-[14px] md:px-[26px] py-[10px] md:py-[12px] pr-[12px] md:pr-[14px] shadow-[0_1px_0_rgba(0,0,0,0.04),0_12px_32px_-16px_rgba(0,0,0,0.12)]">
-          <div className="flex items-center gap-[10px]">
-            <svg width="26" height="26" viewBox="0 0 32 32">
-              <circle cx="16" cy="16" r="14" fill="#161714" />
-              <path d="M 16 4 A 12 12 0 0 0 16 28 A 8 12 0 0 1 16 4" fill="#99cc33" />
-            </svg>
-            <span className="font-serif text-[18px] md:text-[22px] tracking-[-0.015em]">Luna Service</span>
-          </div>
-          <ul className="hidden md:flex list-none justify-center gap-[28px] p-0 text-[14px] text-[#3a3b36]">
-            {navItems.map((item) => (
-              <li key={item} className="cursor-pointer">
-                {item}
-              </li>
-            ))}
-          </ul>
-          <div className="flex items-center gap-[8px]">
-            <a className="hidden md:block cursor-pointer px-[14px] text-[13.5px] text-[#3a3b36]">WhatsApp</a>
-            <button className="inline-flex cursor-pointer items-center gap-[8px] rounded-[999px] bg-[#161714] px-[14px] md:px-[22px] py-[10px] md:py-[14px] text-[12px] md:text-[14px] text-[#fbf9f3]">
-              <span className="hidden md:inline">Richiedi preventivo</span>
-              <span className="md:hidden inline">Preventivo</span>
-              <span className="inline-flex h-[18px] w-[18px] md:h-[22px] md:w-[22px] items-center justify-center rounded-full bg-[#99cc33] text-[10px] md:text-[11px] text-[#161714]">
-                →
-              </span>
-            </button>
-          </div>
-        </div>
-      </nav>
+      <SiteHeaderPill items={navItems.map((label) => ({ label }))} />
 
       <section className="relative left-1/2 w-screen -translate-x-1/2 pb-0 pt-[16px] md:pt-[40px]">
         <div className="relative mx-auto min-h-[620px] md:min-h-[720px] w-[calc(100vw-24px)] md:w-[calc(100vw-48px)] overflow-hidden rounded-[20px] md:rounded-[32px] bg-[#161714]">
@@ -98,16 +71,14 @@ export function LunaHeaderHero() {
         </div>
 
         <div className="mx-auto w-full max-w-[1440px] px-[12px] md:px-0">
-          <div className="relative z-[5] -mt-[8px] md:-mt-[20px] mx-0 md:mx-[32px] grid grid-cols-1 md:grid-cols-4 rounded-[20px] md:rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-[#fbf9f3] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.18)]">
-            {[
-              { n: "[X]", l: "Strutture servite a Roma", s: "tra hotel, B&B e affitti brevi" },
-              { n: "24h", l: "Intervento entro 24h", s: "su urgenze e straordinari" },
-              { n: "✓", l: "Personale formato e assicurato", s: "briefing prima di ogni intervento" },
-              { n: "0€", l: "Preventivo gratuito senza impegno", s: "sopralluogo gratuito" },
-            ].map((stat, idx) => (
-              <StatCard key={stat.l} value={stat.n} label={stat.l} sublabel={stat.s} withBorder={idx < 3} />
-            ))}
-          </div>
+          <TrustStatsStrip
+            items={[
+              { value: "[X]", label: "Strutture servite a Roma", sublabel: "tra hotel, B&B e affitti brevi" },
+              { value: "24h", label: "Intervento entro 24h", sublabel: "su urgenze e straordinari" },
+              { value: "✓", label: "Personale formato e assicurato", sublabel: "briefing prima di ogni intervento" },
+              { value: "0€", label: "Preventivo gratuito senza impegno", sublabel: "sopralluogo gratuito" },
+            ]}
+          />
         </div>
       </section>
     </>

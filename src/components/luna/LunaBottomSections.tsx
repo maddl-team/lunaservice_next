@@ -186,6 +186,15 @@ export function LunaBottomSections() {
       </section>
 
       <section className="bg-[#fbf9f3] px-[16px] md:px-[56px] py-[90px] md:py-[160px]">
+        <div className="text-center mb-[40px] md:mb-[64px]">
+          <div className="mb-[28px] inline-flex items-center gap-[8px] rounded-[999px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#3a3b36]">
+            <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
+            FAQ
+          </div>
+          <h2 className="m-0 font-serif text-[40px] md:text-[72px] leading-[1] tracking-[-0.025em]">
+            Domande frequenti
+          </h2>
+        </div>
         <div className="mx-auto flex max-w-[920px] flex-col gap-[12px]">
           {faqs.map((faq, index) => (
             <FaqItem

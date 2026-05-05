@@ -305,3 +305,92 @@ export function FooterLinkColumn({ title, links }: { title: string; links: strin
     </div>
   );
 }
+
+export function BrandLogoMark({ light = false, size = 26 }: { light?: boolean; size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 32 32">
+      <circle cx="16" cy="16" r="14" fill={light ? "#fbf9f3" : "#161714"} />
+      <path d="M 16 4 A 12 12 0 0 0 16 28 A 8 12 0 0 1 16 4" fill="#99cc33" />
+    </svg>
+  );
+}
+
+type HeaderNavItem = {
+  label: string;
+};
+
+export function SiteHeaderPill({ items }: { items: HeaderNavItem[] }) {
+  return (
+    <nav className="sticky top-[12px] md:top-[24px] z-20 bg-transparent px-[12px] md:px-[56px] py-[12px] md:py-[24px]">
+      <div className="grid grid-cols-[1fr_auto] md:grid-cols-[180px_1fr_auto] items-center gap-[12px] md:gap-[24px] rounded-[999px] bg-white px-[14px] md:px-[26px] py-[10px] md:py-[12px] pr-[12px] md:pr-[14px] shadow-[0_1px_0_rgba(0,0,0,0.04),0_12px_32px_-16px_rgba(0,0,0,0.12)]">
+        <div className="flex items-center gap-[10px]">
+          <BrandLogoMark />
+          <span className="font-serif text-[18px] md:text-[22px] tracking-[-0.015em]">Luna Service</span>
+        </div>
+        <ul className="hidden md:flex list-none justify-center gap-[28px] p-0 text-[14px] text-[#3a3b36]">
+          {items.map((item) => (
+            <li key={item.label} className="cursor-pointer">
+              {item.label}
+            </li>
+          ))}
+        </ul>
+        <div className="flex items-center gap-[8px]">
+          <a className="hidden md:block cursor-pointer px-[14px] text-[13.5px] text-[#3a3b36]">WhatsApp</a>
+          <button className="inline-flex cursor-pointer items-center gap-[8px] rounded-[999px] bg-[#161714] px-[14px] md:px-[22px] py-[10px] md:py-[14px] text-[12px] md:text-[14px] text-[#fbf9f3]">
+            <span className="hidden md:inline">Richiedi preventivo</span>
+            <span className="md:hidden inline">Preventivo</span>
+            <span className="inline-flex h-[18px] w-[18px] md:h-[22px] md:w-[22px] items-center justify-center rounded-full bg-[#99cc33] text-[10px] md:text-[11px] text-[#161714]">
+              →
+            </span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  );
+}
+
+export function SectionIntro({
+  badge,
+  badgeDark = false,
+  title,
+  description,
+  titleClassName = "",
+  descriptionClassName = "",
+}: {
+  badge: ReactNode;
+  badgeDark?: boolean;
+  title: ReactNode;
+  description?: ReactNode;
+  titleClassName?: string;
+  descriptionClassName?: string;
+}) {
+  return (
+    <>
+      <div className="mb-[28px]">
+        <SectionBadge dark={badgeDark}>{badge}</SectionBadge>
+      </div>
+      <h2 className={`m-0 font-serif leading-[1] tracking-[-0.025em] ${titleClassName}`}>{title}</h2>
+      {description ? <p className={`m-0 ${descriptionClassName}`}>{description}</p> : null}
+    </>
+  );
+}
+
+export function TrustStatsStrip({
+  items,
+}: {
+  items: Array<{ value: ReactNode; label: string; sublabel: string }>;
+}) {
+  return (
+    <div className="relative z-[5] -mt-[8px] md:-mt-[20px] mx-0 md:mx-[32px] grid grid-cols-1 md:grid-cols-4 rounded-[20px] md:rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-[#fbf9f3] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.18)]">
+      {items.map((item, idx) => (
+        <StatCard
+          key={item.label}
+          value={item.value}
+          label={item.label}
+          sublabel={item.sublabel}
+          withBorder={idx < items.length - 1}
+        />
+      ))}
+    </div>
+  );
+}

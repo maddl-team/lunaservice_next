@@ -1,4 +1,4 @@
-import { FeatureCard, ReviewCard, SectionBadge, SectionShell, ServiceCard } from "@/components/luna/ui";
+import { FeatureCard, ReviewCard, SectionIntro, SectionShell, ServiceCard } from "@/components/luna/ui";
 
 const services = [
   {
@@ -157,12 +157,16 @@ export function LunaMiddleSections() {
       >
         <div className="mb-[40px] md:mb-[64px] grid grid-cols-1 md:grid-cols-2 items-end gap-[24px] md:gap-[80px]">
           <div>
-            <div className="mb-[28px]">
-              <SectionBadge dark>Servizi</SectionBadge>
-            </div>
-            <h2 className="m-0 font-serif text-[38px] md:text-[64px] leading-[1] tracking-[-0.025em]">
-              I nostri servizi di <em className="not-italic text-[#99cc33]">pulizia professionale</em> a Roma
-            </h2>
+            <SectionIntro
+              badge="Servizi"
+              badgeDark
+              title={
+                <>
+                  I nostri servizi di <em className="not-italic text-[#99cc33]">pulizia professionale</em> a Roma
+                </>
+              }
+              titleClassName="text-[38px] md:text-[64px]"
+            />
           </div>
           <p className="m-0 max-w-[520px] text-[17px] leading-[1.6] text-[rgba(251,249,243,0.7)]">
             Lavoriamo con hotel, B&B, case vacanza, affittacamere, ostelli e condomini. Ogni tipologia di struttura ha
@@ -187,13 +191,17 @@ export function LunaMiddleSections() {
             <div className="border-t border-t-[rgba(255,255,255,0.12)] pt-[80px]">
             <div className="mb-[40px] md:mb-[64px] grid grid-cols-1 md:grid-cols-2 items-end gap-[24px] md:gap-[80px]">
               <div>
-                <div className="mb-[28px]">
-                  <SectionBadge dark>Perché Luna</SectionBadge>
-                </div>
-                <h2 className="m-0 font-serif text-[36px] md:text-[56px] leading-[1.04] tracking-[-0.025em]">
-                  Perché scegliere Luna Service come <em className="not-italic text-[#99cc33]">impresa di pulizie</em> a
-                  Roma
-                </h2>
+                <SectionIntro
+                  badge="Perché Luna"
+                  badgeDark
+                  title={
+                    <>
+                      Perché scegliere Luna Service come <em className="not-italic text-[#99cc33]">impresa di pulizie</em>{" "}
+                      a Roma
+                    </>
+                  }
+                  titleClassName="text-[36px] md:text-[56px] leading-[1.04]"
+                />
               </div>
               <p className="m-0 max-w-[540px] text-[17px] leading-[1.6] text-[rgba(251,249,243,0.7)]">
                 Ci sono decine di imprese di pulizie a Roma. La differenza non sta nel prezzo: sta in quello che succede
