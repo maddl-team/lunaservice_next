@@ -1,6 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import {
+  ChoiceChip,
+  FaqItem,
+  FooterLinkColumn,
+  InputField,
+  PrimaryCtaButton,
+  SectionShell,
+  SelectField,
+  TextareaField,
+} from "@/components/luna/ui";
 
 const faqs = [
   {
@@ -38,15 +48,18 @@ export function LunaBottomSections() {
 
   return (
     <>
-      <section className="relative left-1/2 w-screen -translate-x-1/2">
-        <div className="mx-auto w-[calc(100vw-48px)] rounded-[32px] bg-[#99cc33]">
-          <div className="mx-auto w-[1440px] max-w-[1440px] px-[56px] py-[120px]">
-            <div className="grid grid-cols-[1fr_1.1fr] items-start gap-[80px]">
-              <div className="sticky top-[100px]">
+      <SectionShell
+        fullBleed
+        bgClassName="bg-[#99cc33]"
+        innerClassName="rounded-[32px]"
+        boxedClassName="px-[16px] md:px-[56px] py-[70px] md:py-[120px]"
+      >
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.1fr] items-start gap-[30px] md:gap-[80px]">
+              <div className="md:sticky md:top-[100px]">
                 <div className="mb-[28px] inline-flex rounded-[999px] bg-[#1a1f0d] px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#99cc33]">
                   Preventivo
                 </div>
-                <h2 className="m-0 font-serif text-[68px] leading-[1] tracking-[-0.025em] text-[#1a1f0d]">
+                <h2 className="m-0 font-serif text-[38px] md:text-[68px] leading-[1] tracking-[-0.025em] text-[#1a1f0d]">
                   Richiedi il tuo <em className="not-italic">Preventivo gratuito</em>
                 </h2>
                 <p className="mt-[32px] max-w-[460px] text-[18px] leading-[1.55] text-[#2e3818]">
@@ -73,61 +86,32 @@ export function LunaBottomSections() {
                 </div>
               </div>
 
-              <form className="flex flex-col gap-[24px] rounded-[28px] bg-white px-[48px] pb-[40px] pt-[48px]">
-                <div className="grid grid-cols-2 gap-[16px]">
-                  <div>
-                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Nome e cognome*</label>
-                    <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="Mario Rossi" />
-                  </div>
-                  <div>
-                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Email*</label>
-                    <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="mario@hotel.it" />
-                  </div>
+              <form className="flex flex-col gap-[24px] rounded-[28px] bg-white px-[18px] md:px-[48px] pb-[24px] md:pb-[40px] pt-[24px] md:pt-[48px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+              <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+              <InputField label="Email*" placeholder="mario@hotel.it" />
                 </div>
-                <div className="grid grid-cols-2 gap-[16px]">
-                  <div>
-                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Telefono</label>
-                    <input className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="+39 …" />
-                  </div>
-                  <div>
-                    <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di struttura*</label>
-                    <select className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]">
-                      <option>Seleziona…</option>
-                      <option>Hotel / Albergo</option>
-                      <option>B&B</option>
-                      <option>Casa vacanza</option>
-                      <option>Affittacamere</option>
-                      <option>Ostello</option>
-                      <option>Condominio</option>
-                      <option>Altro</option>
-                    </select>
-                  </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+              <InputField label="Telefono" placeholder="+39 …" />
+              <SelectField
+                label="Tipo di struttura*"
+                options={["Seleziona…", "Hotel / Albergo", "B&B", "Casa vacanza", "Affittacamere", "Ostello", "Condominio", "Altro"]}
+              />
                 </div>
                 <div>
                   <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di intervento*</label>
-                  <div className="mt-[4px] grid grid-cols-2 gap-[10px]">
+                  <div className="mt-[4px] grid grid-cols-1 md:grid-cols-2 gap-[10px]">
                     {[
                       "Servizio continuativo",
                       "Intervento straordinario",
                       "Sanificazione",
                       "Non so ancora, vorrei un consiglio",
                     ].map((opt, i) => (
-                      <label
-                        key={opt}
-                        className={`flex cursor-pointer items-center gap-[12px] rounded-[14px] px-[16px] py-[14px] text-[14px] ${i === 0 ? "border border-[#1a1f0d] bg-[#1a1f0d] text-[#99cc33]" : "border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] text-[#161714]"}`}
-                      >
-                        <span className="inline-flex h-[14px] w-[14px] items-center justify-center rounded-full border border-current">
-                          {i === 0 && <span className="h-[6px] w-[6px] rounded-full bg-current" />}
-                        </span>
-                        {opt}
-                      </label>
+                  <ChoiceChip key={opt} label={opt} active={i === 0} />
                     ))}
                   </div>
                 </div>
-                <div>
-                  <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Messaggio / note</label>
-                  <textarea className="min-h-[110px] w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[18px] py-[16px] text-[15px]" placeholder="Descrivici brevemente la tua struttura e cosa ti serve…" />
-                </div>
+            <TextareaField label="Messaggio / note" placeholder="Descrivici brevemente la tua struttura e cosa ti serve…" />
                 <div className="flex items-start gap-[10px] text-[12.5px] leading-[1.5] text-[#6e6f68]">
                   <input type="checkbox" className="mt-[4px]" />
                   <span>
@@ -135,31 +119,29 @@ export function LunaBottomSections() {
                     miei dati personali (GDPR · Reg. UE 2016/679).
                   </span>
                 </div>
-                <button className="mt-[8px] inline-flex items-center justify-center gap-[12px] rounded-[999px] bg-[#161714] px-[28px] py-[20px] text-[15px] text-[#fbf9f3]">
+            <PrimaryCtaButton invert>
                   Invia la richiesta — ti rispondiamo entro poche ore
                   <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#99cc33] text-[13px] text-[#161714]">→</span>
-                </button>
+            </PrimaryCtaButton>
               </form>
             </div>
-          </div>
-        </div>
-      </section>
+      </SectionShell>
 
-      <section className="bg-[#fbf9f3] px-[56px] py-[160px]">
-        <div className="grid grid-cols-2 items-center gap-[64px]">
+      <section className="bg-[#fbf9f3] px-[16px] md:px-[56px] py-[90px] md:py-[160px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-[28px] md:gap-[64px]">
           <div>
             <div className="mb-[28px] inline-flex items-center gap-[8px] rounded-[999px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#3a3b36]">
               <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
               Aree servite
             </div>
-            <h2 className="m-0 font-serif text-[60px] leading-[1.04] tracking-[-0.025em]">
+            <h2 className="m-0 font-serif text-[38px] md:text-[60px] leading-[1.04] tracking-[-0.025em]">
               Operiamo su tutta <em className="not-italic">Roma</em> e provincia
             </h2>
             <p className="mt-[32px] max-w-[500px] text-[17px] leading-[1.6] text-[#3a3b36]">
               Luna Service è attiva su Roma nord, Roma centro, Roma est, Roma sud e nella provincia metropolitana.
               Contattaci per verificare la copertura nella tua zona.
             </p>
-            <div className="mt-[40px] grid grid-cols-2 gap-[12px]">
+            <div className="mt-[40px] grid grid-cols-1 sm:grid-cols-2 gap-[12px]">
               {areas.map((area) => (
                 <div key={area.z} className="flex items-center justify-between rounded-[14px] border border-[rgba(0,0,0,0.06)] bg-white px-[18px] py-[14px]">
                   <span className="font-medium">{area.z}</span>
@@ -203,29 +185,24 @@ export function LunaBottomSections() {
         </div>
       </section>
 
-      <section className="bg-[#fbf9f3] px-[56px] py-[160px]">
+      <section className="bg-[#fbf9f3] px-[16px] md:px-[56px] py-[90px] md:py-[160px]">
         <div className="mx-auto flex max-w-[920px] flex-col gap-[12px]">
           {faqs.map((faq, index) => (
-            <div key={faq.q} className="overflow-hidden rounded-[20px] border border-[rgba(0,0,0,0.06)] bg-white">
-              <button
-                onClick={() => setOpen(open === index ? -1 : index)}
-                className="flex w-full items-center justify-between gap-[24px] bg-transparent px-[32px] py-[28px] text-left"
-              >
-                <h3 className="m-0 font-serif text-[24px] leading-[1.3] tracking-[-0.01em]">{faq.q}</h3>
-                <span className={`inline-flex h-[36px] w-[36px] items-center justify-center rounded-full text-[18px] ${open === index ? "bg-[#99cc33]" : "bg-[#fbf9f3]"}`}>
-                  {open === index ? "–" : "+"}
-                </span>
-              </button>
-              {open === index && <div className="max-w-[760px] px-[32px] pb-[32px] text-[16px] leading-[1.65] text-[#3a3b36]">{faq.a}</div>}
-            </div>
+            <FaqItem
+              key={faq.q}
+              question={faq.q}
+              answer={faq.a}
+              isOpen={open === index}
+              onToggle={() => setOpen(open === index ? -1 : index)}
+            />
           ))}
         </div>
       </section>
 
-      <section className="relative left-1/2 w-screen -translate-x-1/2 pb-[24px]">
-        <footer className="mx-auto w-[calc(100vw-48px)] rounded-[32px] bg-[#161714] px-[56px] pb-[40px] pt-[80px] text-[#fbf9f3]">
-          <div className="mb-[64px] grid grid-cols-[1.4fr_1fr] items-center gap-[60px] rounded-[32px] bg-[#99cc33] px-[56px] py-[64px] text-[#1a1f0d]">
-            <h3 className="m-0 font-serif text-[56px] leading-[1] tracking-[-0.025em]">
+      <section className="relative left-1/2 w-screen -translate-x-1/2 pb-[12px] md:pb-[24px]">
+        <footer className="mx-auto w-[calc(100vw-24px)] md:w-[calc(100vw-48px)] rounded-[20px] md:rounded-[32px] bg-[#161714] px-[16px] md:px-[56px] pb-[26px] md:pb-[40px] pt-[30px] md:pt-[80px] text-[#fbf9f3]">
+          <div className="mb-[30px] md:mb-[64px] grid grid-cols-1 md:grid-cols-[1.4fr_1fr] items-center gap-[24px] md:gap-[60px] rounded-[24px] md:rounded-[32px] bg-[#99cc33] px-[20px] md:px-[56px] py-[26px] md:py-[64px] text-[#1a1f0d]">
+            <h3 className="m-0 font-serif text-[34px] md:text-[56px] leading-[1] tracking-[-0.025em]">
               Pronto a delegare le pulizie del tuo hotel?
             </h3>
             <div className="flex flex-col items-start gap-[12px]">
@@ -240,7 +217,7 @@ export function LunaBottomSections() {
               </button>
             </div>
           </div>
-          <div className="grid grid-cols-[1.4fr_1fr_1fr_1fr] gap-[48px] border-b border-b-[rgba(255,255,255,0.12)] pb-[40px]">
+          <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[24px] md:gap-[48px] border-b border-b-[rgba(255,255,255,0.12)] pb-[26px] md:pb-[40px]">
             <div>
               <div className="mb-[20px] flex items-center gap-[10px]">
                 <svg width="28" height="28" viewBox="0 0 32 32">
@@ -263,36 +240,25 @@ export function LunaBottomSections() {
                 +39 06 0000 0000
               </div>
             </div>
-            {[
-              {
-                t: "Servizi",
-                l: [
-                  "Pulizie Hotel Roma",
-                  "B&B e Affittacamere",
-                  "Case Vacanza",
-                  "Pulizie Condominiali",
-                  "Pulizie Straordinarie",
-                  "Sanificazione",
-                ],
-              },
-              { t: "Azienda", l: ["Chi Siamo", "Aree Servite", "Blog / Risorse", "Lavora con Noi", "Contatti"] },
-              { t: "Legale", l: ["Privacy Policy", "Cookie Policy", "Note Legali"] },
-            ].map((col) => (
-              <div key={col.t}>
-                <div className="mb-[16px] font-mono text-[11px] uppercase tracking-[0.08em] text-[rgba(255,255,255,0.45)]">
-                  {col.t}
-                </div>
-                <ul className="m-0 flex list-none flex-col gap-[10px] p-0 text-[14.5px]">
-                  {col.l.map((item) => (
-                    <li key={item} className="cursor-pointer text-[rgba(251,249,243,0.85)]">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {[
+            {
+              t: "Servizi",
+              l: [
+                "Pulizie Hotel Roma",
+                "B&B e Affittacamere",
+                "Case Vacanza",
+                "Pulizie Condominiali",
+                "Pulizie Straordinarie",
+                "Sanificazione",
+              ],
+            },
+            { t: "Azienda", l: ["Chi Siamo", "Aree Servite", "Blog / Risorse", "Lavora con Noi", "Contatti"] },
+            { t: "Legale", l: ["Privacy Policy", "Cookie Policy", "Note Legali"] },
+          ].map((col) => (
+            <FooterLinkColumn key={col.t} title={col.t} links={col.l} />
+          ))}
           </div>
-          <div className="flex justify-between border-t border-t-[rgba(255,255,255,0.12)] pt-[28px] text-[12px] text-[rgba(255,255,255,0.5)]">
+          <div className="flex flex-col md:flex-row gap-[6px] md:gap-0 justify-between border-t border-t-[rgba(255,255,255,0.12)] pt-[20px] md:pt-[28px] text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)]">
             <span>© 2026 Luna Service S.r.l. — Tutti i diritti riservati</span>
             <span>Impresa di pulizie professionali · Roma · Italia</span>
           </div>
