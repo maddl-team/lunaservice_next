@@ -306,6 +306,73 @@ export function FooterLinkColumn({ title, links }: { title: string; links: strin
   );
 }
 
+export function SiteFooter() {
+  return (
+    <section className="relative left-1/2 w-screen -translate-x-1/2 pb-[12px] md:pb-[24px]">
+      <footer className="mx-auto w-[calc(100vw-24px)] md:w-[calc(100vw-48px)] rounded-[20px] md:rounded-[32px] bg-[#161714] px-[16px] md:px-[56px] pb-[26px] md:pb-[40px] pt-[30px] md:pt-[80px] text-[#fbf9f3]">
+        <div className="mb-[30px] md:mb-[64px] grid grid-cols-1 md:grid-cols-[1.4fr_1fr] items-center gap-[24px] md:gap-[60px] rounded-[24px] md:rounded-[32px] bg-[#99cc33] px-[20px] md:px-[56px] py-[26px] md:py-[64px] text-[#1a1f0d]">
+          <h3 className="m-0 font-serif text-[34px] md:text-[56px] leading-[1] tracking-[-0.025em]">
+            Pronto a delegare le pulizie del tuo hotel?
+          </h3>
+          <div className="flex flex-col items-start gap-[12px]">
+            <button className="inline-flex w-fit items-center gap-[10px] rounded-[999px] bg-[#1a1f0d] px-[26px] py-[18px] text-[15px] text-[#99cc33]">
+              Richiedi preventivo gratuito
+              <span className="inline-flex h-[26px] w-[26px] items-center justify-center rounded-full bg-[#99cc33] text-[12px] text-[#1a1f0d]">
+                →
+              </span>
+            </button>
+            <button className="rounded-[999px] border border-[#1a1f0d] bg-transparent px-[26px] py-[18px] text-[15px] text-[#1a1f0d]">
+              Scrivici su WhatsApp
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[24px] md:gap-[48px] border-b border-b-[rgba(255,255,255,0.12)] pb-[26px] md:pb-[40px]">
+          <div>
+            <div className="mb-[20px] flex items-center gap-[10px]">
+              <BrandLogoMark light size={28} />
+              <span className="font-serif text-[24px]">Luna Service</span>
+            </div>
+            <div className="text-[14.5px] leading-[1.65] text-[rgba(251,249,243,0.7)]">
+              Impresa di pulizie professionali a Roma, specializzata in hotel, strutture ricettive e condomini.
+              <br />
+              <br />
+              Via [indirizzo], Roma 00100
+              <br />
+              P.IVA [da inserire]
+              <br />
+              <br />
+              <a className="text-[#99cc33]">preventivi@lunaservice.it</a>
+              <br />
+              +39 06 0000 0000
+            </div>
+          </div>
+          {[
+            {
+              t: "Servizi",
+              l: [
+                "Pulizie Hotel Roma",
+                "B&B e Affittacamere",
+                "Case Vacanza",
+                "Pulizie Condominiali",
+                "Pulizie Straordinarie",
+                "Sanificazione",
+              ],
+            },
+            { t: "Azienda", l: ["Chi Siamo", "Aree Servite", "Blog / Risorse", "Lavora con Noi", "Contatti"] },
+            { t: "Legale", l: ["Privacy Policy", "Cookie Policy", "Note Legali"] },
+          ].map((col) => (
+            <FooterLinkColumn key={col.t} title={col.t} links={col.l} />
+          ))}
+        </div>
+        <div className="flex flex-col md:flex-row gap-[6px] md:gap-0 justify-between border-t border-t-[rgba(255,255,255,0.12)] pt-[20px] md:pt-[28px] text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)]">
+          <span>© 2026 Luna Service S.r.l. — Tutti i diritti riservati</span>
+          <span>Impresa di pulizie professionali · Roma · Italia</span>
+        </div>
+      </footer>
+    </section>
+  );
+}
+
 export function BrandLogoMark({ light = false, size = 26 }: { light?: boolean; size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 32 32">

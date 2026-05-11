@@ -4,15 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  BrandLogoMark,
   FaqItem,
-  FooterLinkColumn,
   InputField,
   PrimaryCtaButton,
   SectionBadge,
   SectionIntro,
   SectionShell,
   SelectField,
+  SiteFooter,
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
@@ -133,8 +132,8 @@ function IncludedServicesSection() {
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.included.intro}</p>
       <div className="mt-[28px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
         {hotelPageContent.included.items.map((item, idx) => (
-          <article key={item.title} className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px]">
-            <div className="relative h-[180px] overflow-hidden rounded-[16px] mb-[14px]">
+          <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white">
+            <div className="relative h-[180px] w-full shrink-0 overflow-hidden">
               <Image
                 src={
                   idx === 0
@@ -155,13 +154,15 @@ function IncludedServicesSection() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
-            <p className="mt-[14px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
-            {"linkLabel" in item && item.linkLabel ? (
-              <Link href="/pulizie-hotel-roma/sanificazione/" className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">
-                {item.linkLabel}
-              </Link>
-            ) : null}
+            <div className="flex flex-1 flex-col px-[24px] pb-[24px] pt-[24px]">
+              <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
+              <p className="mt-[14px] m-0 flex-1 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
+              {"linkLabel" in item && item.linkLabel ? (
+                <Link href="/pulizie-hotel-roma/sanificazione/" className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">
+                  {item.linkLabel}
+                </Link>
+              ) : null}
+            </div>
           </article>
         ))}
       </div>
@@ -242,8 +243,8 @@ function HotelTypesSection() {
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.hotelTypes.intro}</p>
       <div className="mt-[28px] grid grid-cols-1 md:grid-cols-3 gap-[16px]">
         {hotelPageContent.hotelTypes.items.map((item) => (
-          <article key={item.title} className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px]">
-            <div className="relative h-[180px] overflow-hidden rounded-[16px] mb-[14px]">
+          <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white">
+            <div className="relative h-[180px] w-full shrink-0 overflow-hidden">
               <Image
                 src={
                   item.title.includes("Boutique")
@@ -258,8 +259,10 @@ function HotelTypesSection() {
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
             </div>
-            <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
-            <p className="mt-[12px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
+            <div className="flex flex-1 flex-col px-[24px] pb-[24px] pt-[24px]">
+              <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
+              <p className="mt-[12px] m-0 flex-1 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
+            </div>
           </article>
         ))}
       </div>
@@ -395,38 +398,7 @@ export function HotelPageBody() {
       <InternalLinksSection />
       <HotelQuoteSection />
       <HotelFaqSection />
-      <section className="relative left-1/2 w-screen -translate-x-1/2 pb-[12px] md:pb-[24px]">
-        <footer className="mx-auto w-[calc(100vw-24px)] md:w-[calc(100vw-48px)] rounded-[20px] md:rounded-[32px] bg-[#161714] px-[16px] md:px-[56px] pb-[26px] md:pb-[40px] pt-[30px] md:pt-[80px] text-[#fbf9f3]">
-          <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-[24px] md:gap-[48px] border-b border-b-[rgba(255,255,255,0.12)] pb-[26px] md:pb-[40px]">
-            <div>
-              <div className="mb-[20px] flex items-center gap-[10px]">
-                <BrandLogoMark light size={28} />
-                <span className="font-serif text-[24px]">Luna Service</span>
-              </div>
-              <div className="text-[14.5px] leading-[1.65] text-[rgba(251,249,243,0.7)]">
-                Impresa di pulizie professionali a Roma, specializzata in hotel, strutture ricettive e condomini.
-              </div>
-            </div>
-            <FooterLinkColumn
-              title="Servizi"
-              links={[
-                "Pulizie Hotel Roma",
-                "B&B e Affittacamere",
-                "Case Vacanza",
-                "Pulizie Condominiali",
-                "Pulizie Straordinarie",
-                "Sanificazione",
-              ]}
-            />
-            <FooterLinkColumn title="Azienda" links={["Chi Siamo", "Aree Servite", "Blog / Risorse", "Lavora con Noi", "Contatti"]} />
-            <FooterLinkColumn title="Legale" links={["Privacy Policy", "Cookie Policy", "Note Legali"]} />
-          </div>
-          <div className="flex flex-col md:flex-row gap-[6px] md:gap-0 justify-between pt-[20px] md:pt-[28px] text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)]">
-            <span>© 2026 Luna Service S.r.l. — Tutti i diritti riservati</span>
-            <span>Impresa di pulizie professionali · Roma · Italia</span>
-          </div>
-        </footer>
-      </section>
+      <SiteFooter />
     </>
   );
 }
