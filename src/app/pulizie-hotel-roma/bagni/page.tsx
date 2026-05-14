@@ -82,7 +82,7 @@ export default function PulizieBagniHotelRomaPage() {
   };
 
   return (
-    <main className="mx-auto w-full max-w-[1440px] bg-[#fbf9f3] text-[#161714]">
+    <main className="mx-auto w-full max-w-[1440px] bg-[var(--background)] text-[#161714]">
       <BagniHotelRomaPageBody />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />

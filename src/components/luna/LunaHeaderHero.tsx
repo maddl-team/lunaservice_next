@@ -1,20 +1,10 @@
 import Image from "next/image";
 import { PrimaryCtaButton, SecondaryCtaButton, SiteHeaderPill, TrustStatsStrip } from "@/components/luna/ui";
 
-const navItems = [
-  "Hotel",
-  "Strutture",
-  "Straordinarie",
-  "Condomini",
-  "Sanificazione",
-  "Chi Siamo",
-  "Contatti",
-];
-
 export function LunaHeaderHero() {
   return (
     <>
-      <SiteHeaderPill items={navItems.map((label) => ({ label }))} />
+      <SiteHeaderPill />
 
       <section className="relative left-1/2 w-screen -translate-x-1/2 pb-0 pt-[16px] md:pt-[40px]">
         <div className="relative mx-auto min-h-[620px] md:min-h-[720px] w-[calc(100vw-24px)] md:w-[calc(100vw-48px)] overflow-hidden rounded-[20px] md:rounded-[32px] bg-[#161714]">
@@ -41,7 +31,7 @@ export function LunaHeaderHero() {
               </div>
 
               <div className="max-w-[1100px]">
-                <h1 className="m-0 font-serif text-[40px] sm:text-[52px] md:text-[84px] leading-[0.98] md:leading-[1] tracking-[-0.025em] text-[#fbf9f3]">
+                <h1 className="m-0 font-serif text-[36px] sm:text-[48px] md:text-[76px] leading-[0.98] md:leading-[1] tracking-[-0.025em] text-[#fbf9f3]">
                   Impresa di pulizie a Roma specializzata in{" "}
                   <em className="not-italic text-[#99cc33]">hotel</em> e strutture ricettive
                 </h1>

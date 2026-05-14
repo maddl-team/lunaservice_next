@@ -59,7 +59,7 @@ export function LunaBottomSections() {
                 <div className="mb-[28px] inline-flex rounded-[999px] bg-[#1a1f0d] px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#99cc33]">
                   Preventivo
                 </div>
-                <h2 className="m-0 font-serif text-[38px] md:text-[68px] leading-[1] tracking-[-0.025em] text-[#1a1f0d]">
+                <h2 className="m-0 font-serif text-[32px] md:text-[54px] leading-[1] tracking-[-0.025em] text-[#1a1f0d]">
                   Richiedi il tuo <em className="not-italic">Preventivo gratuito</em>
                 </h2>
                 <p className="mt-[32px] max-w-[460px] text-[18px] leading-[1.55] text-[#2e3818]">
@@ -70,7 +70,7 @@ export function LunaBottomSections() {
                   <div className="mb-[6px] font-mono text-[11px] uppercase tracking-[0.08em] opacity-70">
                     Tempo medio risposta
                   </div>
-                  <div className="font-serif text-[56px] leading-[1] tracking-[-0.02em] text-[#fbf9f3]">2h 14min</div>
+                  <div className="font-serif text-[50px] leading-[1] tracking-[-0.02em] text-[#fbf9f3]">2h 14min</div>
                   <div className="mt-[8px] text-[13px] opacity-70">nelle ore lavorative · ultima settimana</div>
                 </div>
                 <div className="mt-[24px] flex flex-col gap-[12px] text-[15px] text-[#1a1f0d]">
@@ -127,14 +127,14 @@ export function LunaBottomSections() {
             </div>
       </SectionShell>
 
-      <section className="bg-[#fbf9f3] px-[16px] md:px-[56px] py-[90px] md:py-[160px]">
+      <section className="bg-[var(--background)] px-[16px] md:px-[56px] py-[90px] md:py-[160px]">
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-[28px] md:gap-[64px]">
           <div>
             <div className="mb-[28px] inline-flex items-center gap-[8px] rounded-[999px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#3a3b36]">
               <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
               Aree servite
             </div>
-            <h2 className="m-0 font-serif text-[38px] md:text-[60px] leading-[1.04] tracking-[-0.025em]">
+            <h2 className="m-0 font-serif text-[34px] md:text-[54px] leading-[1.04] tracking-[-0.025em]">
               Operiamo su tutta <em className="not-italic">Roma</em> e provincia
             </h2>
             <p className="mt-[32px] max-w-[500px] text-[17px] leading-[1.6] text-[#3a3b36]">
@@ -185,13 +185,13 @@ export function LunaBottomSections() {
         </div>
       </section>
 
-      <section className="bg-[#fbf9f3] px-[16px] md:px-[56px] py-[90px] md:py-[160px]">
+      <section className="bg-[var(--background)] px-[16px] md:px-[56px] py-[90px] md:py-[160px]">
         <div className="text-center mb-[40px] md:mb-[64px]">
           <div className="mb-[28px] inline-flex items-center gap-[8px] rounded-[999px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#3a3b36]">
             <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
             FAQ
           </div>
-          <h2 className="m-0 font-serif text-[40px] md:text-[72px] leading-[1] tracking-[-0.025em]">
+          <h2 className="m-0 font-serif text-[32px] md:text-[56px] leading-[1] tracking-[-0.025em]">
             Domande frequenti
           </h2>
         </div>

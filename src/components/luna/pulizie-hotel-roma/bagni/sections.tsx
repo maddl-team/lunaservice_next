@@ -162,7 +162,7 @@ function HeroBagni() {
           <div className="relative z-10 mx-auto w-full max-w-[1440px] px-[20px] md:px-[56px] py-[40px] md:py-[64px]">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="md:pr-[42px]">
-                <h1 className="m-0 font-serif text-[38px] md:text-[64px] leading-[1.02] tracking-[-0.025em] text-[#fbf9f3]">
+                <h1 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.02] tracking-[-0.025em] text-[#fbf9f3]">
                   Pulizia e igienizzazione bagni hotel a Roma: il dettaglio che nessun ospite perdona
                 </h1>
                 <p className="mt-[16px] md:mt-[20px] text-[16px] md:text-[19px] leading-[1.55] text-[rgba(251,249,243,0.85)]">
@@ -214,7 +214,7 @@ function ProblemSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Il problema</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Il bagno è la voce più citata nelle recensioni negative sulla pulizia. Non è un caso.
       </h2>
       <div className="mt-[24px] max-w-[980px] space-y-[16px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -247,7 +247,7 @@ function ProtocolSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Cosa facciamo</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Il nostro protocollo di pulizia e igienizzazione bagni per hotel
       </h2>
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -265,7 +265,7 @@ function ProtocolSection() {
                 <span>№ {String(idx + 1).padStart(2, "0")}</span>
                 <span>Protocollo</span>
               </div>
-              <h3 className="m-0 font-serif text-[28px] leading-[1.05] tracking-[-0.02em]">{item.title}</h3>
+              <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.02em]">{item.title}</h3>
               <p className="mt-[12px] flex-1 text-[14px] leading-[1.55] text-[#3a3b36]">{item.body}</p>
             </div>
           </article>
@@ -285,7 +285,7 @@ function SequenceSection() {
       boxedClassName="px-[16px] md:px-[56px] py-[64px] md:py-[90px]"
     >
       <SectionBadge dark>La sequenza operativa</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#fbf9f3]">
+      <h2 className="mt-[18px] m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#fbf9f3]">
         La sequenza operativa corretta: perché l&apos;ordine degli interventi è importante quanto i prodotti
       </h2>
       <div className="mt-[18px] max-w-[980px] space-y-[14px] text-[17px] leading-[1.7] text-[rgba(251,249,243,0.82)]">
@@ -306,7 +306,7 @@ function SequenceSection() {
               <span>Fase {idx + 1}</span>
               <span>Checklist</span>
             </div>
-            <h3 className="m-0 font-serif text-[28px] leading-[1.08] tracking-[-0.015em] text-[#fbf9f3]">{item.phase}</h3>
+            <h3 className="m-0 font-serif text-[26px] leading-[1.08] tracking-[-0.015em] text-[#fbf9f3]">{item.phase}</h3>
             <ul className="mt-[12px] m-0 p-0 list-none space-y-[8px]">
               {item.points.map((point) => (
                 <li key={point} className="flex items-start gap-[8px] text-[15px] leading-[1.6] text-[rgba(251,249,243,0.82)]">
@@ -326,7 +326,7 @@ function MaterialsSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Prodotti e materiali</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Prodotti giusti per ogni superficie: nessun danno da prodotto inadeguato
       </h2>
       <div className="mt-[24px] max-w-[980px] space-y-[16px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -353,7 +353,7 @@ function MaterialsSection() {
                 <span>№ {String(idx + 1).padStart(2, "0")}</span>
                 <span>Materiali</span>
               </div>
-              <h3 className="m-0 font-serif text-[28px] leading-[1.05] tracking-[-0.02em]">{item.title}</h3>
+              <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.02em]">{item.title}</h3>
               <p className="mt-[12px] flex-1 text-[14px] leading-[1.55] text-[#3a3b36]">{item.body}</p>
             </div>
           </article>
@@ -367,7 +367,7 @@ function ComplianceSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Conformità e ispezioni</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Bagni puliti e documentati: la tua protezione in caso di ispezione ASL
       </h2>
       <div className="mt-[24px] max-w-[980px] space-y-[16px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -399,7 +399,7 @@ function CompactFormSection() {
       boxedClassName="px-[16px] md:px-[56px] py-[64px] md:py-[90px]"
       outerClassName="mt-[96px] md:mt-[140px]"
     >
-      <h2 className="m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#1a1f0d]">
+      <h2 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#1a1f0d]">
         Richiedi il preventivo per la pulizia dei bagni del tuo hotel
       </h2>
       <p className="mt-[16px] max-w-[980px] text-[17px] leading-[1.65] text-[#2e3818]">
@@ -472,7 +472,7 @@ function FaqSection() {
           <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
           FAQ
         </div>
-        <h2 className="m-0 text-center font-serif text-[40px] md:text-[72px] leading-[1] tracking-[-0.025em] text-[#161714]">
+        <h2 className="m-0 text-center font-serif text-[32px] md:text-[56px] leading-[1] tracking-[-0.025em] text-[#161714]">
           Domande frequenti sulla pulizia dei bagni negli hotel a Roma
         </h2>
       </div>
@@ -494,17 +494,7 @@ function FaqSection() {
 export function BagniHotelRomaPageBody() {
   return (
     <>
-      <SiteHeaderPill
-        items={[
-          { label: "Hotel" },
-          { label: "Strutture" },
-          { label: "Straordinarie" },
-          { label: "Condomini" },
-          { label: "Sanificazione" },
-          { label: "Chi Siamo" },
-          { label: "Contatti" },
-        ]}
-      />
+      <SiteHeaderPill />
       <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
         <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
           <li>Home</li>

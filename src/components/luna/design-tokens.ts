@@ -1,5 +1,5 @@
 export const lunaColors = {
-  paper: "#fbf9f3",
+  paper: "#eef1f4",
   ink: "#161714",
   accent: "#99cc33",
   accentInk: "#1a1f0d",

@@ -60,15 +60,15 @@ function MainFormBlock() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[20px] md:pt-[28px]">
       <div className="rounded-[28px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] md:px-[34px] py-[22px] md:py-[30px]">
-        <h1 className="m-0 font-serif text-[38px] md:text-[64px] leading-[1.02] tracking-[-0.025em] text-[#161714]">
+        <h1 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.02] tracking-[-0.025em] text-[#161714]">
           Preventivo gratuito per le pulizie del tuo hotel a Roma
         </h1>
         <p className="mt-[16px] md:mt-[20px] max-w-[980px] text-[16px] md:text-[19px] leading-[1.55] text-[#3a3b36]">
           Compila il form. Ti richiamiamo entro poche ore per fissare un sopralluogo gratuito presso la tua struttura.
           Riceverai una proposta dettagliata entro 48 ore — senza impegno, senza costi nascosti.
         </p>
-        <form className="mt-[20px] md:mt-[24px] rounded-[20px] border border-[rgba(0,0,0,0.08)] bg-[#fbf9f3] px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
-          <h2 className="m-0 font-serif text-[30px] md:text-[40px] leading-[1.05] tracking-[-0.02em] text-[#161714]">Raccontaci la tua struttura</h2>
+        <form className="mt-[20px] md:mt-[24px] rounded-[20px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+          <h2 className="m-0 font-serif text-[26px] md:text-[36px] leading-[1.05] tracking-[-0.02em] text-[#161714]">Raccontaci la tua struttura</h2>
           <div className="mt-[16px] grid grid-cols-1 md:grid-cols-2 gap-[14px]">
             <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
             <SelectField
@@ -143,7 +143,7 @@ function ReassuranceSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[90px] md:pt-[120px]">
       <SectionBadge>Cosa succede dopo</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#161714]">
         Cosa succede dopo che invii il form
       </h2>
       <p className="mt-[16px] max-w-[980px] text-[17px] leading-[1.65] text-[#3a3b36]">
@@ -152,7 +152,7 @@ function ReassuranceSection() {
       <div className="mt-[22px] grid grid-cols-1 md:grid-cols-3 gap-[16px]">
         {steps.map((s) => (
           <article key={s.t} className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
-            <h3 className="m-0 font-serif text-[28px] leading-[1.08] tracking-[-0.015em]">{s.t}</h3>
+            <h3 className="m-0 font-serif text-[26px] leading-[1.08] tracking-[-0.015em]">{s.t}</h3>
             <p className="mt-[10px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{s.b}</p>
           </article>
         ))}
@@ -165,13 +165,13 @@ function ObjectionsSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[90px] md:pt-[120px]">
       <SectionBadge>Obiezioni</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#161714]">
         Hai qualche dubbio? Rispondiamo qui.
       </h2>
       <div className="mt-[20px] flex flex-col gap-[14px]">
         {objections.map((o) => (
           <article key={o.q} className="rounded-[20px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
-            <h3 className="m-0 font-serif text-[28px] leading-[1.08] tracking-[-0.015em]">{o.q}</h3>
+            <h3 className="m-0 font-serif text-[26px] leading-[1.08] tracking-[-0.015em]">{o.q}</h3>
             <p className="mt-[10px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{o.a}</p>
           </article>
         ))}
@@ -184,13 +184,13 @@ function SocialProofSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[90px] md:pt-[120px]">
       <SectionBadge>Social proof</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#161714]">
         Cosa dicono gli albergatori che lavorano con noi
       </h2>
       <div className="mt-[22px] grid grid-cols-1 md:grid-cols-3 gap-[16px]">
         {testimonials.map((t) => (
           <figure key={t} className="m-0 rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
-            <blockquote className="m-0 font-serif text-[22px] leading-[1.45] tracking-[-0.01em] text-[#161714]">{t}</blockquote>
+            <blockquote className="m-0 font-serif text-[20px] leading-[1.45] tracking-[-0.01em] text-[#161714]">{t}</blockquote>
           </figure>
         ))}
       </div>
@@ -207,7 +207,7 @@ function FinalCtaSection() {
       boxedClassName="px-[16px] md:px-[56px] py-[60px] md:py-[90px]"
       outerClassName="mt-[90px] md:mt-[120px]"
     >
-      <h2 className="m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#fbf9f3]">
+      <h2 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#fbf9f3]">
         Pronto a ricevere il tuo preventivo?
       </h2>
       <p className="mt-[16px] max-w-[980px] text-[17px] leading-[1.65] text-[rgba(251,249,243,0.8)]">
@@ -234,7 +234,7 @@ function FaqSection() {
           <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
           FAQ
         </div>
-        <h2 className="m-0 text-center font-serif text-[40px] md:text-[72px] leading-[1] tracking-[-0.025em] text-[#161714]">
+        <h2 className="m-0 text-center font-serif text-[32px] md:text-[56px] leading-[1] tracking-[-0.025em] text-[#161714]">
           Domande frequenti sulle pulizie per hotel a Roma
         </h2>
       </div>
@@ -250,17 +250,7 @@ function FaqSection() {
 export function PreventivoHotelRomaPageBody() {
   return (
     <>
-      <SiteHeaderPill
-        items={[
-          { label: "Hotel" },
-          { label: "Strutture" },
-          { label: "Straordinarie" },
-          { label: "Condomini" },
-          { label: "Sanificazione" },
-          { label: "Chi Siamo" },
-          { label: "Contatti" },
-        ]}
-      />
+      <SiteHeaderPill />
       <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
         <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
           <li>Home</li>

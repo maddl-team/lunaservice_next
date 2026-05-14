@@ -24,7 +24,7 @@ export function HotelServiceHero() {
         <div className="grid grid-cols-1 md:grid-cols-[1.05fr_0.95fr] gap-[22px] md:gap-[30px] items-stretch">
           <div>
             <SectionBadge>Servizio Hotel</SectionBadge>
-            <h1 className="mt-[22px] m-0 font-serif text-[40px] md:text-[64px] leading-[1.02] tracking-[-0.025em] text-[#161714]">
+            <h1 className="mt-[22px] m-0 font-serif text-[32px] md:text-[50px] leading-[1.02] tracking-[-0.025em] text-[#161714]">
               {hotelPageContent.hero.title}
             </h1>
             <p className="mt-[20px] md:mt-[24px] max-w-[980px] text-[16px] md:text-[19px] leading-[1.55] text-[#3a3b36]">
@@ -49,7 +49,7 @@ export function HotelServiceHero() {
           </div>
         </div>
       </div>
-      <div className="mt-[16px] grid grid-cols-1 md:grid-cols-4 gap-[10px] md:gap-0 rounded-[20px] border border-[rgba(0,0,0,0.06)] bg-[#fbf9f3] px-[16px] md:px-[24px] py-[18px]">
+      <div className="mt-[16px] grid grid-cols-1 md:grid-cols-4 gap-[10px] md:gap-0 rounded-[20px] border border-[rgba(0,0,0,0.06)] bg-white px-[16px] md:px-[24px] py-[18px]">
         {hotelPageContent.hero.trust.map((item) => (
           <div key={item} className="text-[14px] text-[#161714] flex items-start gap-[8px]">
             <span className="text-[#99cc33] mt-[1px]">✔</span>
@@ -70,7 +70,7 @@ function HeroVariantD() {
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="md:pr-[42px]">
               <SectionBadge dark>Proposta D · Split Right Image</SectionBadge>
-              <h2 className="mt-[18px] m-0 font-serif text-[38px] md:text-[56px] leading-[1.02] tracking-[-0.025em]">
+              <h2 className="mt-[18px] m-0 font-serif text-[34px] md:text-[50px] leading-[1.02] tracking-[-0.025em]">
                 {hotelPageContent.hero.title}
               </h2>
               <p className="mt-[18px] text-[16px] md:text-[19px] leading-[1.55] text-[rgba(251,249,243,0.85)]">
@@ -108,7 +108,7 @@ function LongCopySection() {
       <SectionIntro
         badge="Il problema reale"
         title={hotelPageContent.problem.title}
-        titleClassName="text-[36px] md:text-[60px] leading-[1.05]"
+        titleClassName="text-[32px] md:text-[54px] leading-[1.05]"
       />
       <div className="mt-[28px] max-w-[980px] space-y-[18px] text-[17px] leading-[1.7] text-[#3a3b36]">
         {hotelPageContent.problem.paragraphs.map((p) => (
@@ -127,7 +127,7 @@ function IncludedServicesSection() {
       <SectionIntro
         badge="Cosa facciamo"
         title={hotelPageContent.included.title}
-        titleClassName="text-[36px] md:text-[60px] leading-[1.05]"
+        titleClassName="text-[32px] md:text-[54px] leading-[1.05]"
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.included.intro}</p>
       <div className="mt-[28px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
@@ -155,7 +155,7 @@ function IncludedServicesSection() {
               />
             </div>
             <div className="flex flex-1 flex-col px-[24px] pb-[24px] pt-[24px]">
-              <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
+              <h3 className="m-0 font-serif text-[26px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
               <p className="mt-[14px] m-0 flex-1 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
               {"linkLabel" in item && item.linkLabel ? (
                 <Link href="/pulizie-hotel-roma/sanificazione/" className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">
@@ -183,14 +183,14 @@ function MethodSection() {
         badge="Il metodo"
         badgeDark
         title={hotelPageContent.method.title}
-        titleClassName="text-[34px] md:text-[56px] leading-[1.04]"
+        titleClassName="text-[30px] md:text-[50px] leading-[1.04]"
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[rgba(251,249,243,0.78)]">{hotelPageContent.method.intro}</p>
       <div className="mt-[28px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
         {hotelPageContent.method.steps.map((step, idx) => (
           <article key={step.title} className="rounded-[24px] border border-[rgba(255,255,255,0.12)] bg-[rgba(255,255,255,0.04)] px-[24px] py-[24px]">
             <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#99cc33]">Step {idx + 1}</div>
-            <h3 className="mt-[8px] m-0 font-serif text-[28px] leading-[1.1]">{step.title}</h3>
+            <h3 className="mt-[8px] m-0 font-serif text-[26px] leading-[1.1]">{step.title}</h3>
             <p className="mt-[12px] m-0 text-[15px] leading-[1.65] text-[rgba(251,249,243,0.78)]">{step.body}</p>
           </article>
         ))}
@@ -205,7 +205,7 @@ function ComparisonSection() {
       <SectionIntro
         badge="Confronto"
         title={hotelPageContent.comparison.title}
-        titleClassName="text-[34px] md:text-[56px] leading-[1.04]"
+        titleClassName="text-[30px] md:text-[50px] leading-[1.04]"
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.comparison.intro}</p>
       <div className="mt-[22px] overflow-x-auto rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white">
@@ -238,7 +238,7 @@ function HotelTypesSection() {
       <SectionIntro
         badge="Tipologie di hotel servite"
         title={hotelPageContent.hotelTypes.title}
-        titleClassName="text-[34px] md:text-[56px] leading-[1.04]"
+        titleClassName="text-[30px] md:text-[50px] leading-[1.04]"
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.hotelTypes.intro}</p>
       <div className="mt-[28px] grid grid-cols-1 md:grid-cols-3 gap-[16px]">
@@ -260,7 +260,7 @@ function HotelTypesSection() {
               />
             </div>
             <div className="flex flex-1 flex-col px-[24px] pb-[24px] pt-[24px]">
-              <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
+              <h3 className="m-0 font-serif text-[26px] leading-[1.1] tracking-[-0.015em]">{item.title}</h3>
               <p className="mt-[12px] m-0 flex-1 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
             </div>
           </article>
@@ -276,13 +276,13 @@ function InternalLinksSection() {
       <SectionIntro
         badge="Link alle sottopagine"
         title={hotelPageContent.cluster.title}
-        titleClassName="text-[34px] md:text-[56px] leading-[1.04]"
+        titleClassName="text-[30px] md:text-[50px] leading-[1.04]"
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.cluster.intro}</p>
       <div className="mt-[28px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
         {hotelPageContent.cluster.cards.map((card) => (
           <Link key={card.title} href={card.href} className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px] block">
-            <h3 className="m-0 font-serif text-[28px] leading-[1.1] tracking-[-0.015em] text-[#161714]">{card.title}</h3>
+            <h3 className="m-0 font-serif text-[26px] leading-[1.1] tracking-[-0.015em] text-[#161714]">{card.title}</h3>
             <p className="mt-[12px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{card.body}</p>
           </Link>
         ))}
@@ -306,7 +306,7 @@ function HotelQuoteSection() {
       <SectionIntro
         badge="Form di conversione"
         title={hotelPageContent.form.title}
-        titleClassName="text-[34px] md:text-[56px] leading-[1.04] text-[#1a1f0d]"
+        titleClassName="text-[30px] md:text-[50px] leading-[1.04] text-[#1a1f0d]"
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#2e3818]">{hotelPageContent.form.intro}</p>
       <form className="mt-[28px] rounded-[28px] bg-white px-[18px] md:px-[40px] py-[24px] md:py-[34px]">
@@ -349,7 +349,7 @@ function HotelFaqSection() {
           <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
           FAQ
         </div>
-        <h2 className="m-0 text-center font-serif text-[40px] md:text-[72px] leading-[1] tracking-[-0.025em]">
+        <h2 className="m-0 text-center font-serif text-[32px] md:text-[56px] leading-[1] tracking-[-0.025em]">
           {hotelPageContent.faq.title}
         </h2>
       </div>
@@ -371,17 +371,7 @@ function HotelFaqSection() {
 export function HotelPageBody() {
   return (
     <>
-      <SiteHeaderPill
-        items={[
-          { label: "Hotel" },
-          { label: "Strutture" },
-          { label: "Straordinarie" },
-          { label: "Condomini" },
-          { label: "Sanificazione" },
-          { label: "Chi Siamo" },
-          { label: "Contatti" },
-        ]}
-      />
+      <SiteHeaderPill />
       <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
         <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
           <li>Home</li>

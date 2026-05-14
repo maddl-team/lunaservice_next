@@ -79,7 +79,7 @@ function HeroCamere() {
           <div className="relative z-10 mx-auto w-full max-w-[1440px] px-[20px] md:px-[56px] py-[40px] md:py-[64px]">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="md:pr-[42px]">
-                <h1 className="m-0 font-serif text-[38px] md:text-[64px] leading-[1.02] tracking-[-0.025em] text-[#fbf9f3]">
+                <h1 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.02] tracking-[-0.025em] text-[#fbf9f3]">
                   Pulizia e riassetto camere hotel a Roma: il servizio che gli ospiti notano per primo
                 </h1>
                 <p className="mt-[16px] md:mt-[20px] text-[16px] md:text-[19px] leading-[1.55] text-[rgba(251,249,243,0.85)]">
@@ -131,7 +131,7 @@ function ProblemSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Il problema</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Una camera non perfettamente pulita costa più di quanto pensi
       </h2>
       <div className="mt-[24px] max-w-[980px] space-y-[16px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -178,7 +178,7 @@ function ServicesIncludedSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Cosa facciamo</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Cosa include il servizio di pulizia camere di Luna Service
       </h2>
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -205,7 +205,7 @@ function ServicesIncludedSection() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
-            <h3 className="m-0 font-serif text-[28px] leading-[1.08] tracking-[-0.015em]">{b.t}</h3>
+            <h3 className="m-0 font-serif text-[26px] leading-[1.08] tracking-[-0.015em]">{b.t}</h3>
             <p className="mt-[10px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{b.b}</p>
           </article>
         ))}
@@ -232,7 +232,7 @@ function ChecklistSection() {
       boxedClassName="px-[16px] md:px-[56px] py-[64px] md:py-[90px]"
     >
       <SectionBadge dark>Checklist</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#fbf9f3]">
+      <h2 className="mt-[18px] m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#fbf9f3]">
         La nostra checklist operativa per camera: ogni voce è una garanzia
       </h2>
       <p className="mt-[18px] max-w-[980px] text-[17px] leading-[1.7] text-[rgba(251,249,243,0.8)]">
@@ -254,7 +254,7 @@ function ChecklistSection() {
                 <span>№ {String(idx + 1).padStart(2, "0")}</span>
                 <span>Checklist</span>
               </div>
-              <h3 className="m-0 font-serif text-[28px] leading-[1.05] tracking-[-0.015em] text-[#fbf9f3]">{group.title}</h3>
+              <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.015em] text-[#fbf9f3]">{group.title}</h3>
               <ul className="mt-[12px] m-0 p-0 list-none space-y-[8px]">
               {group.items.map((item) => (
                 <li key={item} className="flex items-start gap-[8px] text-[15px] leading-[1.6] text-[rgba(251,249,243,0.82)]">
@@ -275,7 +275,7 @@ function SupervisorSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Il supervisore</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Il supervisore: la figura che fa la differenza tra un buon servizio e un servizio eccellente
       </h2>
       <div className="mt-[24px] max-w-[980px] space-y-[16px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -302,7 +302,7 @@ function StandardsSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
       <SectionBadge>Standard e conformità</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[36px] md:text-[60px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
+      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
         Pulizia alberghiera e normative sanitarie: cosa deve sapere ogni albergatore
       </h2>
       <div className="mt-[24px] max-w-[980px] space-y-[16px] text-[17px] leading-[1.7] text-[#3a3b36]">
@@ -331,7 +331,7 @@ function StandardsSection() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-          <h3 className="m-0 font-serif text-[28px] leading-[1.08] tracking-[-0.015em]">Prodotti professionali e sicuri</h3>
+          <h3 className="m-0 font-serif text-[26px] leading-[1.08] tracking-[-0.015em]">Prodotti professionali e sicuri</h3>
           <p className="mt-[10px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">
             Utilizziamo esclusivamente prodotti professionali certificati, con schede di sicurezza disponibili. Nessun
             prodotto aggressivo su materiali pregiati: prima del primo intervento, il supervisore verifica i materiali
@@ -348,7 +348,7 @@ function StandardsSection() {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-          <h3 className="m-0 font-serif text-[28px] leading-[1.08] tracking-[-0.015em]">Attrezzature professionali</h3>
+          <h3 className="m-0 font-serif text-[26px] leading-[1.08] tracking-[-0.015em]">Attrezzature professionali</h3>
           <p className="mt-[10px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">
             Aspiratrici ad alta efficienza filtrante, macchinari per il lavaggio pavimenti, attrezzatura specifica per
             bagni e superfici delicate: il nostro team arriva in struttura con tutto il necessario. Nessun costo
@@ -369,7 +369,7 @@ function CompactFormSection() {
       boxedClassName="px-[16px] md:px-[56px] py-[64px] md:py-[90px]"
       outerClassName="mt-[96px] md:mt-[140px]"
     >
-      <h2 className="m-0 font-serif text-[34px] md:text-[56px] leading-[1.04] tracking-[-0.025em] text-[#1a1f0d]">
+      <h2 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#1a1f0d]">
         Richiedi il preventivo per la pulizia delle camere del tuo hotel
       </h2>
       <p className="mt-[16px] max-w-[980px] text-[17px] leading-[1.65] text-[#2e3818]">
@@ -430,7 +430,7 @@ function FaqSection() {
           <span className="h-[6px] w-[6px] rounded-full bg-[#99cc33]" />
           FAQ
         </div>
-        <h2 className="m-0 text-center font-serif text-[40px] md:text-[72px] leading-[1] tracking-[-0.025em] text-[#161714]">
+        <h2 className="m-0 text-center font-serif text-[32px] md:text-[56px] leading-[1] tracking-[-0.025em] text-[#161714]">
           Domande frequenti sulla pulizia camere hotel a Roma
         </h2>
       </div>
@@ -446,17 +446,7 @@ function FaqSection() {
 export function CamereHotelRomaPageBody() {
   return (
     <>
-      <SiteHeaderPill
-        items={[
-          { label: "Hotel" },
-          { label: "Strutture" },
-          { label: "Straordinarie" },
-          { label: "Condomini" },
-          { label: "Sanificazione" },
-          { label: "Chi Siamo" },
-          { label: "Contatti" },
-        ]}
-      />
+      <SiteHeaderPill />
       <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
         <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
           <li>Home</li>

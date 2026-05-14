@@ -105,7 +105,7 @@ export function LunaMiddleSections() {
               <span className="h-[6px] w-[6px] rounded-full bg-[#cc3333]" />
               Il problema
             </div>
-            <h2 className="m-0 font-serif text-[38px] md:text-[64px] leading-[1.04] tracking-[-0.025em]">
+            <h2 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em]">
               Un hotel sporco è un hotel con <em className="not-italic text-[#3a3b36]">recensioni negative.</em> Noi lo
               sappiamo meglio di chiunque.
             </h2>
@@ -165,7 +165,7 @@ export function LunaMiddleSections() {
                   I nostri servizi di <em className="not-italic text-[#99cc33]">pulizia professionale</em> a Roma
                 </>
               }
-              titleClassName="text-[38px] md:text-[64px]"
+              titleClassName="text-[30px] md:text-[50px]"
             />
           </div>
           <p className="m-0 max-w-[520px] text-[17px] leading-[1.6] text-[rgba(251,249,243,0.7)]">
@@ -200,7 +200,7 @@ export function LunaMiddleSections() {
                       a Roma
                     </>
                   }
-                  titleClassName="text-[36px] md:text-[56px] leading-[1.04]"
+                  titleClassName="text-[32px] md:text-[50px] leading-[1.04]"
                 />
               </div>
               <p className="m-0 max-w-[540px] text-[17px] leading-[1.6] text-[rgba(251,249,243,0.7)]">
@@ -217,13 +217,13 @@ export function LunaMiddleSections() {
             </div>
       </SectionShell>
 
-      <section className="bg-[#fbf9f3] px-[16px] md:px-[56px] pb-[80px] md:pb-[120px] pt-[100px] md:pt-[160px]">
+      <section className="bg-[var(--background)] px-[16px] md:px-[56px] pb-[80px] md:pb-[120px] pt-[100px] md:pt-[160px]">
         <div className="mb-[80px] text-center">
           <div className="mb-[28px] inline-flex items-center gap-[8px] rounded-[999px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#3a3b36]">
             <span className="inline-flex gap-[1px] text-[10px] text-[#99cc33]">★★★★★</span>
             4.9 / 5 su Google · 87 recensioni
           </div>
-          <h2 className="m-0 font-serif text-[40px] md:text-[72px] leading-[1] tracking-[-0.025em]">Cosa dicono di noi</h2>
+          <h2 className="m-0 font-serif text-[32px] md:text-[56px] leading-[1] tracking-[-0.025em]">Cosa dicono di noi</h2>
           <p className="mx-auto mt-[32px] max-w-[620px] text-[18px] leading-[1.55] text-[#3a3b36]">
             Lavoriamo con hotel, gestori di B&B e amministratori di condominio a Roma da anni. Queste sono alcune delle
             loro esperienze.

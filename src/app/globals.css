@@ -1,7 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fbf9f3;
+  /* Freddo, leggermente blu: sostituisce il panna come sfondo pagina */
+  --background: #eef1f4;
   --foreground: #161714;
 }
 
@@ -9,6 +10,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-luna-sans);
+  /* Nome storico "serif": in realtà è Plus Jakarta Sans per titoli / display */
   --font-serif: var(--font-luna-serif);
   --font-mono: var(--font-luna-mono);
 }
@@ -18,4 +20,9 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   letter-spacing: -0.005em;
+}
+
+/* Plus Jakarta sui titoli: peso più deciso (le dimensioni sono ridotte nelle classi `text-[…]`). */
+.font-serif {
+  font-weight: 600;
 }

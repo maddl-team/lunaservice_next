@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Manrope, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
 const sans = Manrope({
@@ -7,10 +7,11 @@ const sans = Manrope({
   subsets: ["latin"],
 });
 
-const serif = Instrument_Serif({
+/** Titoli: Plus Jakarta Sans (mappato su `font-serif` in Tailwind / globals) */
+const display = Plus_Jakarta_Sans({
   variable: "--font-luna-serif",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700"],
 });
 
 const mono = IBM_Plex_Mono({
@@ -33,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="it"
-      className={`${sans.variable} ${serif.variable} ${mono.variable} h-full antialiased`}
+      className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
