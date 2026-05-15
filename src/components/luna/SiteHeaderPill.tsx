@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { contactHref, siteNavigation, whatsappHref } from "@/components/luna/navigation";
-import { BrandLogoMark } from "@/components/luna/brand";
+import { SiteLogo } from "@/components/luna/brand";
 
 function normalizePath(path: string) {
   if (path === "/") {
@@ -88,10 +88,9 @@ export function SiteHeaderPill() {
 
   return (
     <nav className="sticky top-[12px] md:top-[24px] z-30 bg-transparent px-[12px] md:px-[56px] py-[12px] md:py-[24px]">
-      <div className="grid grid-cols-[1fr_auto] md:grid-cols-[180px_1fr_auto] items-center gap-[12px] md:gap-[24px] rounded-[999px] bg-white px-[14px] md:px-[26px] py-[10px] md:py-[12px] pr-[12px] md:pr-[14px] shadow-[0_1px_0_rgba(0,0,0,0.04),0_12px_32px_-16px_rgba(0,0,0,0.12)]">
-        <Link href="/" className="flex items-center gap-[10px]">
-          <BrandLogoMark />
-          <span className="font-serif text-[16px] md:text-[20px] tracking-[-0.015em] text-[#161714]">Luna Service</span>
+      <div className="grid grid-cols-[1fr_auto] md:grid-cols-[auto_1fr_auto] items-center gap-[12px] md:gap-[24px] rounded-[999px] bg-white px-[14px] md:px-[26px] py-[10px] md:py-[12px] pr-[12px] md:pr-[14px] shadow-[0_1px_0_rgba(0,0,0,0.04),0_12px_32px_-16px_rgba(0,0,0,0.12)]">
+        <Link href="/" className="flex shrink-0 items-center self-center">
+          <SiteLogo priority />
         </Link>
 
         <ul className="hidden md:flex list-none items-center justify-center gap-[22px] p-0 text-[14px] text-[#3a3b36]">

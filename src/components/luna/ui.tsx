@@ -5,7 +5,7 @@ import { BrandLogoMark } from "@/components/luna/brand";
 import { contactHref, footerNavigation, legalNavigation, whatsappHref } from "@/components/luna/navigation";
 import { lunaEffects, lunaLayout, lunaRadii, lunaTokens, lunaTypography } from "@/components/luna/design-tokens";
 
-export { BrandLogoMark } from "@/components/luna/brand";
+export { BrandLogoMark, SiteLogo, SITE_LOGO_PATH } from "@/components/luna/brand";
 export { SiteHeaderPill } from "@/components/luna/SiteHeaderPill";
 
 type SectionShellProps = {
