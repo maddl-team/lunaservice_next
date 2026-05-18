@@ -27,27 +27,27 @@ const operationalItems = [
   {
     title: "Volumi elevati e rotazioni rapide",
     body: "Un ostello con quaranta o cinquanta posti letto può avere decine di check-out ogni mattina. Ogni posto letto richiede cambio biancheria, rifacimento, verifica dello spazio personale. L'intero volume deve essere gestito in tempi strettissimi, spesso entro la mattinata, per essere pronto per i nuovi arrivi del pomeriggio. Luna Service dimensiona il team in base al numero di posti letto e alla finestra temporale disponibile — non manda un operatore solo dove ne servono quattro.",
-    image: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-ostelli-servizio-01.jpg",
   },
   {
     title: "Bagni comuni ad alto utilizzo",
     body: "I bagni comuni di un ostello sono tra gli spazi più intensamente utilizzati nell'intera categoria ricettiva. Con decine di persone che li usano ogni giorno — spesso in orari concentrati, come la mattina prima delle partenze — richiedono interventi multipli durante la giornata, non una pulizia unica. Luna Service organizza un piano di manutenzione continua per i bagni comuni: interventi programmati a cadenza regolare, con rifornimento costante di consumabili e ispezione qualità documentata.",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-ostelli-servizio-02.jpg",
   },
   {
     title: "Dormitori e gestione dello spazio condiviso",
     body: "Pulire un dormitorio richiede attenzione alla gestione dello spazio personale degli ospiti ancora presenti: zaini, oggetti personali, effetti personali lasciati sui letti o negli armadietti. Il protocollo operativo di Luna Service per i dormitori include procedure precise per la gestione degli effetti personali — spostamento con cura, segnalazione di oggetti dimenticati, rispetto rigoroso degli spazi personali degli ospiti presenti.",
-    image: "https://images.unsplash.com/photo-1555854877-0b04f1d5a80e?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-ostelli-servizio-03.jpg",
   },
   {
     title: "Cucine e spazi comuni condivisi",
     body: "Le cucine comuni degli ostelli sono tra le aree più difficili da mantenere pulite: usate da decine di ospiti diversi, spesso in orari non presidiati, con livelli di cura molto variabili. Luna Service gestisce la pulizia delle cucine comuni con interventi programmati — almeno mattina e sera — e pulizia profonda periodica di frigoriferi, fornelli, superfici e pavimenti. Le aree comuni — sale relax, sale colazione, spazi lavanderia — seguono un piano di manutenzione calibrato sugli orari di utilizzo.",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-ostelli-servizio-04.jpg",
   },
   {
     title: "Scale, corridoi e aree di transito",
     body: "In un ostello le aree di transito sono percorse continuamente da ospiti con zaini, trolley e bagagli. I pavimenti si sporcano rapidamente, le pareti dei corridoi mostrano segni di utilizzo intenso, le scale accumulano sporco in tempi brevi. Luna Service include le aree di transito nel piano di intervento quotidiano, con frequenze adattate al volume di traffico della struttura.",
-    image: "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-ostelli-servizio-05.jpg",
   },
 ] as const;
 
@@ -147,7 +147,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1555854877-0b04f1d5a80e?w=1800&q=80"
+              src="/images/pages/pulizie-strutture-ricettive-roma-ostelli-hero.jpg"
               alt="Pulizie ostelli e dormitori Roma"
               fill
               className="object-cover"

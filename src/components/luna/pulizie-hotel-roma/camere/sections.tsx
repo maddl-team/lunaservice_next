@@ -12,6 +12,13 @@ const trustItems = [
   "Nessuna camera consegnata senza controllo finale",
 ] as const;
 
+const camereServiceImages = [
+  "/images/pages/pulizie-hotel-roma-camere-servizio-01.jpg",
+  "/images/pages/pulizie-hotel-roma-camere-servizio-02.jpg",
+  "/images/pages/pulizie-hotel-roma-camere-servizio-03.jpg",
+  "/images/pages/pulizie-hotel-roma-camere-servizio-04.jpg",
+] as const;
+
 const checklist = {
   letto: [
     "Cambio completo o sistemazione biancheria secondo policy struttura",
@@ -102,7 +109,7 @@ function HeroCamere() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1800&q=80"
+              src="/images/pages/pulizie-hotel-roma-camere-hero.jpg"
               alt="Pulizia professionale camera hotel"
               fill
               className="object-cover"
@@ -190,15 +197,7 @@ function ServicesIncludedSection() {
           <article key={b.t} className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
             <div className="relative h-[180px] w-full shrink-0 overflow-hidden mb-[14px]">
               <Image
-                src={
-                  idx === 0
-                    ? "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80"
-                    : idx === 1
-                      ? "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80"
-                      : idx === 2
-                        ? "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1200&q=80"
-                        : "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80"
-                }
+                src={camereServiceImages[idx]}
                 alt={b.t}
                 fill
                 className="object-cover"
@@ -216,11 +215,11 @@ function ServicesIncludedSection() {
 
 function ChecklistSection() {
   const groups = [
-    { title: "Area letto:", items: checklist.letto, img: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80" },
-    { title: "Area bagno:", items: checklist.bagno, img: "https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=1200&q=80" },
-    { title: "Superfici e arredi:", items: checklist.superfici, img: "https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1200&q=80" },
-    { title: "Pavimenti:", items: checklist.pavimenti, img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80" },
-    { title: "Check finale:", items: checklist.finale, img: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80" },
+    { title: "Area letto:", items: checklist.letto, img: "/images/pages/pulizie-hotel-roma-camere-checklist-01.jpg" },
+    { title: "Area bagno:", items: checklist.bagno, img: "/images/pages/pulizie-hotel-roma-camere-checklist-02.jpg" },
+    { title: "Superfici e arredi:", items: checklist.superfici, img: "/images/pages/pulizie-hotel-roma-camere-checklist-03.jpg" },
+    { title: "Pavimenti:", items: checklist.pavimenti, img: "/images/pages/pulizie-hotel-roma-camere-checklist-04.jpg" },
+    { title: "Check finale:", items: checklist.finale, img: "/images/pages/pulizie-hotel-roma-camere-checklist-05.jpg" },
   ] as const;
 
   return (
@@ -324,7 +323,7 @@ function StandardsSection() {
         <article className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
           <div className="relative h-[180px] w-full shrink-0 overflow-hidden mb-[14px]">
             <Image
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80"
+              src="/images/pages/pulizie-hotel-roma-camere-standard-01.jpg"
               alt="Prodotti professionali per pulizia camere hotel"
               fill
               className="object-cover"
@@ -341,7 +340,7 @@ function StandardsSection() {
         <article className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
           <div className="relative h-[180px] w-full shrink-0 overflow-hidden mb-[14px]">
             <Image
-              src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80"
+              src="/images/pages/pulizie-hotel-roma-camere-standard-02.jpg"
               alt="Attrezzature professionali per pulizie alberghiere"
               fill
               className="object-cover"

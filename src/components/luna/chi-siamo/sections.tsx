@@ -133,7 +133,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1800&q=80"
+              src="/images/pages/chi-siamo-hero.jpg"
               alt="Chi siamo Luna Service"
               fill
               className="object-cover"

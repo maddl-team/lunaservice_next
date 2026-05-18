@@ -27,12 +27,12 @@ const methods = [
   {
     title: "Sanificazione con generatore di ozono",
     body: "L'ozono (O₃) è uno dei sanificanti naturali più efficaci esistenti: agisce su batteri, virus, funghi, muffe e agenti allergenici attraverso un processo di ossidazione che ne distrugge la struttura cellulare. A differenza dei prodotti chimici, l'ozono raggiunge ogni superficie della stanza — incluse quelle non direttamente accessibili — e tratta simultaneamente l'aria e le superfici. Il processo prevede: pulizia preliminare della camera, posizionamento del generatore di ozono, trattamento con concentrazione e tempo di esposizione calibrati sulla cubatura dell'ambiente, periodo di areazione controllata prima del rientro degli ospiti. La camera non può essere occupata durante il trattamento: i tempi tecnici variano da 2 a 4 ore in base alla dimensione dell'ambiente. L'ozono è particolarmente efficace per: eliminazione di odori persistenti — fumo, umidità, odori corporei — che la pulizia ordinaria non rimuove; trattamento di camere dopo soggiorni prolungati; preparazione di camere per ospiti con allergie o sensibilità respiratorie; intervento post malattia di un ospite. Al termine del trattamento Luna Service rilascia una certificazione dell'intervento con data, ora, concentrazione di ozono utilizzata e tempo di esposizione — documento utile in caso di ispezioni o audit.",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-sanificazione-metodo-01.jpg",
   },
   {
     title: "Sanificazione con nebulizzazione",
     body: "La nebulizzazione consiste nella dispersione di un prodotto sanificante — a base di ammonio quaternario, acido peracetico o altri principi attivi certificati — in forma di micro-particelle sospese nell'aria attraverso un nebulizzatore professionale. Le micro-particelle raggiungono ogni superficie della stanza, incluse quelle verticali, i tessuti e le aree difficilmente accessibili, depositandosi uniformemente e garantendo una copertura completa. Il processo prevede: pulizia preliminare della camera, selezione del prodotto sanificante appropriato al contesto, nebulizzazione con dosaggio calibrato sulla cubatura dell'ambiente, tempo di contatto definito prima dell'areazione. La nebulizzazione è particolarmente indicata per: trattamenti rapidi con tempi di rientro più brevi rispetto all'ozono; ambienti con tessuti e moquette estesi; situazioni di emergenza igienica che richiedono un intervento immediato; trattamenti periodici di manutenzione preventiva. Anche per la nebulizzazione Luna Service rilascia certificazione dell'intervento con prodotto utilizzato, scheda di sicurezza allegata, dosaggio e tempi di esposizione.",
-    image: "https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-sanificazione-metodo-02.jpg",
   },
 ] as const;
 
@@ -120,7 +120,7 @@ function HeroSanificazione() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1800&q=80"
+              src="/images/pages/pulizie-hotel-roma-sanificazione-hero.jpg"
               alt="Sanificazione professionale camere hotel"
               fill
               className="object-cover"

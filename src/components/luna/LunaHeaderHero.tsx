@@ -9,11 +9,11 @@ export function LunaHeaderHero() {
       <section className="relative left-1/2 w-screen -translate-x-1/2 pb-0 pt-[16px] md:pt-[40px]">
         <div className="relative mx-auto min-h-[620px] md:min-h-[720px] w-[calc(100vw-24px)] md:w-[calc(100vw-48px)] overflow-hidden rounded-[20px] md:rounded-[32px] bg-[#161714]">
           <Image
-            src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=2400&q=80"
-            alt="Hotel room"
+            src="/images/home-hero.jpg"
+            alt="Camera d'hotel impeccabile dopo le pulizie professionali"
             fill
-            className="object-cover"
-            sizes="1440px"
+            className="object-cover object-[center_42%]"
+            sizes="(max-width: 768px) 100vw, 1440px"
             priority
           />
           <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.64)_0%,rgba(0,0,0,0.3)_34%,rgba(0,0,0,0.24)_55%,rgba(22,23,20,0.96)_100%)]" />

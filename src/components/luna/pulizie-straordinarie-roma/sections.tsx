@@ -29,7 +29,7 @@ const navCards = [
     problem: "Chi chiamo per le pulizie dopo una ristrutturazione a Roma?",
     href: "/pulizie-straordinarie-roma/post-ristrutturazione/",
     cta: "→ Scopri l'intervento",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80",
+    image: "/images/pages/straordinarie-card-post-ristrutturazione.jpg",
   },
   {
     title: "Pulizia balconi escrementi piccioni Roma",
@@ -37,7 +37,7 @@ const navCards = [
     problem: "Come si puliscono i balconi con escrementi di piccioni a Roma?",
     href: "/pulizie-straordinarie-roma/balconi-piccioni/",
     cta: "→ Scopri l'intervento",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=80",
+    image: "/images/pages/straordinarie-card-balconi-piccioni.jpg",
   },
   {
     title: "Pulizia cantina allagata Roma",
@@ -45,7 +45,7 @@ const navCards = [
     problem: "La mia cantina è allagata, chi chiamo a Roma?",
     href: "/pulizie-straordinarie-roma/cantina-allagata/",
     cta: "→ Scopri l'intervento",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400&q=80",
+    image: "/images/pages/straordinarie-card-cantina-allagata.jpg",
   },
   {
     title: "Pulizia ambienti molto sporchi o degradati Roma",
@@ -53,7 +53,7 @@ const navCards = [
     problem: "C'è qualcuno a Roma che pulisce ambienti molto sporchi o degradati?",
     href: "/pulizie-straordinarie-roma/ambienti-degradati/",
     cta: "→ Scopri l'intervento",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400&q=80",
+    image: "/images/pages/straordinarie-card-ambienti-degradati.jpg",
   },
 ] as const;
 
@@ -160,7 +160,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1800&q=80"
+              src="/images/pages/pulizie-straordinarie-roma-hero.jpg"
               alt="Pulizie straordinarie Roma"
               fill
               className="object-cover"

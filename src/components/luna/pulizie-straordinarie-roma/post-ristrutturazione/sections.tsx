@@ -27,22 +27,22 @@ const includedItems = [
   {
     title: "Fase 1 — Rimozione residui grossolani",
     body: "La prima fase riguarda la rimozione di tutto ciò che è visibile e voluminoso: detriti, residui di materiali da costruzione, sacchi vuoti, imballaggi, nastro da cantiere, protezioni dei pavimenti. Aspirazione professionale di polvere edile da tutte le superfici — pavimenti, pareti, soffitti, davanzali, infissi — con aspiratori industriali ad alta filtrazione che trattengono le particelle fini senza rimetterle in circolo nell'aria.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80",
+    image: "/images/pages/post-ristrutturazione-fase-1.jpg",
   },
   {
     title: "Fase 2 — Rimozione residui specifici",
     body: "Ogni tipo di residuo post-cantiere richiede il trattamento appropriato. Luna Service gestisce la rimozione di: residui di calce e cemento da piastrelle, pavimenti e sanitari con prodotti acidi diluiti specifici per ogni materiale; silicone in eccesso dai vetri e dagli infissi con tecniche meccaniche e prodotti solventi appropriati; macchie di vernice da pavimenti, superfici e vetri con solventi specifici per il tipo di vernice; residui di adesivo e stucco da pavimenti e pareti; calcare e residui di lavorazione dai sanitari e dalla rubinetteria nuova.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400&q=80",
+    image: "/images/pages/post-ristrutturazione-fase-2.jpg",
   },
   {
     title: "Fase 3 — Pulizia di finitura",
     body: "Dopo la rimozione dei residui, l'ambiente riceve una pulizia di finitura completa: lavaggio di tutte le superfici con prodotti appropriati al materiale, pulizia a fondo di tutti i vetri e specchi interni ed esterni, pulizia e lucidatura della nuova rubinetteria, pulizia degli interni di armadi e mobili, lavaggio dei pavimenti con prodotto appropriato al materiale — gres porcellanato, marmo, parquet, resina — asciugatura e verifica visiva finale.",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=80",
+    image: "/images/pages/post-ristrutturazione-fase-3.jpg",
   },
   {
     title: "Pulizia degli impianti e delle superfici difficili",
     body: "Le ristrutturazioni lasciano residui anche dove non si vede a prima vista: bocchette di ventilazione, griglie dei termosifoni, interruttori e prese elettriche, cornici e modanature, davanzali interni ed esterni, vetri sul lato esterno se accessibili. Luna Service include queste superfici nel protocollo di sgrosso — non le lascia per dopo.",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1400&q=80",
+    image: "/images/pages/post-ristrutturazione-fase-4.jpg",
   },
 ] as const;
 
@@ -146,7 +146,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800&q=80"
+              src="/images/pages/post-ristrutturazione-hero.jpg"
               alt="Sgrosso post ristrutturazione Roma"
               fill
               className="object-cover"

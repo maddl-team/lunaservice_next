@@ -27,32 +27,32 @@ const services = [
   {
     title: "Reception e lobby",
     body: "La reception è il primo contatto fisico dell'ospite con la struttura. Deve essere impeccabile all'arrivo delle 8 del mattino come alle 23 di sera. Gestiamo la pulizia del bancone reception, delle sedute di attesa, dei pavimenti dell'ingresso, dei vetri delle porte, delle superfici decorate e degli eventuali elementi di arredo di valore — quadri, sculture, acquari, fontane — con prodotti specifici per ogni materiale. La frequenza degli interventi viene calibrata sugli orari di punta del tuo hotel.",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-servizio-01.jpg",
   },
   {
     title: "Corridoi e scale",
     body: "I corridoi sono gli spazi più sottovalutati di un hotel: nessun ospite ci si ferma, ma tutti li percorrono più volte al giorno. Un corridoio con moquette usurata, pareti segnate o pavimenti opachi comunica trascuratezza anche a chi non ci fa caso consciamente. Luna Service gestisce la pulizia quotidiana di corridoi e scale — aspirazione, lavaggio, spolveratura dei corrimano e delle superfici verticali — con frequenze adattate al numero di piani e all'intensità del traffico.",
-    image: "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-servizio-02.jpg",
   },
   {
     title: "Ascensori",
     body: "Gli ascensori sono gli spazi più piccoli e più usati dell'hotel. Sono anche quelli in cui l'ospite si trova da solo, in silenzio, e nota ogni dettaglio: le impronte sui pannelli in acciaio, il pavimento non pulito, l'odore stantio. Pulizia e igienizzazione degli ascensori — pareti, pavimento, pulsantiera, specchi — rientrano nel nostro piano di manutenzione quotidiana delle aree comuni.",
-    image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-servizio-03.jpg",
   },
   {
     title: "Sala colazione e aree F&B",
     body: "La sala colazione richiede un intervento specifico e strutturato: pulizia profonda prima dell'apertura del servizio, mantenimento durante il servizio su richiesta, pulizia completa post servizio. Pavimenti, tavoli, sedie, buffet, vetrine, aree di preparazione: ogni superficie viene trattata con prodotti alimentari certificati. Su richiesta gestiamo anche le aree bar, i ristoranti interni e gli spazi per eventi.",
-    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-servizio-04.jpg",
   },
   {
     title: "Aree benessere: palestra e spa",
     body: "Palestre e spa richiedono protocolli di igienizzazione specifici per ambienti ad alta umidità e ad alto contatto fisico. Gestiamo la pulizia e l'igienizzazione di attrezzature fitness, spogliatoi, docce, saune, aree relax e piscine interne — con prodotti professionali certificati per ambienti wellness e frequenze adattate agli orari di utilizzo.",
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-servizio-05.jpg",
   },
   {
     title: "Aree esterne: ingresso, terrazzo, parcheggio",
     body: "La prima impressione dell'hotel si forma spesso ancora prima di entrare: l'ingresso esterno, i gradini, il portico, il vialetto d'accesso. Luna Service gestisce anche la pulizia delle aree esterne di pertinenza dell'hotel — pulizia dell'ingresso, spazzatura e lavaggio del piazzale, pulizia del parcheggio — con frequenze adattate alla stagione e al volume di accessi.",
-    image: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-servizio-06.jpg",
   },
 ] as const;
 
@@ -79,22 +79,22 @@ const materials = [
   {
     title: "Pavimenti in marmo e pietra naturale",
     body: "Pulizia con detergenti neutri a pH bilanciato, asciugatura immediata per evitare aloni, trattamento periodico con prodotti specifici per il mantenimento della brillantezza. Nessun acido, nessun abrasivo.",
-    image: "https://images.unsplash.com/photo-1615873968403-89e068629265?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-materiale-01.jpg",
   },
   {
     title: "Parquet e pavimenti in legno",
     body: "Aspirazione prima del lavaggio per rimuovere le particelle abrasive, lavaggio con prodotti specifici per legno a bassa umidità, asciugatura rapida. Trattamento periodico con prodotti protettivi.",
-    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-materiale-02.jpg",
   },
   {
     title: "Acciaio inox e superfici metalliche",
     body: "Prodotti specifici per acciaio inox, applicati con panni in microfibra in direzione della venatura per eliminare impronte e aloni senza graffiare.",
-    image: "https://images.unsplash.com/photo-1582582494700-8040c39d3a4b?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-materiale-03.jpg",
   },
   {
     title: "Vetrate, specchi e superfici in vetro",
     body: "Detergenti professionale senza ammoniaca, applicati con tecniche che eliminano le striature. Pulizia dall'alto verso il basso per evitare gocciolature sulle superfici già trattate.",
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-aree-comuni-materiale-04.jpg",
   },
 ] as const;
 
@@ -152,7 +152,7 @@ function HeroAreeComuni() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?w=1800&q=80"
+              src="/images/pages/pulizie-hotel-roma-aree-comuni-hero.jpg"
               alt="Pulizia aree comuni hotel"
               fill
               className="object-cover"

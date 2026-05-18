@@ -27,27 +27,27 @@ const serviceItems = [
   {
     title: "Pulizia camere ospiti tra check-out e check-in",
     body: "Ogni camera viene pulita completamente dopo ogni check-out: cambio integrale della biancheria da letto, rifacimento letto con standard alberghiero, pulizia e igienizzazione completa del bagno — privato o condiviso — con cambio asciugamani e tappetino, spolveratura di tutte le superfici, aspirazione e lavaggio dei pavimenti, svuotamento cestini con sostituzione sacchetto, rabbocco degli amenity di base, verifica visiva finale su checklist. La checklist operativa viene costruita specificamente per il tuo affittacamere durante il sopralluogo iniziale: include le tue preferenze, i materiali presenti, le aree da trattare con particolare attenzione. Non è un protocollo generico: è il protocollo del tuo affittacamere.",
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-affittacamere-servizio-01.jpg",
   },
   {
     title: "Pulizia bagni condivisi",
     body: "Molti affittacamere hanno un bagno condiviso tra le camere degli ospiti — o tra gli ospiti e il proprietario. Questa configurazione richiede una frequenza di pulizia più alta rispetto ai bagni privati: più persone usano lo stesso spazio, più frequente deve essere l'intervento per mantenere uno standard accettabile. Luna Service organizza la frequenza degli interventi sul bagno condiviso in base al numero di ospiti presenti e alla configurazione della struttura.",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-affittacamere-servizio-02.jpg",
   },
   {
     title: "Pulizia spazi condivisi",
     body: "Se l'affittacamere ha spazi condivisi — un corridoio, una sala d'attesa, una cucina accessibile agli ospiti — questi rientrano nel piano di pulizia con frequenze appropriate. La pulizia degli spazi condivisi viene pianificata in modo da non interferire con la vita quotidiana del proprietario e con gli orari degli ospiti.",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-affittacamere-servizio-03.jpg",
   },
   {
     title: "Discrezione negli spazi privati",
     body: "Se l'affittacamere è inserito in un'abitazione in cui il proprietario vive, il nostro personale è formato per rispettare rigorosamente i confini tra gli spazi degli ospiti e gli spazi privati. Gli operatori intervengono esclusivamente nelle aree concordate, senza accedere ad altre parti dell'abitazione. La riservatezza è un requisito operativo, non una promessa generica.",
-    image: "https://images.unsplash.com/photo-1459535653751-d571815e906b?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-affittacamere-servizio-04.jpg",
   },
   {
     title: "Gestione biancheria",
     body: "Su richiesta gestiamo il ciclo completo della biancheria da letto e da bagno: raccolta dopo ogni check-out, consegna alla lavanderia convenzionata, ritiro e redistribuzione nelle camere prima del check-in successivo. Particolarmente utile per gli affittacamere che non dispongono di lavatrice propria o che preferiscono non gestire questo passaggio internamente.",
-    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-affittacamere-servizio-05.jpg",
   },
 ] as const;
 
@@ -124,7 +124,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1800&q=80"
+              src="/images/pages/pulizie-strutture-ricettive-roma-affittacamere-hero.jpg"
               alt="Pulizie affittacamere Roma"
               fill
               className="object-cover"

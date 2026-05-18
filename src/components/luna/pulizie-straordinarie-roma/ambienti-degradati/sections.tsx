@@ -175,7 +175,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1800&q=80"
+              src="/images/pages/ambienti-degradati-hero.jpg"
               alt="Pulizia ambienti molto sporchi e degradati Roma"
               fill
               className="object-cover"

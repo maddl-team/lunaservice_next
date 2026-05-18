@@ -42,27 +42,27 @@ const processItems = [
   {
     title: "Fase 1 — Valutazione e preparazione",
     body: "Prima dell'intervento il supervisore valuta l'entità del problema: spessore e distribuzione del guano, tipo di superfici, presenza di nidi attivi, rischio di dispersione nelle aree sottostanti. In base a questa valutazione vengono selezionati i DPI appropriati — maschere FFP3, tute monouso, guanti — e i prodotti igienizzanti specifici per le superfici presenti.",
-    image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1400&q=80",
+    image: "/images/pages/balconi-piccioni-fase-1.jpg",
   },
   {
     title: "Fase 2 — Umidificazione controllata",
     body: "Prima di qualsiasi operazione di rimozione, il guano secco viene umidificato con una soluzione specifica. Questo passaggio è fondamentale: il guano secco manipolato senza umidificazione preliminare disperde nell'aria le spore fungine che rappresentano il rischio sanitario principale. L'umidificazione controllata riduce drasticamente la dispersione di particelle nell'aria durante le operazioni successive.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400&q=80",
+    image: "/images/pages/balconi-piccioni-fase-2.jpg",
   },
   {
     title: "Fase 3 — Rimozione meccanica",
     body: "Dopo l'umidificazione, il guano viene rimosso meccanicamente con strumenti appropriati alle superfici presenti: spatole e raschietti per le superfici dure, spazzole specifiche per le porosità. Il materiale rimosso viene raccolto in contenitori chiusi e smaltito secondo le normative vigenti per i rifiuti biologici.",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=80",
+    image: "/images/pages/balconi-piccioni-fase-3.jpg",
   },
   {
     title: "Fase 4 — Lavaggio e igienizzazione",
     body: "Dopo la rimozione meccanica, le superfici vengono lavate con prodotti igienizzanti specifici per l'eliminazione degli agenti patogeni residui. Per le superfici porose — cemento, pietra, cotto — viene utilizzata una soluzione igienizzante con adeguato tempo di contatto. La rubinetteria, le ringhiere metalliche e le superfici in ferro vengono trattate con prodotti che neutralizzano l'acidità del guano — uno dei principali agenti di corrosione del ferro.",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1400&q=80",
+    image: "/images/pages/balconi-piccioni-fase-4.jpg",
   },
   {
     title: "Fase 5 — Risciacquo e verifica",
     body: "Le superfici vengono risciacquate abbondantemente per rimuovere ogni residuo di prodotto igienizzante e verificate visivamente dal supervisore. A intervento completato viene rilasciata la documentazione con le operazioni eseguite, i prodotti utilizzati e le superfici trattate.",
-    image: "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=1400&q=80",
+    image: "/images/pages/balconi-piccioni-fase-5.jpg",
   },
 ] as const;
 
@@ -162,7 +162,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1800&q=80"
+              src="/images/pages/balconi-piccioni-hero.jpg"
               alt="Pulizia balconi escrementi piccioni Roma"
               fill
               className="object-cover"

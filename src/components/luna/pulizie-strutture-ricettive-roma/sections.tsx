@@ -29,28 +29,28 @@ const navCards = [
     body: "Gestisci un bed and breakfast a Roma? Il nostro servizio per B&B combina la cura del dettaglio tipica degli ambienti domestici con la precisione operativa richiesta da una struttura ricettiva professionale. Interveniamo tra un ospite e l'altro, gestiamo il cambio biancheria e manteniamo gli standard che portano recensioni a cinque stelle.",
     href: "/pulizie-strutture-ricettive-roma/bb/",
     cta: "→ Scopri il servizio per B&B",
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-card-01.jpg",
   },
   {
     title: "Pulizie Case Vacanza e Affitti Brevi Roma",
     body: "Hai un appartamento su Airbnb, Booking o Vrbo a Roma? Luna Service gestisce i ricambi tra check-out e check-in — anche con preavviso breve — con report fotografico opzionale per ogni intervento. Il servizio ideale per chi gestisce uno o più appartamenti in affitto breve senza essere fisicamente presente a Roma.",
     href: "/pulizie-strutture-ricettive-roma/case-vacanza/",
     cta: "→ Scopri il servizio per case vacanza",
-    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-card-02.jpg",
   },
   {
     title: "Pulizie Affittacamere Roma",
     body: "L'affittacamere è una realtà ibrida: ha la dimensione di una casa privata ma le esigenze operative di una struttura ricettiva. Luna Service offre un servizio calibrato su questa specificità: interventi precisi, flessibili sui tempi, con la discrezione necessaria in ambienti in cui l'ospite condivide spazi con il proprietario.",
     href: "/pulizie-strutture-ricettive-roma/affittacamere/",
     cta: "→ Scopri il servizio per affittacamere",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-card-03.jpg",
   },
   {
     title: "Pulizie Ostelli e Dormitori Roma",
     body: "Gli ostelli hanno volumi di pulizia elevati, tempi stretti e budget definiti. Luna Service gestisce le pulizie di ostelli, dormitori e strutture per gruppi a Roma con squadre dimensionate sui volumi reali, senza standard eccessivi che gonfierebbero i costi e senza compromessi sulle esigenze igieniche di base.",
     href: "/pulizie-strutture-ricettive-roma/ostelli/",
     cta: "→ Scopri il servizio per ostelli",
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-card-04.jpg",
   },
 ] as const;
 
@@ -156,7 +156,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1800&q=80"
+              src="/images/pages/pulizie-strutture-ricettive-roma-hero.jpg"
               alt="Pulizie professionali per strutture ricettive"
               fill
               className="object-cover"

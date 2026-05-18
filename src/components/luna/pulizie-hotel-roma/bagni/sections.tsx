@@ -27,17 +27,17 @@ const protocolItems = [
   {
     title: "Bagni delle camere — intervento quotidiano",
     body: "Ogni bagno di camera viene trattato secondo una sequenza operativa precisa che parte dall'alto e procede verso il basso, per evitare la ricontaminazione delle superfici già pulite. Il protocollo standard include: pulizia e igienizzazione del WC — interno, esterno, coperchio e base — con prodotto disinfettante certificato; pulizia del lavandino, della rubinetteria e dello specchio senza aloni; pulizia e igienizzazione della doccia o della vasca — box, piastrelle, soffione, tenda o porta in vetro; cambio di asciugamani e tappetino; rabbocco o sostituzione degli amenity — sapone, shampoo, gel doccia, cuffia; svuotamento del cestino con sostituzione del sacchetto; pulizia del pavimento con prodotto igienizzante appropriato al materiale; verifica visiva finale prima di uscire dal bagno.",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-protocollo-01.jpg",
   },
   {
     title: "Bagni delle camere — pulizia profonda post check-out",
     body: "Tra la partenza di un ospite e l'arrivo del successivo, il bagno riceve un intervento più approfondito che copre le superfici che la pulizia quotidiana non tratta: detartratura di rubinetteria e soffione doccia, pulizia profonda del sigillante attorno alla vasca o al box doccia, pulizia degli angoli e delle giunture delle piastrelle, controllo e trattamento di eventuali macchie di calcare o muffa, pulizia dell'interno degli armadi del bagno, verifica e sostituzione degli amenity completi.",
-    image: "https://images.unsplash.com/photo-1584622781564-1d987f7333c1?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-protocollo-02.jpg",
   },
   {
     title: "Bagni e servizi igienici delle aree comuni",
     body: "I bagni delle aree comuni — lobby, ristorante, sala colazione, palestra, spa — hanno un'intensità di utilizzo molto superiore a quelli delle camere e richiedono interventi più frequenti durante la giornata. Luna Service organizza un piano di manutenzione continua per i bagni delle aree comuni: interventi programmati a cadenza regolare durante l'orario operativo dell'hotel, con rifornimento costante di sapone, carta igienica e asciugamani, e ispezione qualità documentata a fine giornata.",
-    image: "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-protocollo-03.jpg",
   },
 ] as const;
 
@@ -107,27 +107,27 @@ const materials = [
   {
     title: "Piastrelle ceramiche e fughe",
     body: "Detergenti professionali a pH leggermente acido per la rimozione del calcare, seguiti da prodotti igienizzanti per le fughe. Trattamento periodico delle fughe con prodotti antimuffa specifici per ambienti umidi.",
-    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-materiale-01.jpg",
   },
   {
     title: "Superfici in marmo e pietra naturale",
     body: "Detergenti neutri a pH bilanciato. Mai prodotti acidi: il marmo è sensibile agli acidi e si opacizza in modo permanente. Asciugatura immediata dopo il lavaggio per evitare aloni.",
-    image: "https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-materiale-02.jpg",
   },
   {
     title: "Box doccia e porte in vetro",
     body: "Prodotti specifici per vetro professionale, applicati con tecniche che eliminano le striature di calcare senza graffiare. Trattamento periodico con prodotti idrorepellenti per ridurre la frequenza degli interventi di detartratura.",
-    image: "https://images.unsplash.com/photo-1629079447777-1e605162dc8d?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-materiale-03.jpg",
   },
   {
     title: "Rubinetteria e sanitari",
     body: "Prodotti anticalcare specifici per metalli, applicati con tempo di contatto controllato. Lucidatura finale con panno in microfibra asciutto per eliminare gli aloni. Per la rubinetteria in ottone, prodotti specifici che non alterano il trattamento superficiale.",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-materiale-04.jpg",
   },
   {
     title: "Piatti doccia e vasche in acrilico o resina",
     body: "Detergenti non abrasivi: l'acrilico si graffia facilmente con prodotti o spugne abrasivi. Pulizia con panni morbidi in microfibra e detergenti a pH neutro.",
-    image: "https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=1400&q=80",
+    image: "/images/pages/pulizie-hotel-roma-bagni-materiale-05.jpg",
   },
 ] as const;
 
@@ -185,7 +185,7 @@ function HeroBagni() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1800&q=80"
+              src="/images/pages/pulizie-hotel-roma-bagni-hero.jpg"
               alt="Pulizia bagno hotel professionale"
               fill
               className="object-cover"

@@ -49,37 +49,37 @@ const processItems = [
   {
     title: "Fase 1 — Valutazione della situazione",
     body: "All'arrivo il supervisore valuta l'entità dell'allagamento: livello dell'acqua, tipo di liquido — acqua pulita, acqua mista a fango, acque reflue — superfici coinvolte, presenza di oggetti da salvaguardare, rischi per la sicurezza degli operatori. In base a questa valutazione viene definito il piano operativo e l'attrezzatura necessaria.",
-    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1400&q=80",
+    image: "/images/pages/cantina-allagata-fase-1.jpg",
   },
   {
     title: "Fase 2 — Rimozione dell'acqua",
     body: "L'acqua libera viene rimossa con aspiratori industriali e pompe di drenaggio specifiche per ambienti confinati. Per gli allagamenti con livelli d'acqua significativi utilizziamo pompe sommergibili in grado di rimuovere grandi volumi in tempi rapidi. L'acqua rimossa viene convogliata secondo le normative per lo scarico appropriato.",
-    image: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1400&q=80",
+    image: "/images/pages/cantina-allagata-fase-2.jpg",
   },
   {
     title: "Fase 3 — Rimozione di fango e sedimenti",
     body: "Dopo la rimozione dell'acqua libera, il fango e i sedimenti depositati sulle superfici vengono rimossi meccanicamente e con idropulitrici professionali. Particolare attenzione alle fughe del pavimento e agli angoli dove il sedimento si accumula.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80",
+    image: "/images/pages/cantina-allagata-fase-3.jpg",
   },
   {
     title: "Fase 4 — Pulizia delle superfici",
     body: "Pareti, pavimento e soffitto vengono puliti con prodotti appropriati al tipo di contaminazione: per allagamenti da acque pulite, detergenti professionali standard; per allagamenti da acque reflue, prodotti igienizzanti specifici con tempo di contatto certificato per la neutralizzazione degli agenti patogeni.",
-    image: "https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=1400&q=80",
+    image: "/images/pages/cantina-allagata-fase-4.jpg",
   },
   {
     title: "Fase 5 — Asciugatura professionale",
     body: "Dopo la pulizia, l'ambiente deve essere asciugato il più rapidamente possibile per prevenire la formazione di muffe. Utilizziamo deumidificatori industriali e ventilatori professionali posizionati strategicamente per massimizzare il ricambio d'aria e accelerare l'evaporazione dell'umidità residua dalle superfici.",
-    image: "https://images.unsplash.com/photo-1503174971373-b1f69850bded?w=1400&q=80",
+    image: "/images/pages/cantina-allagata-fase-5.jpg",
   },
   {
     title: "Fase 6 — Igienizzazione e trattamento antimuffa",
     body: "Sulle superfici asciutte viene applicato un trattamento igienizzante e, dove necessario, antimuffa preventivo — specialmente sulle superfici organiche come legno e cartongesso che sono più vulnerabili alla formazione di muffa in seguito all'esposizione prolungata all'umidità.",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1400&q=80",
+    image: "/images/pages/cantina-allagata-fase-6.jpg",
   },
   {
     title: "Fase 7 — Documentazione",
     body: "A intervento completato viene rilasciata documentazione fotografica dello stato della cantina prima e dopo l'intervento, descrizione delle operazioni eseguite, prodotti utilizzati e superfici trattate. Questa documentazione è essenziale per le pratiche assicurative.",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&q=80",
+    image: "/images/pages/cantina-allagata-fase-7.jpg",
   },
 ] as const;
 
@@ -145,7 +145,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1800&q=80"
+              src="/images/pages/cantina-allagata-hero.jpg"
               alt="Pulizia cantina allagata Roma"
               fill
               className="object-cover"

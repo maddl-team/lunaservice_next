@@ -17,6 +17,21 @@ import {
 } from "@/components/luna/ui";
 import { hotelPageContent } from "@/components/luna/pulizie-hotel-roma/content";
 
+const includedServiceImages = [
+  "/images/pages/pulizie-hotel-roma-servizio-01.jpg",
+  "/images/pages/pulizie-hotel-roma-servizio-02.jpg",
+  "/images/pages/pulizie-hotel-roma-servizio-03.jpg",
+  "/images/pages/pulizie-hotel-roma-servizio-04.jpg",
+  "/images/pages/pulizie-hotel-roma-servizio-05.jpg",
+  "/images/pages/pulizie-hotel-roma-servizio-06.jpg",
+] as const;
+
+const hotelTypeImages = [
+  "/images/pages/pulizie-hotel-roma-tipo-01.jpg",
+  "/images/pages/pulizie-hotel-roma-tipo-02.jpg",
+  "/images/pages/pulizie-hotel-roma-tipo-03.jpg",
+] as const;
+
 export function HotelServiceHero() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[40px] md:pt-[64px]">
@@ -39,7 +54,7 @@ export function HotelServiceHero() {
           </div>
           <div className="relative min-h-[280px] md:min-h-full overflow-hidden rounded-[22px]">
             <Image
-              src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1400&q=80"
+              src="/images/pages/pulizie-hotel-roma-hero.jpg"
               alt="Pulizie professionali in camera hotel"
               fill
               className="object-cover"
@@ -87,7 +102,7 @@ function HeroVariantD() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=1600&q=80"
+              src="/images/pages/pulizie-hotel-roma-hero.jpg"
               alt="Pulizie professionali hotel"
               fill
               className="object-cover"
@@ -135,19 +150,7 @@ function IncludedServicesSection() {
           <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white">
             <div className="relative h-[180px] w-full shrink-0 overflow-hidden">
               <Image
-                src={
-                  idx === 0
-                    ? "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1200&q=80"
-                    : idx === 1
-                      ? "https://images.unsplash.com/photo-1551776235-dde6d482980b?w=1200&q=80"
-                      : idx === 2
-                        ? "https://images.unsplash.com/photo-1631049552057-403cdb8f0658?w=1200&q=80"
-                        : idx === 3
-                          ? "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?w=1200&q=80"
-                          : idx === 4
-                            ? "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1200&q=80"
-                            : "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=80"
-                }
+                src={includedServiceImages[idx]}
                 alt={item.title}
                 fill
                 className="object-cover"
@@ -242,17 +245,11 @@ function HotelTypesSection() {
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.hotelTypes.intro}</p>
       <div className="mt-[28px] grid grid-cols-1 md:grid-cols-3 gap-[16px]">
-        {hotelPageContent.hotelTypes.items.map((item) => (
+        {hotelPageContent.hotelTypes.items.map((item, idx) => (
           <article key={item.title} className="flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white">
             <div className="relative h-[180px] w-full shrink-0 overflow-hidden">
               <Image
-                src={
-                  item.title.includes("Boutique")
-                    ? "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=80"
-                    : item.title.includes("centro storico")
-                      ? "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
-                      : "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1200&q=80"
-                }
+                src={hotelTypeImages[idx]}
                 alt={item.title}
                 fill
                 className="object-cover"

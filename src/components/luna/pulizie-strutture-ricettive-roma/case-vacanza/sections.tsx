@@ -27,32 +27,32 @@ const serviceItems = [
   {
     title: "Pulizia completa tra check-out e check-in",
     body: "È il cuore del servizio. Dopo ogni check-out, l'appartamento riceve una pulizia completa prima dell'arrivo del prossimo ospite: cambio integrale della biancheria da letto e da bagno, pulizia e igienizzazione completa di tutti i bagni, pulizia della cucina — piano cottura, forno, frigorifero esterno, lavello, superfici — spolveratura e pulizia di tutte le superfici, aspirazione e lavaggio dei pavimenti in ogni stanza, pulizia di specchi e vetri interni, svuotamento di tutti i cestini con sostituzione dei sacchetti, verifica e ripristino degli amenity, controllo generale dello stato dell'appartamento. Ogni voce è su checklist specifica per la tua casa vacanza: costruita insieme a te durante il sopralluogo iniziale, aggiornata ogni volta che le tue esigenze cambiano.",
-    image: "https://images.unsplash.com/photo-1590490360182-c33d57733427?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-case-vacanza-servizio-01.jpg",
   },
   {
     title: "Gestione autonoma degli accessi",
     body: "Non devi essere presente. Non devi mandare nessuno ad aprire. Luna Service gestisce gli accessi alla struttura con le modalità concordate: cassetta di sicurezza con codice, chiavi digitali, portineria, vicino di fiducia. Il processo viene definito una volta sola durante l'onboarding e poi funziona in autonomia.",
-    image: "https://images.unsplash.com/photo-1554995207-c18c203602cb?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-case-vacanza-servizio-02.jpg",
   },
   {
     title: "Report fotografico post intervento",
     body: "Al termine di ogni intervento, il nostro operatore documenta fotograficamente lo stato dell'appartamento — camere, bagni, cucina, aree comuni — e invia le foto via WhatsApp o email entro pochi minuti. Puoi verificare la qualità del lavoro da qualsiasi parte del mondo, in tempo reale. Il report fotografico è anche una protezione: in caso di contestazione da parte di un ospite sulla piattaforma, hai la documentazione fotografica dello stato dell'appartamento al momento del suo arrivo.",
-    image: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-case-vacanza-servizio-03.jpg",
   },
   {
     title: "Segnalazione danni e oggetti dimenticati",
     body: "Durante ogni intervento, il nostro operatore verifica lo stato dell'appartamento e segnala immediatamente al gestore qualsiasi anomalia: danni agli arredi o alle superfici, guasti agli elettrodomestici, oggetti dimenticati dagli ospiti. Una segnalazione tempestiva ti permette di gestire la situazione prima che il prossimo ospite arrivi — e prima che diventi una recensione negativa.",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-case-vacanza-servizio-04.jpg",
   },
   {
     title: "Gestione biancheria",
     body: "Su richiesta gestiamo l'intero ciclo della biancheria: raccolta dopo ogni check-out, consegna alla lavanderia convenzionata, ritiro e redistribuzione nell'appartamento prima del check-in successivo. Un servizio particolarmente utile per chi gestisce più appartamenti o per chi non vuole occuparsi della logistica della biancheria.",
-    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-case-vacanza-servizio-05.jpg",
   },
   {
     title: "Rifornimento consumabili",
     body: "Su richiesta e con approvvigionamento concordato, il nostro operatore può occuparsi del rifornimento dei consumabili standard degli affitti brevi: carta igienica, sapone, shampoo, caffè, zucchero, sacchetti della spazzatura. Un dettaglio che fa differenza nell'esperienza dell'ospite — e che toglierà un'incombenza dalla tua lista.",
-    image: "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?w=1400&q=80",
+    image: "/images/pages/pulizie-strutture-ricettive-roma-case-vacanza-servizio-06.jpg",
   },
 ] as const;
 
@@ -140,7 +140,7 @@ function HeroSection() {
           </div>
           <div className="relative md:absolute md:top-0 md:right-0 md:bottom-0 w-full md:w-[50%] min-h-[220px] md:min-h-0">
             <Image
-              src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1800&q=80"
+              src="/images/pages/pulizie-strutture-ricettive-roma-case-vacanza-hero.jpg"
               alt="Pulizie case vacanza Roma"
               fill
               className="object-cover"
