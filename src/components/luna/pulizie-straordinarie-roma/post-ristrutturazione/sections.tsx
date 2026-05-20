@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -15,6 +15,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Intervento entro 48–72 ore dalla richiesta",
@@ -342,12 +343,18 @@ function FormSection() {
         Dicci la superficie dell&apos;ambiente e il tipo di lavori eseguiti. Ti risponderemo con una stima preliminare entro
         poche ore — e, se necessario, fisseremo un sopralluogo gratuito.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="post-ristrutturazione"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
           <SelectField
             label="Tipo di immobile*"
+            name="tipo_immobile"
+            required
             options={[
+              "Seleziona…",
               "Appartamento residenziale",
               "Ufficio / locale commerciale",
               "Hotel / struttura ricettiva",
@@ -357,54 +364,60 @@ function FormSection() {
           />
           <SelectField
             label="Superficie approssimativa*"
-            options={["Fino a 50 mq", "Da 50 a 100 mq", "Da 100 a 200 mq", "Oltre 200 mq"]}
+            name="superficie"
+            required
+            options={["Seleziona…", "Fino a 50 mq", "Da 50 a 100 mq", "Da 100 a 200 mq", "Oltre 200 mq"]}
           />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di lavori eseguiti</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di lavori eseguiti</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Ristrutturazione completa" />
-              <ChoiceChip label="Rifacimento pavimenti" />
-              <ChoiceChip label="Tinteggiatura / pittura" />
-              <ChoiceChip label="Impianti idraulici o elettrici" />
-              <ChoiceChip label="Lavori parziali" />
+              <ChoiceCheckbox name="lavori" value="Ristrutturazione completa" label="Ristrutturazione completa" />
+              <ChoiceCheckbox name="lavori" value="Rifacimento pavimenti" label="Rifacimento pavimenti" />
+              <ChoiceCheckbox name="lavori" value="Tinteggiatura / pittura" label="Tinteggiatura / pittura" />
+              <ChoiceCheckbox name="lavori" value="Impianti idraulici o elettrici" label="Impianti idraulici o elettrici" />
+              <ChoiceCheckbox name="lavori" value="Lavori parziali" label="Lavori parziali" />
             </div>
           </div>
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Materiali principali da trattare</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Materiali principali da trattare</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Gres porcellanato / ceramica" />
-              <ChoiceChip label="Marmo / pietra naturale" />
-              <ChoiceChip label="Parquet / legno" />
-              <ChoiceChip label="Resina" />
-              <ChoiceChip label="Vetri e infissi" />
+              <ChoiceCheckbox name="materiali" value="Gres porcellanato / ceramica" label="Gres porcellanato / ceramica" />
+              <ChoiceCheckbox name="materiali" value="Marmo / pietra naturale" label="Marmo / pietra naturale" />
+              <ChoiceCheckbox name="materiali" value="Parquet / legno" label="Parquet / legno" />
+              <ChoiceCheckbox name="materiali" value="Resina" label="Resina" />
+              <ChoiceCheckbox name="materiali" value="Vetri e infissi" label="Vetri e infissi" />
             </div>
           </div>
-          <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." />
+          <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." name="zona" required />
           <SelectField
             label="Quando devono essere pronti gli ambienti?*"
+            name="tempistiche"
+            required
             options={[
+              "Seleziona…",
               "Urgente — entro 24–48 ore",
               "Entro questa settimana",
               "Entro 2 settimane",
               "Data flessibile",
             ]}
           />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@email.it" />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@email.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
             <TextareaField
               label="Note"
               placeholder="Es. piano dell'immobile, presenza di ascensore, tipo di residui particolari, accesso al cantiere…"
+              name="note"
             />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Hai un&apos;urgenza o la riapertura è imminente? Scrivici subito su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-straordinarie-roma/" className="underline">
           /pulizie-straordinarie-roma/

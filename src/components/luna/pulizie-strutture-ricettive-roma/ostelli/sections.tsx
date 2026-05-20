@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -323,13 +324,19 @@ function FormSection() {
       <p className="mt-[16px] max-w-[980px] text-[17px] leading-[1.65] text-[#2e3818]">
         Dicci quanti posti letto ha la tua struttura e come sono organizzati gli spazi. Ti risponderemo con una proposta calibrata sui tuoi volumi reali entro poche ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="ostelli"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <InputField label="Nome della struttura" placeholder="Ostello Roma Centro" />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <InputField label="Nome della struttura" placeholder="Ostello Roma Centro" name="nome_struttura" />
           <SelectField
             label="Tipologia struttura*"
+            name="tipologia"
+            required
             options={[
+              "Seleziona…",
               "Ostello tradizionale",
               "Dormitorio universitario / studentato",
               "Struttura per gruppi",
@@ -339,7 +346,10 @@ function FormSection() {
           />
           <SelectField
             label="Numero di posti letto*"
+            name="posti_letto"
+            required
             options={[
+              "Seleziona…",
               "Fino a 20 posti letto",
               "Da 21 a 50 posti letto",
               "Da 51 a 100 posti letto",
@@ -348,7 +358,10 @@ function FormSection() {
           />
           <SelectField
             label="Numero di bagni comuni*"
+            name="bagni_comuni"
+            required
             options={[
+              "Seleziona…",
               "1–2 bagni comuni",
               "3–5 bagni comuni",
               "Oltre 5 bagni comuni",
@@ -356,41 +369,44 @@ function FormSection() {
             ]}
           />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree comuni presenti</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree comuni presenti</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Cucina comune" />
-              <ChoiceChip label="Sala relax / sala comune" />
-              <ChoiceChip label="Sala colazione" />
-              <ChoiceChip label="Lavanderia" />
-              <ChoiceChip label="Altro" />
+              <ChoiceCheckbox name="aree_comuni" value="Cucina comune" label="Cucina comune" />
+              <ChoiceCheckbox name="aree_comuni" value="Sala relax / sala comune" label="Sala relax / sala comune" />
+              <ChoiceCheckbox name="aree_comuni" value="Sala colazione" label="Sala colazione" />
+              <ChoiceCheckbox name="aree_comuni" value="Lavanderia" label="Lavanderia" />
+              <ChoiceCheckbox name="aree_comuni" value="Altro" label="Altro" />
             </div>
           </div>
           <SelectField
             label="Frequenza media di rotazione ospiti"
+            name="frequenza_rotazione"
             options={[
+              "Seleziona…",
               "Alta — molti check-out ogni giorno",
               "Media — qualche check-out al giorno",
               "Bassa — ospiti a lungo termine",
               "Variabile per stagione",
             ]}
           />
-          <InputField label="Zona di Roma*" placeholder="Es. Termini, Trastevere, EUR..." />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@ostello.it" />
+          <InputField label="Zona di Roma*" placeholder="Es. Termini, Trastevere, EUR..." name="zona" required />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@ostello.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
             <TextareaField
               label="Note"
               placeholder="Es. orari preferiti per gli interventi, configurazione specifica dei dormitori, esigenze particolari…"
+              name="note"
             />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Vuoi discutere i dettagli direttamente? Scrivici su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-strutture-ricettive-roma/" className="underline">
           /pulizie-strutture-ricettive-roma/

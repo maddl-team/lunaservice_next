@@ -14,6 +14,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Intervento entro 24–48 ore su Roma e provincia",
@@ -366,12 +367,18 @@ function ContactSection() {
       <h3 className="mt-[28px] m-0 font-serif text-[26px] md:text-[36px] leading-[1.08] tracking-[-0.02em] text-[#1a1f0d]">
         Oppure compila il form — ti richiamiamo entro poche ore
       </h3>
-      <form className="mt-[18px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-[rgba(255,255,255,0.72)] px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="cantina-allagata"
+        className="mt-[18px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-[rgba(255,255,255,0.72)] px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
           <SelectField
             label="Tipo di immobile*"
+            name="tipo_immobile"
+            required
             options={[
+              "Seleziona…",
               "Cantina privata",
               "Box auto / garage",
               "Locale condominiale",
@@ -381,7 +388,9 @@ function ContactSection() {
           />
           <SelectField
             label="Causa probabile dell'allagamento"
+            name="causa"
             options={[
+              "Seleziona…",
               "Rottura tubatura",
               "Pioggia / infiltrazione",
               "Scarico intasato / acque reflue",
@@ -390,7 +399,9 @@ function ContactSection() {
           />
           <SelectField
             label="Livello approssimativo dell'acqua"
+            name="livello_acqua"
             options={[
+              "Seleziona…",
               "Pochi centimetri — pavimento bagnato",
               "5–20 cm",
               "Oltre 20 cm",
@@ -399,39 +410,51 @@ function ContactSection() {
           />
           <SelectField
             label="L'acqua è ancora presente?*"
-            options={["Sì, è ancora presente", "No, è già defluita", "Parzialmente — c'è ancora dell'acqua"]}
+            name="acqua_presente"
+            required
+            options={["Seleziona…", "Sì, è ancora presente", "No, è già defluita", "Parzialmente — c'è ancora dell'acqua"]}
           />
           <SelectField
             label="Presenza di oggetti da salvaguardare"
-            options={["Sì — ci sono oggetti di valore o documenti", "No — la cantina è vuota o con oggetti non critici"]}
+            name="oggetti"
+            options={[
+              "Seleziona…",
+              "Sì — ci sono oggetti di valore o documenti",
+              "No — la cantina è vuota o con oggetti non critici",
+            ]}
           />
-          <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." />
-          <InputField label="Piano / livello interrato" placeholder="Es. interrato, seminterrato" />
+          <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." name="zona" required />
+          <InputField label="Piano / livello interrato" placeholder="Es. interrato, seminterrato" name="piano" />
           <SelectField
             label="Urgenza*"
+            name="urgenza"
+            required
             options={[
+              "Seleziona…",
               "Massima urgenza — entro oggi o domani",
               "Entro 2–3 giorni",
               "Non urgente — sto raccogliendo informazioni",
             ]}
           />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@email.it" />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@email.it" name="email" type="email" required autoComplete="email" />
           <SelectField
             label="Hai bisogno di documentazione per pratiche assicurative?"
-            options={["Sì — ho una polizza assicurativa attiva", "Non so ancora", "No"]}
+            name="documentazione"
+            options={["Seleziona…", "Sì — ho una polizza assicurativa attiva", "Non so ancora", "No"]}
           />
           <div className="md:col-span-2">
             <TextareaField
               label="Note"
               placeholder="Descrivi brevemente la situazione: causa dell'allagamento se nota, stato attuale, accesso alla cantina, numero di vani…"
+              name="note"
             />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton invert>Invia la richiesta — ti richiamiamo entro poche ore</PrimaryCtaButton>
+          <FormSubmitPrimaryButton invert>Invia la richiesta — ti richiamiamo entro poche ore</FormSubmitPrimaryButton>
         </div>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-straordinarie-roma/" className="underline">
           /pulizie-straordinarie-roma/

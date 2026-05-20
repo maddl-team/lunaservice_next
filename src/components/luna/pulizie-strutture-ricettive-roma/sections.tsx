@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -15,6 +15,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Interventi tra check-out e check-in anche con preavviso breve",
@@ -388,47 +389,72 @@ function FormSection() {
         Dicci che tipo di struttura gestisci e come funzionano i tuoi check-in. Ti risponderemo con una proposta costruita
         sulla tua realtà specifica.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="pulizie-strutture-ricettive-roma"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
           <SelectField
             label="Tipologia struttura*"
-            options={["B&B", "Casa vacanza / Affitto breve", "Affittacamere", "Ostello / Dormitorio", "Altro"]}
+            name="tipologia"
+            required
+            options={[
+              "Seleziona…",
+              "B&B",
+              "Casa vacanza / Affitto breve",
+              "Affittacamere",
+              "Ostello / Dormitorio",
+              "Altro",
+            ]}
           />
-          <InputField label="Nome o indirizzo della struttura" placeholder="Via ... Roma" />
-          <SelectField label="Numero di unità / camere*" options={["1–2 unità", "3–5 unità", "6–10 unità", "Oltre 10 unità"]} />
+          <InputField label="Nome o indirizzo della struttura" placeholder="Via ... Roma" name="indirizzo_struttura" />
+          <SelectField
+            label="Numero di unità / camere*"
+            name="numero_unita"
+            required
+            options={["Seleziona…", "1–2 unità", "3–5 unità", "6–10 unità", "Oltre 10 unità"]}
+          />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Airbnb" />
-              <ChoiceChip label="Booking.com" />
-              <ChoiceChip label="Vrbo / HomeAway" />
-              <ChoiceChip label="Affitto diretto" />
-              <ChoiceChip label="Altro" />
+              <ChoiceCheckbox name="piattaforma" value="Airbnb" label="Airbnb" />
+              <ChoiceCheckbox name="piattaforma" value="Booking.com" label="Booking.com" />
+              <ChoiceCheckbox name="piattaforma" value="Vrbo / HomeAway" label="Vrbo / HomeAway" />
+              <ChoiceCheckbox name="piattaforma" value="Affitto diretto" label="Affitto diretto" />
+              <ChoiceCheckbox name="piattaforma" value="Altro" label="Altro" />
             </div>
           </div>
           <SelectField
             label="Frequenza media dei cambi"
-            options={["Più volte a settimana", "Una volta a settimana", "Variabile — dipende dalle prenotazioni", "Non so ancora"]}
+            name="frequenza_cambi"
+            options={[
+              "Seleziona…",
+              "Più volte a settimana",
+              "Una volta a settimana",
+              "Variabile — dipende dalle prenotazioni",
+              "Non so ancora",
+            ]}
           />
-          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
+          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
           <SelectField
             label="Sei presente durante gli interventi?"
-            options={["Sì, sono sempre in struttura", "A volte", "No, gestisco da remoto"]}
+            name="presenza"
+            options={["Seleziona…", "Sì, sono sempre in struttura", "A volte", "No, gestisco da remoto"]}
           />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@struttura.it" />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@struttura.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
-            <TextareaField label="Note" placeholder="Es. orari preferiti, chiavi, accessi, esigenze particolari…" />
+            <TextareaField label="Note" placeholder="Es. orari preferiti, chiavi, accessi, esigenze particolari…" name="note" />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Preferisci scrivere direttamente? Contattaci su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-strutture-ricettive-roma/bb/" className="underline">
           /pulizie-strutture-ricettive-roma/bb/

@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -371,17 +372,36 @@ function FormSection() {
         Dicci quante unità gestisci e come funzionano i tuoi check-in. Ti risponderemo con una proposta personalizzata entro
         poche ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="case-vacanza"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <SelectField label="Numero di appartamenti / unità gestite*" options={["1 unità", "2–3 unità", "4–10 unità", "Oltre 10 unità"]} />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <SelectField
+            label="Numero di appartamenti / unità gestite*"
+            name="numero_unita"
+            required
+            options={["Seleziona…", "1 unità", "2–3 unità", "4–10 unità", "Oltre 10 unità"]}
+          />
           <SelectField
             label="Tipologia dell'immobile*"
-            options={["Monolocale / Studio", "Bilocale", "Trilocale o più", "Villa / Casa indipendente", "Misto — gestisco tipologie diverse"]}
+            name="tipologia_immobile"
+            required
+            options={[
+              "Seleziona…",
+              "Monolocale / Studio",
+              "Bilocale",
+              "Trilocale o più",
+              "Villa / Casa indipendente",
+              "Misto — gestisco tipologie diverse",
+            ]}
           />
           <SelectField
             label="Frequenza media dei cambi"
+            name="frequenza_cambi"
             options={[
+              "Seleziona…",
               "Più volte a settimana",
               "Una volta a settimana",
               "Variabile — dipende dalle prenotazioni",
@@ -389,37 +409,44 @@ function FormSection() {
             ]}
           />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Airbnb" />
-              <ChoiceChip label="Booking.com" />
-              <ChoiceChip label="Vrbo / HomeAway" />
-              <ChoiceChip label="Prenotazioni dirette" />
-              <ChoiceChip label="Altro" />
+              <ChoiceCheckbox name="piattaforma" value="Airbnb" label="Airbnb" />
+              <ChoiceCheckbox name="piattaforma" value="Booking.com" label="Booking.com" />
+              <ChoiceCheckbox name="piattaforma" value="Vrbo / HomeAway" label="Vrbo / HomeAway" />
+              <ChoiceCheckbox name="piattaforma" value="Prenotazioni dirette" label="Prenotazioni dirette" />
+              <ChoiceCheckbox name="piattaforma" value="Altro" label="Altro" />
             </div>
           </div>
           <SelectField
             label="Sei presente durante gli interventi?*"
-            options={["Sì, sono sempre disponibile in loco", "A volte", "No, gestisco completamente da remoto"]}
+            name="presenza"
+            required
+            options={["Seleziona…", "Sì, sono sempre disponibile in loco", "A volte", "No, gestisco completamente da remoto"]}
           />
           <SelectField
             label="Vuoi il report fotografico post intervento?"
-            options={["Sì, per ogni intervento", "Solo occasionalmente", "Non so ancora"]}
+            name="report_fotografico"
+            options={["Seleziona…", "Sì, per ogni intervento", "Solo occasionalmente", "Non so ancora"]}
           />
-          <InputField label="Zona / quartiere di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@host.it" />
+          <InputField label="Zona / quartiere di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@host.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
-            <TextareaField label="Note" placeholder="Es. numero di bagni, modalità di accesso preferita, esigenze particolari, consumabili da gestire…" />
+            <TextareaField
+              label="Note"
+              placeholder="Es. numero di bagni, modalità di accesso preferita, esigenze particolari, consumabili da gestire…"
+              name="note"
+            />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Gestisci più di 5 appartamenti? Scrivici direttamente su WhatsApp per una proposta su misura →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-strutture-ricettive-roma/" className="underline">
           /pulizie-strutture-ricettive-roma/

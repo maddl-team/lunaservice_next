@@ -3,13 +3,13 @@
 import Link from "next/link";
 import {
   InputField,
-  PrimaryCtaButton,
   SectionShell,
   SelectField,
   SiteFooter,
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 function WhatsAppIcon() {
   return (
@@ -49,13 +49,22 @@ function ContactChannelsSection() {
             Compila il form con la tua richiesta. Ti risponderemo entro poche ore con la persona giusta per la tua
             esigenza — non con una risposta automatica.
           </p>
-          <form className="mt-[22px]">
+          <LeadFormShell source="contatti" className="mt-[22px]">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-              <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-              <InputField label="Email*" placeholder="nome@email.it" />
-              <InputField label="Telefono" placeholder="+39 ..." />
+              <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+              <InputField
+                label="Email*"
+                placeholder="nome@email.it"
+                name="email"
+                type="email"
+                required
+                autoComplete="email"
+              />
+              <InputField label="Telefono" placeholder="+39 ..." name="telefono" type="tel" autoComplete="tel" />
               <SelectField
                 label="Tipo di richiesta*"
+                name="tipo_richiesta"
+                required
                 options={[
                   "Preventivo per hotel / albergo",
                   "Preventivo per B&B / casa vacanza / affittacamere",
@@ -70,12 +79,14 @@ function ContactChannelsSection() {
                 <TextareaField
                   label="Messaggio*"
                   placeholder="Descrivi brevemente la tua struttura e cosa stai cercando…"
+                  name="messaggio"
+                  required
                 />
               </div>
-              <InputField label="Zona di Roma" placeholder="Es. Prati, EUR, Ostia..." />
+              <InputField label="Zona di Roma" placeholder="Es. Prati, EUR, Ostia..." name="zona" />
             </div>
             <div className="mt-[16px]">
-              <PrimaryCtaButton>Invia il messaggio</PrimaryCtaButton>
+              <FormSubmitPrimaryButton>Invia il messaggio</FormSubmitPrimaryButton>
             </div>
             <p className="mt-[12px] m-0 text-[12px] leading-[1.6] text-[#6e6f68]">
               Inviando questo modulo acconsenti al trattamento dei tuoi dati secondo la nostra{" "}
@@ -84,7 +95,7 @@ function ContactChannelsSection() {
               </Link>
               .
             </p>
-          </form>
+          </LeadFormShell>
         </div>
 
         <div className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-[#e4eaf0] px-[20px] md:px-[28px] py-[24px] md:py-[32px]">

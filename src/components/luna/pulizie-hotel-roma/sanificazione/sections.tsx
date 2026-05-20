@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -326,24 +327,38 @@ function FormSection() {
       <p className="mt-[16px] max-w-[980px] text-[17px] leading-[1.65] text-[#2e3818]">
         Dicci quante camere e quali spazi vuoi sanificare. Ti risponderemo con una proposta concreta entro poche ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="pulizie-hotel-roma-sanificazione"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" />
-          <SelectField label="Numero di camere da sanificare*" options={["Fino a 10", "Da 11 a 30", "Da 31 a 60", "Oltre 60"]} />
-          <SelectField label="Metodo preferito" options={["Ozono", "Nebulizzazione", "Non so — vorrei un consiglio"]} />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" name="nome_struttura" required />
+          <SelectField
+            label="Numero di camere da sanificare*"
+            name="numero_camere"
+            required
+            options={["Seleziona…", "Fino a 10", "Da 11 a 30", "Da 31 a 60", "Oltre 60"]}
+          />
+          <SelectField
+            label="Metodo preferito"
+            name="metodo"
+            options={["Seleziona…", "Ozono", "Nebulizzazione", "Non so — vorrei un consiglio"]}
+          />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree aggiuntive da sanificare</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree aggiuntive da sanificare</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Aree comuni / lobby" />
-              <ChoiceChip label="Sala colazione / ristorante" />
-              <ChoiceChip label="Palestra / spa" />
-              <ChoiceChip label="Uffici" />
+              <ChoiceCheckbox name="aree_aggiuntive" value="Aree comuni / lobby" label="Aree comuni / lobby" />
+              <ChoiceCheckbox name="aree_aggiuntive" value="Sala colazione / ristorante" label="Sala colazione / ristorante" />
+              <ChoiceCheckbox name="aree_aggiuntive" value="Palestra / spa" label="Palestra / spa" />
+              <ChoiceCheckbox name="aree_aggiuntive" value="Uffici" label="Uffici" />
             </div>
           </div>
           <SelectField
             label="Motivo dell'intervento"
+            name="motivo"
             options={[
+              "Seleziona…",
               "Manutenzione periodica programmata",
               "Post soggiorno prolungato",
               "Apertura stagionale",
@@ -351,21 +366,29 @@ function FormSection() {
               "Prima di un periodo di alta occupazione",
             ]}
           />
-          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
-          <SelectField label="Quando vorreste intervenire" options={["Il prima possibile", "Entro 1 settimana", "Entro 1 mese", "Data da definire"]} />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@hotel.it" />
+          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
+          <SelectField
+            label="Quando vorreste intervenire"
+            name="quando"
+            options={["Seleziona…", "Il prima possibile", "Entro 1 settimana", "Entro 1 mese", "Data da definire"]}
+          />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@hotel.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
-            <TextareaField label="Note" placeholder="Es. materiali particolari, esigenze specifiche, orari disponibili per il trattamento…" />
+            <TextareaField
+              label="Note"
+              placeholder="Es. materiali particolari, esigenze specifiche, orari disponibili per il trattamento…"
+              name="note"
+            />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo per la sanificazione</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo per la sanificazione</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Hai un&apos;urgenza? Scrivici subito su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-hotel-roma/" className="underline">
           /pulizie-hotel-roma/

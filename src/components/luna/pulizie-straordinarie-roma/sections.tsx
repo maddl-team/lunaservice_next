@@ -14,6 +14,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Intervento entro 24–48 ore su Roma e provincia",
@@ -357,12 +358,18 @@ function FormSection() {
       <p className="mt-[16px] max-w-[980px] text-[17px] leading-[1.65] text-[#2e3818]">
         Non serve sapere esattamente di cosa hai bisogno. Descrivcici la situazione e pensiamo noi a come risolverla.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="pulizie-straordinarie-roma"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
           <SelectField
             label="Tipo di intervento*"
+            name="tipo_intervento"
+            required
             options={[
+              "Seleziona…",
               "Sgrosso post ristrutturazione",
               "Pulizia balconi / escrementi piccioni",
               "Cantina o locale allagato",
@@ -370,14 +377,18 @@ function FormSection() {
               "Non so — ho bisogno di un consiglio",
             ]}
           />
-          <InputField label="Indirizzo o zona di Roma*" placeholder="Es. Prati, EUR, Ostia..." />
+          <InputField label="Indirizzo o zona di Roma*" placeholder="Es. Prati, EUR, Ostia..." name="zona" required />
           <SelectField
             label="Dimensione approssimativa dell'area"
-            options={["Meno di 50 mq", "Da 50 a 100 mq", "Da 100 a 200 mq", "Oltre 200 mq", "Non so"]}
+            name="dimensione"
+            options={["Seleziona…", "Meno di 50 mq", "Da 50 a 100 mq", "Da 100 a 200 mq", "Oltre 200 mq", "Non so"]}
           />
           <SelectField
             label="Urgenza*"
+            name="urgenza"
+            required
             options={[
+              "Seleziona…",
               "Urgente — entro 24–48 ore",
               "Entro questa settimana",
               "Entro questo mese",
@@ -388,13 +399,17 @@ function FormSection() {
             <TextareaField
               label="Descrizione della situazione*"
               placeholder="Descrivici brevemente la situazione: cosa è successo, in che condizioni si trova l'ambiente, se ci sono elementi particolari da sapere prima del sopralluogo…"
+              name="descrizione"
+              required
             />
           </div>
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@email.it" />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@email.it" name="email" type="email" required autoComplete="email" />
           <SelectField
             label="Vuoi che ti richiamiamo?"
+            name="preferenza_richiamo"
             options={[
+              "Seleziona…",
               "Sì, il prima possibile",
               "Sì, in orario mattutino",
               "Sì, in orario pomeridiano",
@@ -403,7 +418,7 @@ function FormSection() {
           />
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Invia la richiesta — ti risponderemo entro poche ore</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Invia la richiesta — ti risponderemo entro poche ore</FormSubmitPrimaryButton>
         </div>
         <p className="mt-[10px] m-0 text-[14px] text-[#161714]">
           Ogni situazione è diversa. Non esitare a descriverci anche le situazioni più difficili: interveniamo senza
@@ -412,7 +427,7 @@ function FormSection() {
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Hai un&apos;urgenza? Scrivici subito su WhatsApp → Siamo operativi tutti i giorni.
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-straordinarie-roma/post-ristrutturazione/" className="underline">
           /pulizie-straordinarie-roma/post-ristrutturazione/

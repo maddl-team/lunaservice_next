@@ -1,16 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 import {
-  ChoiceChip,
+  ChoiceRadio,
   FaqItem,
   InputField,
-  PrimaryCtaButton,
   SectionShell,
   SelectField,
   SiteFooter,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
+import { useState } from "react";
 
 const faqs = [
   {
@@ -86,20 +87,32 @@ export function LunaBottomSections() {
                 </div>
               </div>
 
-              <form className="flex flex-col gap-[24px] rounded-[28px] bg-white px-[18px] md:px-[48px] pb-[24px] md:pb-[40px] pt-[24px] md:pt-[48px]">
+              <LeadFormShell
+                source="homepage-preventivo"
+                className="flex flex-col gap-[24px] rounded-[28px] bg-white px-[18px] md:px-[48px] pb-[24px] md:pb-[40px] pt-[24px] md:pt-[48px]"
+              >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
-              <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-              <InputField label="Email*" placeholder="mario@hotel.it" />
+                  <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+                  <InputField
+                    label="Email*"
+                    placeholder="mario@hotel.it"
+                    name="email"
+                    type="email"
+                    required
+                    autoComplete="email"
+                  />
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
-              <InputField label="Telefono" placeholder="+39 …" />
-              <SelectField
-                label="Tipo di struttura*"
-                options={["Seleziona…", "Hotel / Albergo", "B&B", "Casa vacanza", "Affittacamere", "Ostello", "Condominio", "Altro"]}
-              />
+                  <InputField label="Telefono" placeholder="+39 …" name="telefono" type="tel" autoComplete="tel" />
+                  <SelectField
+                    label="Tipo di struttura*"
+                    name="tipo_struttura"
+                    required
+                    options={["Seleziona…", "Hotel / Albergo", "B&B", "Casa vacanza", "Affittacamere", "Ostello", "Condominio", "Altro"]}
+                  />
                 </div>
                 <div>
-                  <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di intervento*</label>
+                  <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di intervento*</span>
                   <div className="mt-[4px] grid grid-cols-1 md:grid-cols-2 gap-[10px]">
                     {[
                       "Servizio continuativo",
@@ -107,23 +120,32 @@ export function LunaBottomSections() {
                       "Sanificazione",
                       "Non so ancora, vorrei un consiglio",
                     ].map((opt, i) => (
-                  <ChoiceChip key={opt} label={opt} active={i === 0} />
+                      <ChoiceRadio key={opt} name="tipo_intervento" value={opt} label={opt} defaultChecked={i === 0} />
                     ))}
                   </div>
                 </div>
-            <TextareaField label="Messaggio / note" placeholder="Descrivici brevemente la tua struttura e cosa ti serve…" />
-                <div className="flex items-start gap-[10px] text-[12.5px] leading-[1.5] text-[#6e6f68]">
-                  <input type="checkbox" className="mt-[4px]" />
+                <TextareaField
+                  label="Messaggio / note"
+                  placeholder="Descrivici brevemente la tua struttura e cosa ti serve…"
+                  name="messaggio"
+                />
+                <label className="flex cursor-pointer items-start gap-[10px] text-[12.5px] leading-[1.5] text-[#6e6f68]">
+                  <input type="checkbox" name="privacy" value="1" required className="mt-[4px]" />
                   <span>
-                    Ho letto la <a className="text-[#161714] underline">Privacy Policy</a> e acconsento al trattamento dei
-                    miei dati personali (GDPR · Reg. UE 2016/679).
+                    Ho letto la{" "}
+                    <Link href="/privacy-policy" className="text-[#161714] underline">
+                      Privacy Policy
+                    </Link>{" "}
+                    e acconsento al trattamento dei miei dati personali (GDPR · Reg. UE 2016/679).
                   </span>
-                </div>
-            <PrimaryCtaButton invert>
+                </label>
+                <FormSubmitPrimaryButton invert>
                   Invia la richiesta — ti rispondiamo entro poche ore
-                  <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#99cc33] text-[13px] text-[#161714]">→</span>
-            </PrimaryCtaButton>
-              </form>
+                  <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#99cc33] text-[13px] text-[#161714]">
+                    →
+                  </span>
+                </FormSubmitPrimaryButton>
+              </LeadFormShell>
             </div>
       </SectionShell>
 

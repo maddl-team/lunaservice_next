@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ReactNode } from "react";
+import type { ComponentProps, ReactNode } from "react";
 import { BrandLogoMark } from "@/components/luna/brand";
 import { contactHref, footerNavigation, legalNavigation, whatsappHref } from "@/components/luna/navigation";
 import { lunaEffects, lunaLayout, lunaRadii, lunaTokens, lunaTypography } from "@/components/luna/design-tokens";
@@ -64,12 +64,24 @@ export function SectionBadge({
   );
 }
 
-export function PrimaryCtaButton({ children, invert = false }: { children: ReactNode; invert?: boolean }) {
+export function PrimaryCtaButton({
+  children,
+  invert = false,
+  type = "button",
+  disabled,
+}: {
+  children: ReactNode;
+  invert?: boolean;
+  type?: "button" | "submit";
+  disabled?: boolean;
+}) {
   return (
     <button
+      type={type}
+      disabled={disabled}
       className={`inline-flex cursor-pointer items-center gap-[12px] rounded-[999px] px-[28px] py-[20px] text-[15px] ${
         invert ? "bg-[#161714] text-[#fbf9f3]" : "bg-[#99cc33] text-[#161714]"
-      }`}
+      } disabled:cursor-not-allowed disabled:opacity-60`}
       style={{ borderRadius: lunaRadii.pill, fontSize: lunaTypography.body.sm }}
     >
       {children}
@@ -80,6 +92,7 @@ export function PrimaryCtaButton({ children, invert = false }: { children: React
 export function SecondaryCtaButton({ children }: { children: ReactNode }) {
   return (
     <button
+      type="button"
       className="inline-flex cursor-pointer items-center gap-[10px] rounded-[999px] border border-[rgba(255,255,255,0.4)] px-[28px] py-[20px] text-[15px] text-[#fbf9f3]"
       style={{ borderRadius: lunaRadii.pill, fontSize: lunaTypography.body.sm }}
     >
@@ -241,12 +254,48 @@ export function FaqItem({
   );
 }
 
-export function InputField({ label, placeholder }: { label: string; placeholder: string }) {
+export function InputField({
+  label,
+  placeholder,
+  name,
+  id,
+  type = "text",
+  required,
+  disabled,
+  autoComplete,
+  defaultValue,
+  value,
+  onChange,
+}: {
+  label: string;
+  placeholder?: string;
+  name?: string;
+  id?: string;
+  type?: string;
+  required?: boolean;
+  disabled?: boolean;
+  autoComplete?: string;
+  defaultValue?: string;
+  value?: string;
+  onChange?: ComponentProps<"input">["onChange"];
+}) {
+  const inputId = id ?? (name ? `field-${name}` : undefined);
   return (
     <div>
-      <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">{label}</label>
+      <label htmlFor={inputId} className="mb-[8px] block text-[13px] font-medium text-[#161714]">
+        {label}
+      </label>
       <input
-        className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[16px] text-[15px]"
+        id={inputId}
+        name={name}
+        type={type}
+        required={required}
+        disabled={disabled}
+        autoComplete={autoComplete}
+        defaultValue={defaultValue}
+        value={value}
+        onChange={onChange}
+        className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[16px] text-[15px] disabled:cursor-not-allowed disabled:bg-[#f5f5f5] disabled:text-[#888]"
         style={{ borderRadius: lunaRadii.xs, border: lunaEffects.borderMedium, fontSize: lunaTypography.body.sm }}
         placeholder={placeholder}
       />
@@ -254,28 +303,106 @@ export function InputField({ label, placeholder }: { label: string; placeholder:
   );
 }
 
-export function SelectField({ label, options }: { label: string; options: string[] }) {
+export function SelectField({
+  label,
+  options,
+  name,
+  id,
+  required,
+  disabled,
+  value,
+  onChange,
+  defaultValue,
+}: {
+  label: string;
+  options: string[];
+  name?: string;
+  id?: string;
+  required?: boolean;
+  disabled?: boolean;
+  value?: string;
+  onChange?: ComponentProps<"select">["onChange"];
+  defaultValue?: string;
+}) {
+  const selectId = id ?? (name ? `field-${name}` : undefined);
+  const first = options[0] ?? "";
+  const hasPlaceholder = first.toLowerCase().includes("seleziona");
+
   return (
     <div>
-      <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">{label}</label>
+      <label htmlFor={selectId} className="mb-[8px] block text-[13px] font-medium text-[#161714]">
+        {label}
+      </label>
       <select
-        className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[16px] text-[15px]"
+        id={selectId}
+        name={name}
+        required={required}
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+        defaultValue={value !== undefined ? undefined : hasPlaceholder ? "" : defaultValue}
+        className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[16px] text-[15px] disabled:cursor-not-allowed disabled:bg-[#f5f5f5]"
         style={{ borderRadius: lunaRadii.xs, border: lunaEffects.borderMedium, fontSize: lunaTypography.body.sm }}
       >
-        {options.map((opt) => (
-          <option key={opt}>{opt}</option>
-        ))}
+        {hasPlaceholder ? (
+          <>
+            <option value="" disabled>
+              {first}
+            </option>
+            {options.slice(1).map((opt) => (
+              <option key={opt} value={opt}>
+                {opt}
+              </option>
+            ))}
+          </>
+        ) : (
+          options.map((opt) => (
+            <option key={opt} value={opt}>
+              {opt}
+            </option>
+          ))
+        )}
       </select>
     </div>
   );
 }
 
-export function TextareaField({ label, placeholder }: { label: string; placeholder: string }) {
+export function TextareaField({
+  label,
+  placeholder,
+  name,
+  id,
+  required,
+  disabled,
+  defaultValue,
+  value,
+  onChange,
+}: {
+  label: string;
+  placeholder?: string;
+  name?: string;
+  id?: string;
+  required?: boolean;
+  disabled?: boolean;
+  defaultValue?: string;
+  value?: string;
+  onChange?: ComponentProps<"textarea">["onChange"];
+}) {
+  const tid = id ?? (name ? `field-${name}` : undefined);
   return (
     <div>
-      <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">{label}</label>
+      <label htmlFor={tid} className="mb-[8px] block text-[13px] font-medium text-[#161714]">
+        {label}
+      </label>
       <textarea
-        className="min-h-[110px] w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[16px] text-[15px]"
+        id={tid}
+        name={name}
+        required={required}
+        disabled={disabled}
+        defaultValue={defaultValue}
+        value={value}
+        onChange={onChange}
+        className="min-h-[110px] w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[16px] text-[15px] disabled:cursor-not-allowed disabled:bg-[#f5f5f5]"
         style={{ borderRadius: lunaRadii.xs, border: lunaEffects.borderMedium, fontSize: lunaTypography.body.sm }}
         placeholder={placeholder}
       />
@@ -283,15 +410,41 @@ export function TextareaField({ label, placeholder }: { label: string; placehold
   );
 }
 
-export function ChoiceChip({ label, active = false }: { label: string; active?: boolean }) {
+export function ChoiceRadio({
+  name,
+  value,
+  label,
+  defaultChecked,
+}: {
+  name: string;
+  value: string;
+  label: string;
+  defaultChecked?: boolean;
+}) {
   return (
     <label
-      className={`flex cursor-pointer items-center gap-[12px] rounded-[14px] px-[16px] py-[14px] text-[14px] ${active ? "border border-[#1a1f0d] bg-[#1a1f0d] text-[#99cc33]" : "border border-[rgba(0,0,0,0.08)] bg-white text-[#161714]"}`}
+      className="flex cursor-pointer items-center gap-[10px] rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[12px] text-[14px] text-[#161714] has-[:checked]:border-[#1a1f0d] has-[:checked]:bg-[#1a1f0d] has-[:checked]:text-[#99cc33]"
       style={{ borderRadius: lunaRadii.xs }}
     >
-      <span className="inline-flex h-[14px] w-[14px] items-center justify-center rounded-full border border-current">
-        {active && <span className="h-[6px] w-[6px] rounded-full bg-current" />}
-      </span>
+      <input
+        type="radio"
+        name={name}
+        value={value}
+        defaultChecked={defaultChecked}
+        className="h-[16px] w-[16px] shrink-0 accent-[#99cc33]"
+      />
+      {label}
+    </label>
+  );
+}
+
+export function ChoiceCheckbox({ name, value, label }: { name: string; value: string; label: string }) {
+  return (
+    <label
+      className="flex cursor-pointer items-center gap-[10px] rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[12px] text-[14px] text-[#161714] has-[:checked]:border-[#1a1f0d] has-[:checked]:bg-[#1a1f0d] has-[:checked]:text-[#99cc33]"
+      style={{ borderRadius: lunaRadii.xs }}
+    >
+      <input type="checkbox" name={name} value={value} className="h-[16px] w-[16px] shrink-0 accent-[#99cc33]" />
       {label}
     </label>
   );

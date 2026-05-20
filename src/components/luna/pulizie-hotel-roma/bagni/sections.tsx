@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -406,37 +407,54 @@ function CompactFormSection() {
         Dicci quante camere e quanti bagni comuni ha la tua struttura. Ti risponderemo con una proposta concreta entro
         poche ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="pulizie-hotel-roma-bagni"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" />
-          <SelectField label="Numero di camere*" options={["Fino a 20", "Da 21 a 50", "Da 51 a 100", "Oltre 100"]} />
-          <SelectField label="Bagni aree comuni" options={["Nessuno", "1–3", "4–6", "Oltre 6"]} />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" name="nome_struttura" required />
+          <SelectField
+            label="Numero di camere*"
+            name="numero_camere"
+            required
+            options={["Seleziona…", "Fino a 20", "Da 21 a 50", "Da 51 a 100", "Oltre 100"]}
+          />
+          <SelectField
+            label="Bagni aree comuni"
+            name="bagni_aree_comuni"
+            options={["Seleziona…", "Nessuno", "1–3", "4–6", "Oltre 6"]}
+          />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Materiali principali nei bagni</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Materiali principali nei bagni</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Ceramica standard" />
-              <ChoiceChip label="Marmo" />
-              <ChoiceChip label="Vetro" />
-              <ChoiceChip label="Acrilico" />
-              <ChoiceChip label="Altro" />
+              <ChoiceCheckbox name="materiali_bagni" value="Ceramica standard" label="Ceramica standard" />
+              <ChoiceCheckbox name="materiali_bagni" value="Marmo" label="Marmo" />
+              <ChoiceCheckbox name="materiali_bagni" value="Vetro" label="Vetro" />
+              <ChoiceCheckbox name="materiali_bagni" value="Acrilico" label="Acrilico" />
+              <ChoiceCheckbox name="materiali_bagni" value="Altro" label="Altro" />
             </div>
           </div>
-          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
-          <SelectField label="Tipo di servizio*" options={["Continuativo", "Straordinario", "Voglio un consiglio"]} />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@hotel.it" />
+          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
+          <SelectField
+            label="Tipo di servizio*"
+            name="tipo_servizio"
+            required
+            options={["Seleziona…", "Continuativo", "Straordinario", "Voglio un consiglio"]}
+          />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@hotel.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
-            <TextareaField label="Note" placeholder="Dettagli utili sulla tua struttura..." />
+            <TextareaField label="Note" placeholder="Dettagli utili sulla tua struttura..." name="note" />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Vuoi una risposta immediata? Scrivici su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-hotel-roma/" className="underline">
           /pulizie-hotel-roma/

@@ -104,7 +104,7 @@ Da `src/components/luna/ui.tsx`:
 - `InputField`
 - `SelectField`
 - `TextareaField`
-- `ChoiceChip`
+- `ChoiceRadio` / `ChoiceCheckbox` (input reali nei form; non usare chip puramente decorativi al posto di campi inviabili)
 - `FooterLinkColumn`
 
 ## 10) Regole operative per nuove pagine

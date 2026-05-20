@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
   FaqItem,
   InputField,
@@ -306,33 +307,56 @@ function HotelQuoteSection() {
         titleClassName="text-[30px] md:text-[50px] leading-[1.04] text-[#1a1f0d]"
       />
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#2e3818]">{hotelPageContent.form.intro}</p>
-      <form className="mt-[28px] rounded-[28px] bg-white px-[18px] md:px-[40px] py-[24px] md:py-[34px]">
+      <LeadFormShell
+        source="pulizie-hotel-roma"
+        className="mt-[28px] rounded-[28px] bg-white px-[18px] md:px-[40px] py-[24px] md:py-[34px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[16px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <SelectField label="Ruolo*" options={["Proprietario", "Direttore", "Responsabile Housekeeping", "Altro"]} />
-          <InputField label="Nome della struttura*" placeholder="Hotel Roma Centro" />
-          <SelectField label="Categoria hotel*" options={["3 stelle", "4 stelle", "5 stelle", "Boutique", "Altro"]} />
-          <SelectField label="Numero di camere*" options={["Fino a 20", "21–50", "51–100", "Oltre 100"]} />
-          <InputField label="Zona di Roma*" placeholder="Centro storico / Prati / EUR..." />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <SelectField
+            label="Ruolo*"
+            name="ruolo"
+            required
+            options={["Seleziona…", "Proprietario", "Direttore", "Responsabile Housekeeping", "Altro"]}
+          />
+          <InputField label="Nome della struttura*" placeholder="Hotel Roma Centro" name="nome_struttura" required />
+          <SelectField
+            label="Categoria hotel*"
+            name="categoria"
+            required
+            options={["Seleziona…", "3 stelle", "4 stelle", "5 stelle", "Boutique", "Altro"]}
+          />
+          <SelectField
+            label="Numero di camere*"
+            name="numero_camere"
+            required
+            options={["Seleziona…", "Fino a 20", "21–50", "51–100", "Oltre 100"]}
+          />
+          <InputField label="Zona di Roma*" placeholder="Centro storico / Prati / EUR..." name="zona" required />
           <SelectField
             label="Tipo di servizio cercato*"
-            options={["Servizio continuativo", "Intervento straordinario", "Sanificazione", "Non so ancora"]}
+            name="tipo_servizio"
+            required
+            options={["Seleziona…", "Servizio continuativo", "Intervento straordinario", "Sanificazione", "Non so ancora"]}
           />
           <SelectField
             label="Attualmente come gestite le pulizie?"
-            options={["Personale interno", "Altra impresa", "Non gestito sistematicamente"]}
+            name="gestione_attuale"
+            options={["Seleziona…", "Personale interno", "Altra impresa", "Non gestito sistematicamente"]}
           />
+          <InputField label="Email" placeholder="nome@hotel.it" name="email" type="email" autoComplete="email" />
+          <InputField label="Telefono" placeholder="+39 ..." name="telefono" type="tel" autoComplete="tel" />
         </div>
         <div className="mt-[16px]">
-          <TextareaField label="Note aggiuntive" placeholder="Dettagli utili sulla struttura e sul servizio richiesto..." />
+          <TextareaField label="Note aggiuntive" placeholder="Dettagli utili sulla struttura e sul servizio richiesto..." name="note" />
         </div>
         <div className="mt-[20px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <Link href="https://wa.me/" className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">
           {hotelPageContent.form.whatsapp}
         </Link>
-      </form>
+      </LeadFormShell>
     </SectionShell>
   );
 }

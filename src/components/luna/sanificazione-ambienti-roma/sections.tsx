@@ -14,6 +14,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Sanificazione con ozono e nebulizzazione certificati",
@@ -415,12 +416,18 @@ function FormSection() {
           Dicci che tipo di ambiente vuoi sanificare e per quale motivo. Ti risponderemo con una proposta tecnica
           concreta entro poche ore.
         </p>
-        <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+        <LeadFormShell
+          source="sanificazione-ambienti-roma"
+          className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-            <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+            <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
             <SelectField
               label="Tipologia ambiente*"
+              name="tipo_ambiente"
+              required
               options={[
+                "Seleziona…",
                 "Hotel / struttura ricettiva",
                 "Ufficio / ambiente di lavoro",
                 "Condominio / parti comuni",
@@ -432,15 +439,20 @@ function FormSection() {
             />
             <SelectField
               label="Superficie approssimativa*"
-              options={["Fino a 50 mq", "Da 50 a 100 mq", "Da 100 a 300 mq", "Oltre 300 mq"]}
+              name="superficie"
+              required
+              options={["Seleziona…", "Fino a 50 mq", "Da 50 a 100 mq", "Da 100 a 300 mq", "Oltre 300 mq"]}
             />
             <SelectField
               label="Metodo preferito"
-              options={["Ozono", "Nebulizzazione", "Non so — vorrei un consiglio tecnico"]}
+              name="metodo"
+              options={["Seleziona…", "Ozono", "Nebulizzazione", "Non so — vorrei un consiglio tecnico"]}
             />
             <SelectField
               label="Motivo dell'intervento"
+              name="motivo"
               options={[
+                "Seleziona…",
                 "Manutenzione periodica programmata",
                 "Post malattia / caso infettivo",
                 "Apertura dopo lunga assenza",
@@ -450,10 +462,12 @@ function FormSection() {
                 "Altro",
               ]}
             />
-            <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." />
+            <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." name="zona" required />
             <SelectField
               label="Hai bisogno della certificazione dell'intervento?"
+              name="certificazione"
               options={[
+                "Seleziona…",
                 "Sì — per ispezioni o audit",
                 "Sì — per comunicazione verso ospiti / clienti",
                 "Sì — per pratiche assicurative",
@@ -462,21 +476,23 @@ function FormSection() {
             />
             <SelectField
               label="Quando vorreste intervenire?"
-              options={["Il prima possibile", "Entro 1 settimana", "Entro 1 mese", "Data da definire"]}
+              name="tempistiche"
+              options={["Seleziona…", "Il prima possibile", "Entro 1 settimana", "Entro 1 mese", "Data da definire"]}
             />
-            <InputField label="Telefono*" placeholder="+39 ..." />
-            <InputField label="Email*" placeholder="nome@email.it" />
+            <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+            <InputField label="Email*" placeholder="nome@email.it" name="email" type="email" required autoComplete="email" />
             <div className="md:col-span-2">
               <TextareaField
                 label="Note"
                 placeholder="Es. numero di vani, presenza di moquette, materiali particolari, orari disponibili per il trattamento, esigenze specifiche…"
+                name="note"
               />
             </div>
           </div>
           <div className="mt-[16px]">
-            <PrimaryCtaButton invert>Richiedi il preventivo per la sanificazione</PrimaryCtaButton>
+            <FormSubmitPrimaryButton invert>Richiedi il preventivo per la sanificazione</FormSubmitPrimaryButton>
           </div>
-        </form>
+        </LeadFormShell>
         <a href="https://wa.me/" className="mt-[14px] inline-flex text-[14px] text-[#1a1f0d] underline">
           Hai un&apos;urgenza o una domanda tecnica? Scrivici su WhatsApp →
         </a>

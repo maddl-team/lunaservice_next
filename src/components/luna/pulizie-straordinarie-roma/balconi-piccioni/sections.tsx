@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -15,6 +15,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Intervento con DPI certificati — nessun rischio per gli operatori",
@@ -378,12 +379,18 @@ function FormSection() {
         Dicci dove si trova il balcone e in che condizioni si trova. Ti risponderemo con una stima preliminare entro poche
         ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="balconi-piccioni"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
           <SelectField
             label="Tipo di struttura*"
+            name="tipo_struttura"
+            required
             options={[
+              "Seleziona…",
               "Appartamento privato",
               "Condominio — parti comuni",
               "Hotel / struttura ricettiva",
@@ -392,55 +399,62 @@ function FormSection() {
             ]}
           />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di superficie da trattare</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipo di superficie da trattare</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Balcone / terrazzo" />
-              <ChoiceChip label="Cornicione / davanzale" />
-              <ChoiceChip label="Lastrìco solare" />
-              <ChoiceChip label="Superfici verticali esterne" />
-              <ChoiceChip label="Aree interne contaminate" />
+              <ChoiceCheckbox name="superficie" value="Balcone / terrazzo" label="Balcone / terrazzo" />
+              <ChoiceCheckbox name="superficie" value="Cornicione / davanzale" label="Cornicione / davanzale" />
+              <ChoiceCheckbox name="superficie" value="Lastrìco solare" label="Lastrìco solare" />
+              <ChoiceCheckbox name="superficie" value="Superfici verticali esterne" label="Superfici verticali esterne" />
+              <ChoiceCheckbox name="superficie" value="Aree interne contaminate" label="Aree interne contaminate" />
             </div>
           </div>
           <SelectField
             label="Dimensione approssimativa"
-            options={["Piccolo — meno di 10 mq", "Medio — da 10 a 30 mq", "Grande — oltre 30 mq", "Non so"]}
+            name="dimensione"
+            options={["Seleziona…", "Piccolo — meno di 10 mq", "Medio — da 10 a 30 mq", "Grande — oltre 30 mq", "Non so"]}
           />
           <SelectField
             label="Entità approssimativa del problema"
+            name="entita_problema"
             options={[
+              "Seleziona…",
               "Leggero — accumulo recente",
               "Medio — accumulo di qualche mese",
               "Significativo — accumulo di lungo periodo",
               "Non so — serve una valutazione",
             ]}
           />
-          <InputField label="Zona di Roma*" placeholder="Es. Prati, EUR, Ostia..." />
-          <InputField label="Piano dell'immobile" placeholder="Es. 3° piano" />
+          <InputField label="Zona di Roma*" placeholder="Es. Prati, EUR, Ostia..." name="zona" required />
+          <InputField label="Piano dell'immobile" placeholder="Es. 3° piano" name="piano" />
           <SelectField
             label="Urgenza*"
+            name="urgenza"
+            required
             options={[
+              "Seleziona…",
               "Urgente — entro 24–48 ore",
               "Entro questa settimana",
               "Entro questo mese",
               "Sto raccogliendo informazioni",
             ]}
           />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@email.it" />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@email.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
             <TextareaField
               label="Note"
               placeholder="Es. presenza di nidi attivi, accesso al balcone, materiali particolari, situazioni specifiche da segnalare…"
+              name="note"
             />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Hai un&apos;urgenza? Scrivici subito su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-straordinarie-roma/" className="underline">
           /pulizie-straordinarie-roma/

@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -325,59 +326,71 @@ function FormSection() {
         Dicci quante camere ha il tuo B&B e come funzionano i tuoi check-in. Ti risponderemo con una proposta personalizzata
         entro poche ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="bb"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <InputField label="Nome del B&B" placeholder="B&B [Nome]" />
-          <SelectField label="Numero di camere*" options={["1–2 camere", "3–4 camere", "5–6 camere", "Oltre 6 camere"]} />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <InputField label="Nome del B&B" placeholder="B&B [Nome]" name="nome_bb" />
+          <SelectField
+            label="Numero di camere*"
+            name="numero_camere"
+            required
+            options={["Seleziona…", "1–2 camere", "3–4 camere", "5–6 camere", "Oltre 6 camere"]}
+          />
           <SelectField
             label="Bagno privato per camera o condiviso?"
+            name="bagno"
             options={[
+              "Seleziona…",
               "Ogni camera ha il bagno privato",
               "Alcune camere hanno bagno condiviso",
               "Bagno condiviso per tutte le camere",
             ]}
           />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree comuni da pulire</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree comuni da pulire</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Ingresso / corridoio" />
-              <ChoiceChip label="Sala colazione" />
-              <ChoiceChip label="Bagno comune" />
-              <ChoiceChip label="Altro" />
+              <ChoiceCheckbox name="aree_comuni" value="Ingresso / corridoio" label="Ingresso / corridoio" />
+              <ChoiceCheckbox name="aree_comuni" value="Sala colazione" label="Sala colazione" />
+              <ChoiceCheckbox name="aree_comuni" value="Bagno comune" label="Bagno comune" />
+              <ChoiceCheckbox name="aree_comuni" value="Altro" label="Altro" />
             </div>
           </div>
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Airbnb" />
-              <ChoiceChip label="Booking.com" />
-              <ChoiceChip label="Prenotazioni dirette" />
-              <ChoiceChip label="Altro" />
+              <ChoiceCheckbox name="piattaforma" value="Airbnb" label="Airbnb" />
+              <ChoiceCheckbox name="piattaforma" value="Booking.com" label="Booking.com" />
+              <ChoiceCheckbox name="piattaforma" value="Prenotazioni dirette" label="Prenotazioni dirette" />
+              <ChoiceCheckbox name="piattaforma" value="Altro" label="Altro" />
             </div>
           </div>
           <SelectField
             label="Frequenza media dei cambi settimanali"
-            options={["1–3 cambi a settimana", "4–7 cambi a settimana", "Più di 7 cambi a settimana", "Variabile"]}
+            name="frequenza_cambi"
+            options={["Seleziona…", "1–3 cambi a settimana", "4–7 cambi a settimana", "Più di 7 cambi a settimana", "Variabile"]}
           />
           <SelectField
             label="Sei presente durante gli interventi?"
-            options={["Sì, sono sempre in struttura", "A volte", "No, gestisco da remoto"]}
+            name="presenza"
+            options={["Seleziona…", "Sì, sono sempre in struttura", "A volte", "No, gestisco da remoto"]}
           />
-          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@bnb.it" />
+          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@bnb.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
-            <TextareaField label="Note" placeholder="Es. orari preferiti, modalità di accesso, esigenze particolari…" />
+            <TextareaField label="Note" placeholder="Es. orari preferiti, modalità di accesso, esigenze particolari…" name="note" />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Vuoi una risposta immediata? Scrivici su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-strutture-ricettive-roma/" className="underline">
           /pulizie-strutture-ricettive-roma/

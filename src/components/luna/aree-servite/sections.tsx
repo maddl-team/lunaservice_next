@@ -11,6 +11,7 @@ import {
   SiteFooter,
   SiteHeaderPill,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const zoneItems = [
   {
@@ -179,21 +180,32 @@ function FormSection() {
         <h2 className="m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#1a1f0d]">
           Richiedi il preventivo per la tua zona
         </h2>
-        <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+        <LeadFormShell
+          source="aree-servite"
+          className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-            <InputField label="Nome*" placeholder="Mario Rossi" />
-            <InputField label="Zona o indirizzo*" placeholder="Es. Prati, EUR, Ostia..." />
+            <InputField label="Nome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+            <InputField label="Zona o indirizzo*" placeholder="Es. Prati, EUR, Ostia..." name="zona" required />
             <SelectField
               label="Tipo di servizio"
+              name="tipo_servizio"
               options={["Hotel", "B&B", "Casa vacanza", "Condominio", "Straordinario", "Altro"]}
             />
-            <InputField label="Telefono*" placeholder="+39 ..." />
-            <InputField label="Email*" placeholder="nome@email.it" />
+            <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+            <InputField
+              label="Email*"
+              placeholder="nome@email.it"
+              name="email"
+              type="email"
+              required
+              autoComplete="email"
+            />
           </div>
           <div className="mt-[16px]">
-            <PrimaryCtaButton invert>Verifica la copertura e richiedi il preventivo</PrimaryCtaButton>
+            <FormSubmitPrimaryButton invert>Verifica la copertura e richiedi il preventivo</FormSubmitPrimaryButton>
           </div>
-        </form>
+        </LeadFormShell>
       </SectionShell>
     </div>
   );

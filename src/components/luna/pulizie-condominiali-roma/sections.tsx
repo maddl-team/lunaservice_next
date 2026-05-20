@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -15,6 +15,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Contratti continuativi con SLA documentati",
@@ -358,74 +359,91 @@ function FormSection() {
           Dicci qualcosa sul condominio che amministri. Ti risponderemo con una proposta dettagliata entro 48 ore — pronta
           per essere presentata in assemblea.
         </p>
-        <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+        <LeadFormShell
+          source="pulizie-condominiali-roma"
+          className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-            <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+            <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
             <SelectField
               label="Ruolo*"
+              name="ruolo"
+              required
               options={[
+                "Seleziona…",
                 "Amministratore di condominio",
                 "Consigliere condominiale",
                 "Proprietario / condomino delegato",
                 "Altro",
               ]}
             />
-            <InputField label="Studio o ragione sociale" placeholder="Es. Studio Rossi amministrazioni" />
-            <InputField label="Indirizzo del condominio*" placeholder="Via, numero civico" />
-            <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." />
+            <InputField label="Studio o ragione sociale" placeholder="Es. Studio Rossi amministrazioni" name="studio" />
+            <InputField label="Indirizzo del condominio*" placeholder="Via, numero civico" name="indirizzo_condominio" required />
+            <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." name="zona" required />
             <SelectField
               label="Numero di scale / palazzine*"
-              options={["1 scala", "2–3 scale", "4–6 scale", "Oltre 6 scale / complesso residenziale"]}
+              name="numero_scale"
+              required
+              options={["Seleziona…", "1 scala", "2–3 scale", "4–6 scale", "Oltre 6 scale / complesso residenziale"]}
             />
             <SelectField
               label="Numero approssimativo di unità abitative*"
-              options={["Fino a 10 unità", "Da 11 a 30 unità", "Da 31 a 60 unità", "Oltre 60 unità"]}
+              name="numero_unita"
+              required
+              options={["Seleziona…", "Fino a 10 unità", "Da 11 a 30 unità", "Da 31 a 60 unità", "Oltre 60 unità"]}
             />
             <div className="md:col-span-2">
-              <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree comuni da includere</label>
+              <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Aree comuni da includere</span>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-                <ChoiceChip label="Scale e androni" />
-                <ChoiceChip label="Ascensori" />
-                <ChoiceChip label="Garage / box auto" />
-                <ChoiceChip label="Cantine / locali tecnici" />
-                <ChoiceChip label="Aree verdi / cortile" />
-                <ChoiceChip label="Lastrico solare / terrazzi condominiali" />
+                <ChoiceCheckbox name="area" value="Scale e androni" label="Scale e androni" />
+                <ChoiceCheckbox name="area" value="Ascensori" label="Ascensori" />
+                <ChoiceCheckbox name="area" value="Garage / box auto" label="Garage / box auto" />
+                <ChoiceCheckbox name="area" value="Cantine / locali tecnici" label="Cantine / locali tecnici" />
+                <ChoiceCheckbox name="area" value="Aree verdi / cortile" label="Aree verdi / cortile" />
+                <ChoiceCheckbox name="area" value="Lastrico solare / terrazzi condominiali" label="Lastrico solare / terrazzi condominiali" />
               </div>
             </div>
             <SelectField
               label="Il condominio ha già un servizio di pulizie?"
+              name="servizio_esistente"
               options={[
+                "Seleziona…",
                 "Sì — stiamo valutando un cambio",
                 "No — è un nuovo incarico",
                 "Sì — ma vogliamo un secondo preventivo",
               ]}
             />
-            <InputField label="Quando scade il contratto attuale?" placeholder="Es. dicembre 2026" />
+            <InputField label="Quando scade il contratto attuale?" placeholder="Es. dicembre 2026" name="scadenza_contratto" />
             <SelectField
               label="Frequenza attuale o desiderata"
-              options={["Settimanale", "Bisettimanale", "Trisettimanale", "Da definire"]}
+              name="frequenza"
+              options={["Seleziona…", "Settimanale", "Bisettimanale", "Trisettimanale", "Da definire"]}
             />
             <SelectField
               label="Il preventivo deve essere presentato in assemblea?"
-              options={["Sì — ho bisogno di documentazione formale", "No — è una valutazione preliminare"]}
+              name="documentazione_assemblea"
+              options={["Seleziona…", "Sì — ho bisogno di documentazione formale", "No — è una valutazione preliminare"]}
             />
-            <InputField label="Telefono*" placeholder="+39 ..." />
-            <InputField label="Email*" placeholder="nome@email.it" />
+            <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+            <InputField label="Email*" placeholder="nome@email.it" name="email" type="email" required autoComplete="email" />
             <div className="md:col-span-2">
               <TextareaField
                 label="Note"
                 placeholder="Es. materiali particolari nelle scale, presenza di portiere, orari preferiti per gli interventi, esigenze specifiche dell'assemblea…"
+                name="note"
               />
             </div>
           </div>
           <div className="mt-[16px]">
-            <PrimaryCtaButton invert>Richiedi il preventivo — pronto per l&apos;assemblea condominiale</PrimaryCtaButton>
+            <FormSubmitPrimaryButton invert>
+              Richiedi il preventivo — pronto per l&apos;assemblea condominiale
+            </FormSubmitPrimaryButton>
           </div>
           <p className="mt-[12px] m-0 text-[14px] leading-[1.55] text-[#3a3b36]">
             Il preventivo include descrizione dettagliata dei servizi, frequenze e costo mensile. Formato adatto alla
             presentazione in assemblea condominiale.
           </p>
-        </form>
+        </LeadFormShell>
         <a href="https://wa.me/" className="mt-[14px] inline-flex text-[14px] text-[#1a1f0d] underline">
           Preferisci un confronto diretto? Scrivici su WhatsApp →
         </a>

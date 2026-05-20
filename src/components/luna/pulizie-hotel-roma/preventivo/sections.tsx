@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FaqItem, InputField, PrimaryCtaButton, SectionBadge, SectionShell, SelectField, SiteFooter, SiteHeaderPill, TextareaField } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
+import { FaqItem, InputField, SectionBadge, SectionShell, SelectField, SiteFooter, SiteHeaderPill, TextareaField } from "@/components/luna/ui";
 import { useState } from "react";
 
 const objections = [
@@ -67,22 +68,44 @@ function MainFormBlock() {
           Compila il form. Ti richiamiamo entro poche ore per fissare un sopralluogo gratuito presso la tua struttura.
           Riceverai una proposta dettagliata entro 48 ore — senza impegno, senza costi nascosti.
         </p>
-        <form className="mt-[20px] md:mt-[24px] rounded-[20px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+        <LeadFormShell
+          source="pulizie-hotel-roma-preventivo"
+          className="mt-[20px] md:mt-[24px] rounded-[20px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+        >
           <h2 className="m-0 font-serif text-[26px] md:text-[36px] leading-[1.05] tracking-[-0.02em] text-[#161714]">Raccontaci la tua struttura</h2>
           <div className="mt-[16px] grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-            <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
+            <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
             <SelectField
               label="Ruolo in struttura*"
-              options={["Proprietario", "Direttore d'albergo", "Responsabile housekeeping", "General manager", "Altro"]}
+              name="ruolo"
+              required
+              options={["Seleziona…", "Proprietario", "Direttore d'albergo", "Responsabile housekeeping", "General manager", "Altro"]}
             />
-            <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" />
-            <InputField label="Sito web o indirizzo della struttura" placeholder="https://... oppure indirizzo" />
-            <SelectField label="Categoria*" options={["3 stelle", "4 stelle", "5 stelle", "Boutique / Design hotel", "Aparthotel", "Altro"]} />
-            <SelectField label="Numero di camere*" options={["Fino a 20 camere", "Da 21 a 50 camere", "Da 51 a 100 camere", "Oltre 100 camere"]} />
-            <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
+            <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" name="nome_struttura" required />
+            <InputField
+              label="Sito web o indirizzo della struttura"
+              placeholder="https://... oppure indirizzo"
+              name="sito_web_o_indirizzo"
+            />
+            <SelectField
+              label="Categoria*"
+              name="categoria"
+              required
+              options={["Seleziona…", "3 stelle", "4 stelle", "5 stelle", "Boutique / Design hotel", "Aparthotel", "Altro"]}
+            />
+            <SelectField
+              label="Numero di camere*"
+              name="numero_camere"
+              required
+              options={["Seleziona…", "Fino a 20 camere", "Da 21 a 50 camere", "Da 51 a 100 camere", "Oltre 100 camere"]}
+            />
+            <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
             <SelectField
               label="Tipo di servizio richiesto*"
+              name="tipo_servizio"
+              required
               options={[
+                "Seleziona…",
                 "Servizio continuativo (pulizia quotidiana / ricorrente)",
                 "Intervento straordinario una tantum",
                 "Sanificazione professionale",
@@ -91,35 +114,50 @@ function MainFormBlock() {
             />
             <SelectField
               label="Come gestite attualmente le pulizie?"
-              options={["Personale interno assunto", "Altra impresa di pulizie", "Non c'è una gestione strutturata", "Siamo una struttura nuova"]}
+              name="gestione_attuale"
+              options={[
+                "Seleziona…",
+                "Personale interno assunto",
+                "Altra impresa di pulizie",
+                "Non c'è una gestione strutturata",
+                "Siamo una struttura nuova",
+              ]}
             />
             <SelectField
               label="Quando vorreste iniziare?"
-              options={["Il prima possibile", "Entro 1 mese", "Entro 3 mesi", "Sto solo raccogliendo preventivi"]}
+              name="quando_inizio"
+              options={["Seleziona…", "Il prima possibile", "Entro 1 mese", "Entro 3 mesi", "Sto solo raccogliendo preventivi"]}
             />
-            <InputField label="Email*" placeholder="nome@hotel.it" />
-            <InputField label="Telefono*" placeholder="+39 ..." />
+            <InputField label="Email*" placeholder="nome@hotel.it" name="email" type="email" required autoComplete="email" />
+            <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
           </div>
           <div className="mt-[14px]">
-            <TextareaField label="Note o richieste particolari" placeholder="Es. materiali particolari, orari preferiti, aree critiche, esigenze specifiche…" />
+            <TextareaField
+              label="Note o richieste particolari"
+              placeholder="Es. materiali particolari, orari preferiti, aree critiche, esigenze specifiche…"
+              name="note"
+            />
           </div>
           <div className="mt-[16px]">
-            <PrimaryCtaButton>Invia la richiesta — ti richiamiamo entro poche ore</PrimaryCtaButton>
+            <FormSubmitPrimaryButton>Invia la richiesta — ti richiamiamo entro poche ore</FormSubmitPrimaryButton>
             <p className="mt-[10px] text-[13px] text-[#3a3b36]">
               Nessun venditore. Nessuna pressione. Solo una proposta concreta per la tua struttura.
             </p>
-            <p className="mt-[8px] text-[12px] leading-[1.6] text-[#6e6f68]">
-              Inviando questo modulo acconsenti al trattamento dei tuoi dati personali secondo la nostra{" "}
-              <Link href="/privacy-policy" className="underline text-[#161714]">
-                Privacy Policy
-              </Link>
-              . I tuoi dati non verranno ceduti a terzi.
-            </p>
+            <label className="mt-[12px] flex cursor-pointer items-start gap-[10px] text-[13px] leading-[1.55] text-[#3a3b36]">
+              <input type="checkbox" name="privacy" value="1" required className="mt-[3px] h-[16px] w-[16px] shrink-0 accent-[#99cc33]" />
+              <span>
+                Acconsento al trattamento dei miei dati personali secondo la{" "}
+                <Link href="/privacy-policy" className="underline text-[#161714]">
+                  Privacy Policy
+                </Link>
+                . I dati non verranno ceduti a terzi.
+              </span>
+            </label>
             <a href="https://wa.me/" className="mt-[12px] inline-flex text-[14px] text-[#161714] underline">
               Preferisci parlare subito con noi? Scrivici su WhatsApp →
             </a>
           </div>
-        </form>
+        </LeadFormShell>
       </div>
     </section>
   );

@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -338,35 +339,43 @@ function CompactFormSection() {
         Raccontaci la tua struttura: quante aree comuni hai, quali materiali sono presenti, come sono gestiti gli
         interventi oggi. Ti risponderemo con una proposta concreta entro poche ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="pulizie-hotel-roma-aree-comuni"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <InputField label="Nome della struttura*" placeholder="Hotel [Nome]" name="nome_struttura" required />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipologia aree comuni principali</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Tipologia aree comuni principali</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Lobby / Reception" />
-              <ChoiceChip label="Corridoi e scale" />
-              <ChoiceChip label="Sala colazione / Ristorante" />
-              <ChoiceChip label="Palestra / Spa" />
-              <ChoiceChip label="Aree esterne" />
+              <ChoiceCheckbox name="aree_comuni" value="Lobby / Reception" label="Lobby / Reception" />
+              <ChoiceCheckbox name="aree_comuni" value="Corridoi e scale" label="Corridoi e scale" />
+              <ChoiceCheckbox name="aree_comuni" value="Sala colazione / Ristorante" label="Sala colazione / Ristorante" />
+              <ChoiceCheckbox name="aree_comuni" value="Palestra / Spa" label="Palestra / Spa" />
+              <ChoiceCheckbox name="aree_comuni" value="Aree esterne" label="Aree esterne" />
             </div>
           </div>
-          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
-          <SelectField label="Tipo di servizio*" options={["Continuativo", "Straordinario", "Voglio un consiglio"]} />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@hotel.it" />
+          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
+          <SelectField
+            label="Tipo di servizio*"
+            name="tipo_servizio"
+            required
+            options={["Seleziona…", "Continuativo", "Straordinario", "Voglio un consiglio"]}
+          />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@hotel.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
-            <TextareaField label="Note" placeholder="Dettagli utili sulla tua struttura..." />
+            <TextareaField label="Note" placeholder="Dettagli utili sulla tua struttura..." name="note" />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Vuoi una risposta immediata? Scrivici su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-hotel-roma/" className="underline">
           /pulizie-hotel-roma/

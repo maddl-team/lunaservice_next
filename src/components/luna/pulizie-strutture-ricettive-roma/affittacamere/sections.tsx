@@ -3,8 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import {
-  ChoiceChip,
+  ChoiceCheckbox,
   FaqItem,
   InputField,
   PrimaryCtaButton,
@@ -323,13 +324,24 @@ function FormSection() {
         Dicci quante camere ha il tuo affittacamere e come funzionano i tuoi ospiti. Ti risponderemo con una proposta
         flessibile e su misura entro poche ore.
       </p>
-      <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+      <LeadFormShell
+        source="affittacamere"
+        className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-          <InputField label="Nome e cognome*" placeholder="Mario Rossi" />
-          <SelectField label="Numero di camere affittate*" options={["1 camera", "2 camere", "3 camere", "4 camere o più"]} />
+          <InputField label="Nome e cognome*" placeholder="Mario Rossi" name="nome" required autoComplete="name" />
+          <SelectField
+            label="Numero di camere affittate*"
+            name="numero_camere"
+            required
+            options={["Seleziona…", "1 camera", "2 camere", "3 camere", "4 camere o più"]}
+          />
           <SelectField
             label="Configurazione bagni*"
+            name="configurazione_bagni"
+            required
             options={[
+              "Seleziona…",
               "Ogni camera ha il bagno privato",
               "Bagno condiviso tra le camere ospiti",
               "Bagno condiviso tra ospiti e proprietario",
@@ -337,44 +349,57 @@ function FormSection() {
           />
           <SelectField
             label="Il proprietario vive nella stessa abitazione?*"
-            options={["Sì, sono sempre presente", "A volte", "No, l'abitazione è usata solo per l'affittacamere"]}
+            name="proprietario_in_abitazione"
+            required
+            options={["Seleziona…", "Sì, sono sempre presente", "A volte", "No, l'abitazione è usata solo per l'affittacamere"]}
           />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Piattaforme usate</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Airbnb" />
-              <ChoiceChip label="Booking.com" />
-              <ChoiceChip label="Prenotazioni dirette" />
-              <ChoiceChip label="Altro" />
+              <ChoiceCheckbox name="piattaforma" value="Airbnb" label="Airbnb" />
+              <ChoiceCheckbox name="piattaforma" value="Booking.com" label="Booking.com" />
+              <ChoiceCheckbox name="piattaforma" value="Prenotazioni dirette" label="Prenotazioni dirette" />
+              <ChoiceCheckbox name="piattaforma" value="Altro" label="Altro" />
             </div>
           </div>
           <SelectField
             label="Frequenza media dei cambi"
-            options={["Meno di 3 cambi a settimana", "Da 3 a 7 cambi a settimana", "Più di 7 cambi a settimana", "Molto variabile"]}
+            name="frequenza_cambi"
+            options={[
+              "Seleziona…",
+              "Meno di 3 cambi a settimana",
+              "Da 3 a 7 cambi a settimana",
+              "Più di 7 cambi a settimana",
+              "Molto variabile",
+            ]}
           />
           <div className="md:col-span-2">
-            <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Spazi condivisi da includere nella pulizia</label>
+            <span className="mb-[8px] block text-[13px] font-medium text-[#161714]">Spazi condivisi da includere nella pulizia</span>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-[10px]">
-              <ChoiceChip label="Corridoio / ingresso" />
-              <ChoiceChip label="Cucina comune" />
-              <ChoiceChip label="Sala comune" />
-              <ChoiceChip label="Nessuno spazio condiviso" />
+              <ChoiceCheckbox name="spazi_condivisi" value="Corridoio / ingresso" label="Corridoio / ingresso" />
+              <ChoiceCheckbox name="spazi_condivisi" value="Cucina comune" label="Cucina comune" />
+              <ChoiceCheckbox name="spazi_condivisi" value="Sala comune" label="Sala comune" />
+              <ChoiceCheckbox name="spazi_condivisi" value="Nessuno spazio condiviso" label="Nessuno spazio condiviso" />
             </div>
           </div>
-          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." />
-          <InputField label="Telefono*" placeholder="+39 ..." />
-          <InputField label="Email*" placeholder="nome@affittacamere.it" />
+          <InputField label="Zona di Roma*" placeholder="Es. Prati, Centro storico, EUR..." name="zona" required />
+          <InputField label="Telefono*" placeholder="+39 ..." name="telefono" type="tel" required autoComplete="tel" />
+          <InputField label="Email*" placeholder="nome@affittacamere.it" name="email" type="email" required autoComplete="email" />
           <div className="md:col-span-2">
-            <TextareaField label="Note" placeholder="Es. orari preferiti, esigenze di discrezione particolari, modalità di accesso, materiali specifici…" />
+            <TextareaField
+              label="Note"
+              placeholder="Es. orari preferiti, esigenze di discrezione particolari, modalità di accesso, materiali specifici…"
+              name="note"
+            />
           </div>
         </div>
         <div className="mt-[16px]">
-          <PrimaryCtaButton>Richiedi il preventivo gratuito</PrimaryCtaButton>
+          <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
         <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Preferisci parlare direttamente? Scrivici su WhatsApp →
         </a>
-      </form>
+      </LeadFormShell>
       <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
         <Link href="/pulizie-strutture-ricettive-roma/" className="underline">
           /pulizie-strutture-ricettive-roma/

@@ -14,6 +14,7 @@ import {
   SiteHeaderPill,
   TextareaField,
 } from "@/components/luna/ui";
+import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 
 const trustItems = [
   "Massima riservatezza garantita",
@@ -407,13 +408,18 @@ function FormSection() {
           Non è necessario descrivere tutto nei dettagli. Dicci quello che ti senti di dirci — il resto lo valutiamo
           durante il sopralluogo, che è gratuito e senza impegno.
         </p>
-        <form className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]">
+        <LeadFormShell
+          source="ambienti-degradati"
+          className="mt-[22px] rounded-[24px] border border-[rgba(0,0,0,0.08)] bg-white px-[16px] md:px-[24px] py-[18px] md:py-[24px]"
+        >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-[14px]">
-            <InputField label="Nome*" placeholder="Il tuo nome" />
-            <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." />
+            <InputField label="Nome*" placeholder="Il tuo nome" name="nome" required autoComplete="name" />
+            <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." name="zona" required />
             <SelectField
               label="Tipo di ambiente"
+              name="tipo_ambiente"
               options={[
+                "Seleziona…",
                 "Appartamento / casa privata",
                 "Locale commerciale / garage / deposito",
                 "Preferisco non specificare",
@@ -421,41 +427,56 @@ function FormSection() {
             />
             <SelectField
               label="Superficie approssimativa"
-              options={["Fino a 50 mq", "Da 50 a 100 mq", "Oltre 100 mq", "Non so"]}
+              name="superficie"
+              options={["Seleziona…", "Fino a 50 mq", "Da 50 a 100 mq", "Oltre 100 mq", "Non so"]}
             />
             <div className="md:col-span-2">
               <TextareaField
                 label="Descrizione della situazione"
                 placeholder="Descrivi la situazione con il livello di dettaglio che preferisci. Non è obbligatorio — puoi anche scriverci solo che hai bisogno di un sopralluogo."
+                name="descrizione"
               />
             </div>
-            <div>
-              <label className="mb-[8px] block text-[13px] font-medium text-[#161714]">Come preferisci essere contattato?*</label>
-              <select
-                value={contactPreference}
-                onChange={(event) => setContactPreference(event.target.value)}
-                className="w-full rounded-[14px] border border-[rgba(0,0,0,0.08)] bg-white px-[18px] py-[16px] text-[15px]"
-              >
-                <option>Telefonicamente</option>
-                <option>Via WhatsApp</option>
-                <option>Via email — preferisco non essere chiamato</option>
-              </select>
-            </div>
-            {showPhone ? <InputField label="Telefono*" placeholder="+39 ..." /> : null}
-            {showEmail ? <InputField label="Email*" placeholder="nome@email.it" /> : null}
+            <SelectField
+              label="Come preferisci essere contattato?*"
+              name="preferenza_contatto"
+              required
+              value={contactPreference}
+              onChange={(event) => setContactPreference(event.target.value)}
+              options={["Telefonicamente", "Via WhatsApp", "Via email — preferisco non essere chiamato"]}
+            />
+            <InputField
+              label="Telefono*"
+              placeholder="+39 ..."
+              name="telefono"
+              type="tel"
+              autoComplete="tel"
+              disabled={!showPhone}
+              required={showPhone}
+            />
+            <InputField
+              label="Email*"
+              placeholder="nome@email.it"
+              name="email"
+              type="email"
+              autoComplete="email"
+              disabled={!showEmail}
+              required={showEmail}
+            />
             <SelectField
               label="Vuoi che il sopralluogo sia il più discreto possibile?"
-              options={["Sì — preferisco massima discrezione", "No — non è necessario"]}
+              name="discrezione"
+              options={["Seleziona…", "Sì — preferisco massima discrezione", "No — non è necessario"]}
             />
           </div>
           <div className="mt-[16px]">
-            <PrimaryCtaButton invert>Invia la richiesta — ti risponderemo con rispetto e riservatezza</PrimaryCtaButton>
+            <FormSubmitPrimaryButton invert>Invia la richiesta — ti risponderemo con rispetto e riservatezza</FormSubmitPrimaryButton>
           </div>
           <p className="mt-[12px] m-0 text-[14px] leading-[1.55] text-[#3a3b36]">
             I tuoi dati non vengono condivisi con nessuno. La tua richiesta viene gestita direttamente dal
             responsabile — non da un centralino.
           </p>
-        </form>
+        </LeadFormShell>
         <a href="https://wa.me/" className="mt-[14px] inline-flex text-[14px] text-[#1a1f0d] underline">
           Preferisci scrivere direttamente? WhatsApp è il canale più rapido e riservato →
         </a>
