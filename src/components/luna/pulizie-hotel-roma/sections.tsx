@@ -292,6 +292,28 @@ function InternalLinksSection() {
   );
 }
 
+function SpecializedStaffSection() {
+  return (
+    <section className="px-[16px] md:px-[56px] pt-[100px] md:pt-[140px]">
+      <SectionIntro
+        badge="Personale specializzato"
+        title={hotelPageContent.specializedStaff.title}
+        titleClassName="text-[30px] md:text-[50px] leading-[1.04]"
+      />
+      <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">{hotelPageContent.specializedStaff.intro}</p>
+      <div className="mt-[28px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
+        {hotelPageContent.specializedStaff.cards.map((card) => (
+          <Link key={card.title} href={card.href} className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px] block">
+            <h3 className="m-0 font-serif text-[26px] leading-[1.1] tracking-[-0.015em] text-[#161714]">{card.title}</h3>
+            <p className="mt-[12px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{card.body}</p>
+            <span className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">Scopri il servizio →</span>
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function HotelQuoteSection() {
   return (
     <SectionShell
@@ -407,6 +429,7 @@ export function HotelPageBody() {
       <ComparisonSection />
       <HotelTypesSection />
       <InternalLinksSection />
+      <SpecializedStaffSection />
       <HotelQuoteSection />
       <HotelFaqSection />
       <SiteFooter />

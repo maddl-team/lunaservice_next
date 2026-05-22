@@ -27,6 +27,10 @@ const ALLOWED_SOURCES = new Set([
   "pulizie-hotel-roma-aree-comuni",
   "pulizie-hotel-roma-sanificazione",
   "pulizie-hotel-roma-preventivo",
+  "pulizie-hotel-roma-facchinaggio",
+  "pulizie-hotel-roma-governanti",
+  "pulizie-hotel-roma-bellboy",
+  "pulizie-hotel-roma-supervisore-zona",
 ]);
 
 const DEFAULT_TO = "info@maddl.agency";

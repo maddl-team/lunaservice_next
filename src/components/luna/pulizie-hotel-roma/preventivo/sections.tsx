@@ -66,7 +66,20 @@ function MainFormBlock() {
         </h1>
         <p className="mt-[16px] md:mt-[20px] max-w-[980px] text-[16px] md:text-[19px] leading-[1.55] text-[#3a3b36]">
           Compila il form. Ti richiamiamo entro poche ore per fissare un sopralluogo gratuito presso la tua struttura.
-          Riceverai una proposta dettagliata entro 48 ore — senza impegno, senza costi nascosti.
+          Riceverai una proposta dettagliata entro 48 ore — senza impegno, senza costi nascosti. Se cerchi una{" "}
+          <Link href="/pulizie-hotel-roma/governanti/" className="underline text-[#161714]">
+            governante d&apos;albergo
+          </Link>{" "}
+          per coordinare l&apos;housekeeping, possiamo valutare anche quella figura in fase di sopralluogo. Per
+          l&apos;accoglienza e il portabagagli, valutiamo anche il{" "}
+          <Link href="/pulizie-hotel-roma/bellboy/" className="underline text-[#161714]">
+            servizio bellboy
+          </Link>{" "}
+          o un{" "}
+          <Link href="/pulizie-hotel-roma/supervisore-zona/" className="underline text-[#161714]">
+            supervisore di zona
+          </Link>
+          , valutiamo anche quelle figure in fase di sopralluogo.
         </p>
         <LeadFormShell
           source="pulizie-hotel-roma-preventivo"

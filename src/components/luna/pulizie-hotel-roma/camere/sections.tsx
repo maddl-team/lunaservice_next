@@ -293,6 +293,13 @@ function SupervisorSection() {
           Quando qualcosa non va, lo saprai entro minuti, non entro giorni. E verrà corretto prima che l&apos;ospite entri
           in camera.
         </p>
+        <p className="m-0">
+          Per il coordinamento quotidiano del reparto housekeeping in struttura, Luna Service fornisce anche{" "}
+          <Link href="/pulizie-hotel-roma/governanti/" className="underline text-[#161714]">
+            governanti d&apos;albergo
+          </Link>{" "}
+          qualificate: pianificazione turni, controllo qualità camere e gestione del personale di piano.
+        </p>
       </div>
     </section>
   );

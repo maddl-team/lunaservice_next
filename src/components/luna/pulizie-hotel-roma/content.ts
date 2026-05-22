@@ -139,6 +139,33 @@ export const hotelPageContent = {
     ],
     cta: "Richiedi subito il preventivo per il tuo hotel",
   },
+  specializedStaff: {
+    title: "Personale alberghiero specializzato: le figure operative che completano il servizio",
+    intro:
+      "Oltre al servizio di pulizie e sanificazione, Luna Service fornisce agli hotel di Roma le figure operative specializzate che garantiscono la qualità dell'intera esperienza degli ospiti — dall'accoglienza all'ingresso al presidio continuo degli standard su ogni piano.",
+    cards: [
+      {
+        title: "Servizio Facchinaggio",
+        body: "Movimentazione bagagli, allestimento sale eventi, supporto operativo ai reparti. Personale formato su standard alberghieri, disponibile su turni e reperibilità.",
+        href: "/pulizie-hotel-roma/facchinaggio/",
+      },
+      {
+        title: "Servizio Governanti",
+        body: "Coordinamento del reparto housekeeping, controllo qualità camere, gestione del personale di piano. Figure con esperienza certificata su strutture di categoria.",
+        href: "/pulizie-hotel-roma/governanti/",
+      },
+      {
+        title: "Servizio Bellboy",
+        body: "Accoglienza degli ospiti, gestione bagagli, assistenza agli arrivi e alle partenze. Personale formato sulla comunicazione e sul comportamento professionale alberghiero.",
+        href: "/pulizie-hotel-roma/bellboy/",
+      },
+      {
+        title: "Supervisore di Zona",
+        body: "Monitoraggio costante dell'andamento dei lavori, ispezioni qualità sistematiche, coordinamento tra reparti, reportistica per la direzione. La figura che protegge la reputazione della struttura.",
+        href: "/pulizie-hotel-roma/supervisore-zona/",
+      },
+    ],
+  },
   form: {
     title: "Preventivo gratuito per le pulizie del tuo hotel a Roma",
     intro:
