@@ -47,6 +47,11 @@ function escapeHtml(s: string): string {
     .replace(/"/g, "&quot;");
 }
 
+/** Next.js / React inject these into FormData for server actions — not user input. */
+function isInternalFormField(key: string): boolean {
+  return key.startsWith("_") || key.startsWith("$") || key === "company_website";
+}
+
 /** Strip wrapping quotes often pasted into Vercel env values from .env examples. */
 function normalizeEnvEmail(value: string | undefined, fallback: string): string {
   const trimmed = value?.trim() ?? "";
@@ -74,7 +79,7 @@ export async function submitLeadForm(_prev: LeadFormState, formData: FormData): 
 
     const entries: [string, string][] = [];
     for (const [key, value] of formData.entries()) {
-      if (key.startsWith("_") || key === "company_website") continue;
+      if (isInternalFormField(key)) continue;
       if (typeof value === "string") entries.push([key, value]);
     }
 
