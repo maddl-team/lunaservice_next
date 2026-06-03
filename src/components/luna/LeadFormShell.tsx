@@ -3,7 +3,8 @@
 import type { ReactNode } from "react";
 import { useActionState } from "react";
 import { useFormStatus } from "react-dom";
-import { submitLeadForm, leadFormInitialState } from "@/app/actions/submit-lead";
+import { submitLeadForm } from "@/app/actions/submit-lead";
+import { leadFormInitialState } from "@/lib/lead-form-state";
 import { PrimaryCtaButton } from "@/components/luna/ui";
 
 function HoneypotField() {
