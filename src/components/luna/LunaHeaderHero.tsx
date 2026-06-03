@@ -25,9 +25,6 @@ export function LunaHeaderHero() {
                   <span className="h-[8px] w-[8px] rounded-full bg-[#99cc33]" />
                   Disponibili oggi · risposta entro 2h
                 </span>
-                <span className="hidden md:block font-mono text-[11px] uppercase tracking-[0.08em] text-[rgba(255,255,255,0.55)]">
-                  Roma · Est. 2014
-                </span>
               </div>
 
               <div className="max-w-[1100px]">
