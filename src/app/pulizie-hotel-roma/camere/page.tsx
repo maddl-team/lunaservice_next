@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { CamereHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/camere/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Camere Hotel Roma | Riassetto e Igienizzazione Professionale — Luna Service",
   description:
     "Servizio professionale di pulizia e riassetto camere per hotel a Roma. Checklist operativa certificata, operatori formati per ambienti alberghieri, supervisore dedicato.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/camere/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/camere/",
+});
 export default function PulizieCamereHotelRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -58,15 +57,7 @@ export default function PulizieCamereHotelRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-      { "@type": "ListItem", position: 3, name: "Pulizie Camere Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/camere/" },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/camere/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

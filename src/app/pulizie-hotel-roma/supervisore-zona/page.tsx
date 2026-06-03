@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { SupervisoreZonaHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/supervisore-zona/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Supervisore di Zona Hotel Roma | Monitoraggio e Controllo Qualità — Luna Service",
   description:
     "Supervisore di zona per hotel a Roma: monitoraggio costante dell'andamento dei lavori, figure qualificate con anni di esperienza su strutture di livello. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/supervisore-zona/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/supervisore-zona/",
+});
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -65,20 +64,7 @@ const faqSchema = {
   ],
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-    { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Servizio Supervisore di Zona Hotel Roma",
-      item: "https://www.lunaservice.it/pulizie-hotel-roma/supervisore-zona/",
-    },
-  ],
-};
+const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/supervisore-zona/"]);
 
 const serviceSchema = {
   "@context": "https://schema.org",

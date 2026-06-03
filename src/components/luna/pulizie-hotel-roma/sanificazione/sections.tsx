@@ -1,6 +1,9 @@
 "use client";
 
+import { whatsappHref } from "@/components/luna/navigation";
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import { useState } from "react";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
@@ -110,7 +113,7 @@ function HeroSanificazione() {
                 <div className="mt-[24px] flex flex-col sm:flex-row gap-[12px]">
                   <PrimaryCtaButton>Richiedi il preventivo per la sanificazione</PrimaryCtaButton>
                   <a
-                    href="https://wa.me/"
+                    href={whatsappHref}
                     className="inline-flex items-center justify-center rounded-[999px] border border-[rgba(255,255,255,0.35)] px-[26px] py-[18px] text-[15px] text-[#fbf9f3]"
                   >
                     Scrivici su WhatsApp
@@ -248,38 +251,6 @@ function WhenNeededSection() {
   );
 }
 
-function CertificationSection() {
-  return (
-    <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
-      <SectionBadge>La certificazione</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
-        La certificazione dell&apos;intervento: perché è importante e cosa contiene
-      </h2>
-      <div className="mt-[24px] max-w-[980px] space-y-[16px] text-[17px] leading-[1.7] text-[#3a3b36]">
-        <p className="m-0">
-          Ogni intervento di sanificazione eseguito da Luna Service è documentato e certificato. Non si tratta di una
-          formalità: è una tutela concreta per l&apos;albergatore.
-        </p>
-        <p className="m-0">
-          La certificazione dell&apos;intervento di sanificazione contiene: data e ora dell&apos;intervento, identificazione
-          delle aree trattate, metodo utilizzato — ozono o nebulizzazione — con specifiche tecniche, prodotto utilizzato
-          nel caso della nebulizzazione con scheda di sicurezza allegata, concentrazione e tempo di esposizione, nome e
-          qualifica dell&apos;operatore che ha eseguito il trattamento, dichiarazione di conformità al protocollo adottato.
-        </p>
-        <p className="m-0">
-          Questo documento può essere presentato in caso di ispezione ASL, inserito nel dossier qualità della struttura,
-          messo a disposizione degli ospiti che lo richiedono — pratica sempre più comune nelle strutture di fascia alta —
-          e utilizzato come elemento di comunicazione sul sito o sui canali di prenotazione della struttura.
-        </p>
-        <p className="m-0">
-          Sempre più hotel a Roma stanno integrando la certificazione di sanificazione nella comunicazione verso gli ospiti
-          come elemento di differenziazione competitiva. È una scelta che risponde a una sensibilità reale del mercato.
-        </p>
-      </div>
-    </section>
-  );
-}
-
 function IntegrationSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
@@ -385,35 +356,10 @@ function FormSection() {
         <div className="mt-[16px]">
           <FormSubmitPrimaryButton>Richiedi il preventivo per la sanificazione</FormSubmitPrimaryButton>
         </div>
-        <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
+        <a href={whatsappHref} className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Hai un&apos;urgenza? Scrivici subito su WhatsApp →
         </a>
       </LeadFormShell>
-      <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
-        <Link href="/pulizie-hotel-roma/" className="underline">
-          /pulizie-hotel-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/camere/" className="underline">
-          /pulizie-hotel-roma/camere/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/aree-comuni/" className="underline">
-          /pulizie-hotel-roma/aree-comuni/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/bagni/" className="underline">
-          /pulizie-hotel-roma/bagni/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/preventivo/" className="underline">
-          /pulizie-hotel-roma/preventivo/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/sanificazione-ambienti-roma/" className="underline">
-          /sanificazione-ambienti-roma/
-        </Link>
-      </div>
     </SectionShell>
   );
 }
@@ -451,20 +397,11 @@ export function SanificazioneHotelRomaPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li>Pulizie Hotel Roma</li>
-          <li>›</li>
-          <li className="text-[#161714]">Sanificazione Camere Hotel Roma</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/pulizie-hotel-roma/sanificazione/"]} />
       <HeroSanificazione />
       <DistinctionSection />
       <MethodsSection />
       <WhenNeededSection />
-      <CertificationSection />
       <IntegrationSection />
       <FormSection />
       <FaqSection />

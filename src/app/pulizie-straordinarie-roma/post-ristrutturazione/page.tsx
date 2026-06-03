@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { SgrossoPostRistrutturazioneRomaPageBody } from "@/components/luna/pulizie-straordinarie-roma/post-ristrutturazione/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Sgrosso Post Ristrutturazione Roma | Pulizia Dopo Lavori Edili — Luna Service",
   description:
     "Sgrosso professionale post ristrutturazione a Roma. Rimozione polvere edile, residui di calce, silicone e vernice. Intervento rapido, preventivo gratuito con sopralluogo.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-straordinarie-roma/post-ristrutturazione/",
-  },
-};
-
+  path: "/pulizie-straordinarie-roma/post-ristrutturazione/",
+});
 export default function SgrossoPostRistrutturazioneRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,25 +65,7 @@ export default function SgrossoPostRistrutturazioneRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Straordinarie Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Sgrosso Post Ristrutturazione Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/post-ristrutturazione/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-straordinarie-roma/post-ristrutturazione/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

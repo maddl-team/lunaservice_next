@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { FacchinaggioHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/facchinaggio/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Servizio Facchinaggio Hotel Roma | Personale Qualificato — Luna Service",
   description:
     "Servizio di facchinaggio professionale per hotel a Roma: movimentazione bagagli, allestimento sale e supporto operativo. Personale formato e assicurato. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/facchinaggio/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/facchinaggio/",
+});
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -65,20 +64,7 @@ const faqSchema = {
   ],
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-    { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Servizio Facchinaggio Hotel Roma",
-      item: "https://www.lunaservice.it/pulizie-hotel-roma/facchinaggio/",
-    },
-  ],
-};
+const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/facchinaggio/"]);
 
 const serviceSchema = {
   "@context": "https://schema.org",

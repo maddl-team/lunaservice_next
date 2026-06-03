@@ -1,6 +1,9 @@
 "use client";
 
+import { whatsappHref } from "@/components/luna/navigation";
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -152,7 +155,7 @@ function HeroSection() {
                 <div className="mt-[24px] flex flex-col sm:flex-row gap-[12px]">
                   <PrimaryCtaButton>Richiedi il preventivo per la pulizia del balcone</PrimaryCtaButton>
                   <a
-                    href="https://wa.me/"
+                    href={whatsappHref}
                     className="inline-flex items-center justify-center rounded-[999px] border border-[rgba(255,255,255,0.35)] px-[26px] py-[18px] text-[15px] text-[#fbf9f3]"
                   >
                     Scrivici su WhatsApp
@@ -451,35 +454,10 @@ function FormSection() {
         <div className="mt-[16px]">
           <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
-        <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
+        <a href={whatsappHref} className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Hai un&apos;urgenza? Scrivici subito su WhatsApp →
         </a>
       </LeadFormShell>
-      <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
-        <Link href="/pulizie-straordinarie-roma/" className="underline">
-          /pulizie-straordinarie-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-straordinarie-roma/post-ristrutturazione/" className="underline">
-          /pulizie-straordinarie-roma/post-ristrutturazione/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-straordinarie-roma/cantina-allagata/" className="underline">
-          /pulizie-straordinarie-roma/cantina-allagata/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-straordinarie-roma/ambienti-degradati/" className="underline">
-          /pulizie-straordinarie-roma/ambienti-degradati/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-condominiali-roma/" className="underline">
-          /pulizie-condominiali-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/" className="underline">
-          /pulizie-hotel-roma/
-        </Link>
-      </div>
     </SectionShell>
   );
 }
@@ -517,15 +495,7 @@ export function PuliziaBalconiPiccioniRomaPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li>Pulizie Straordinarie Roma</li>
-          <li>›</li>
-          <li className="text-[#161714]">Pulizia Balconi Escrementi Piccioni Roma</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/pulizie-straordinarie-roma/balconi-piccioni/"]} />
       <HeroSection />
       <RiskSection />
       <RomaSection />

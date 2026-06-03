@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const sans = Manrope({
@@ -21,9 +22,21 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Luna Service — Pulizie professionali per hotel a Roma",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Luna Service — Pulizie professionali per hotel a Roma",
+    template: "%s",
+  },
   description:
     "Impresa di pulizie a Roma specializzata in hotel, B&B, case vacanza e condomini. Squadre dedicate, intervento entro 24h, preventivo gratuito.",
+  openGraph: {
+    siteName: "Luna Service",
+    locale: "it_IT",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

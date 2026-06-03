@@ -11,6 +11,7 @@ import {
   TextareaField,
 } from "@/components/luna/ui";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
+import { siteEmail, siteHoursShort, sitePhoneDisplay, siteTelHref } from "@/lib/contact";
 import { useState } from "react";
 
 const faqs = [
@@ -76,13 +77,20 @@ export function LunaBottomSections() {
                 </div>
                 <div className="mt-[24px] flex flex-col gap-[12px] text-[15px] text-[#1a1f0d]">
                   <div>
-                    📞 <strong>+39 06 0000 0000</strong> · lun-sab 7-20
+                    📞{" "}
+                    <a href={siteTelHref} className="underline">
+                      <strong>{sitePhoneDisplay}</strong>
+                    </a>{" "}
+                    · {siteHoursShort}
                   </div>
                   <div>
                     💬 <strong>WhatsApp diretto</strong> · risposta entro 1h
                   </div>
                   <div>
-                    ✉ <strong>preventivi@lunaservice.it</strong>
+                    ✉{" "}
+                    <a href={`mailto:${siteEmail}`} className="underline">
+                      <strong>{siteEmail}</strong>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -171,9 +179,12 @@ export function LunaBottomSections() {
                 </div>
               ))}
             </div>
-            <a className="mt-[32px] inline-flex cursor-pointer items-center gap-[10px] border-b border-current pb-[4px] text-[14px] text-[#161714]">
+            <Link
+              href="/aree-servite/"
+              className="mt-[32px] inline-flex items-center gap-[10px] border-b border-current pb-[4px] text-[14px] text-[#161714]"
+            >
               Vedi tutte le aree servite →
-            </a>
+            </Link>
           </div>
           <div className="relative min-h-[560px] overflow-hidden rounded-[28px] bg-[#161714] p-[32px]">
             <svg viewBox="0 0 400 480" className="block h-full w-full">

@@ -1,6 +1,9 @@
 "use client";
 
+import { whatsappHref } from "@/components/luna/navigation";
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -126,26 +129,6 @@ const useCaseItems = [
   },
 ] as const;
 
-const certificationContents = [
-  "Data e ora dell'intervento",
-  "Identificazione delle aree trattate con metratura",
-  "Metodo utilizzato — ozono o nebulizzazione — con specifiche tecniche",
-  "Prodotto utilizzato nel caso della nebulizzazione con scheda di sicurezza allegata",
-  "Concentrazione e tempo di esposizione",
-  "Nome e qualifica dell'operatore che ha eseguito il trattamento",
-  "Dichiarazione di conformità al protocollo adottato",
-  "Documentazione fotografica delle aree trattate su richiesta",
-] as const;
-
-const certificationUses = [
-  "Ispezioni ASL e audit sanitari per strutture ricettive e sanitarie",
-  "Dossier qualità aziendale per uffici e ambienti di lavoro",
-  "Pratiche assicurative in seguito a eventi specifici",
-  "Comunicazione verso ospiti e clienti — sempre più richiesta nel settore hospitality",
-  "Rendiconto all'assemblea condominiale per le parti comuni",
-  "Documentazione per landlord o property manager in caso di contestazioni",
-] as const;
-
 const faqItems = [
   {
     q: "Qual è la differenza tra sanificazione e disinfezione?",
@@ -198,7 +181,7 @@ function HeroSection() {
                     Richiedi il preventivo per la sanificazione
                   </a>
                   <a
-                    href="https://wa.me/"
+                    href={whatsappHref}
                     className="inline-flex items-center justify-center rounded-[999px] border border-[rgba(255,255,255,0.35)] px-[26px] py-[18px] text-[15px] text-[#fbf9f3]"
                   >
                     Scrivici su WhatsApp
@@ -358,47 +341,6 @@ function UseCasesSection() {
   );
 }
 
-function CertificationSection() {
-  return (
-    <SectionShell
-      fullBleed
-      outerClassName="mt-[96px] md:mt-[140px]"
-      bgClassName="bg-[#161714]"
-      innerClassName="rounded-[32px]"
-      boxedClassName="px-[16px] md:px-[56px] py-[64px] md:py-[90px]"
-    >
-      <SectionBadge dark>La certificazione</SectionBadge>
-      <h2 className="mt-[18px] m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#fbf9f3]">
-        La certificazione di sanificazione: cosa è, cosa contiene e perché è importante
-      </h2>
-      <p className="mt-[18px] max-w-[980px] text-[17px] leading-[1.7] text-[rgba(251,249,243,0.82)]">
-        Ogni intervento di sanificazione eseguito da Luna Service è documentato e certificato. È la differenza che
-        distingue un intervento professionale da uno improvvisato — e che ha valore concreto in più contesti.
-      </p>
-      <div className="mt-[24px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
-        <article className="rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] px-[24px] py-[24px]">
-          <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.02em] text-[#fbf9f3]">
-            Cosa contiene la certificazione di sanificazione di Luna Service
-          </h3>
-          <ul className="mt-[12px] mb-0 list-disc space-y-[10px] pl-[20px] text-[15px] leading-[1.65] text-[rgba(251,249,243,0.82)]">
-            {certificationContents.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-        <article className="rounded-[24px] border border-[rgba(255,255,255,0.08)] bg-[rgba(255,255,255,0.04)] px-[24px] py-[24px]">
-          <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.02em] text-[#fbf9f3]">A cosa serve la certificazione</h3>
-          <ul className="mt-[12px] mb-0 list-disc space-y-[10px] pl-[20px] text-[15px] leading-[1.65] text-[rgba(251,249,243,0.82)]">
-            {certificationUses.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </article>
-      </div>
-    </SectionShell>
-  );
-}
-
 function FormSection() {
   return (
     <div id="preventivo-form">
@@ -464,17 +406,6 @@ function FormSection() {
             />
             <InputField label="Zona di Roma*" placeholder="Es. EUR, Prati, Ostia..." name="zona" required />
             <SelectField
-              label="Hai bisogno della certificazione dell'intervento?"
-              name="certificazione"
-              options={[
-                "Seleziona…",
-                "Sì — per ispezioni o audit",
-                "Sì — per comunicazione verso ospiti / clienti",
-                "Sì — per pratiche assicurative",
-                "Non so ancora",
-              ]}
-            />
-            <SelectField
               label="Quando vorreste intervenire?"
               name="tempistiche"
               options={["Seleziona…", "Il prima possibile", "Entro 1 settimana", "Entro 1 mese", "Data da definire"]}
@@ -493,30 +424,9 @@ function FormSection() {
             <FormSubmitPrimaryButton invert>Richiedi il preventivo per la sanificazione</FormSubmitPrimaryButton>
           </div>
         </LeadFormShell>
-        <a href="https://wa.me/" className="mt-[14px] inline-flex text-[14px] text-[#1a1f0d] underline">
+        <a href={whatsappHref} className="mt-[14px] inline-flex text-[14px] text-[#1a1f0d] underline">
           Hai un&apos;urgenza o una domanda tecnica? Scrivici su WhatsApp →
         </a>
-        <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
-          <Link href="/pulizie-hotel-roma/sanificazione/" className="underline">
-            /pulizie-hotel-roma/sanificazione/
-          </Link>{" "}
-          ·{" "}
-          <Link href="/pulizie-condominiali-roma/" className="underline">
-            /pulizie-condominiali-roma/
-          </Link>{" "}
-          ·{" "}
-          <Link href="/pulizie-straordinarie-roma/post-ristrutturazione/" className="underline">
-            /pulizie-straordinarie-roma/post-ristrutturazione/
-          </Link>{" "}
-          ·{" "}
-          <Link href="/blog/" className="underline">
-            /blog/
-          </Link>{" "}
-          ·{" "}
-          <Link href="/contatti/" className="underline">
-            /contatti/
-          </Link>
-        </div>
       </SectionShell>
     </div>
   );
@@ -555,19 +465,12 @@ export function SanificazioneAmbientiRomaPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li className="text-[#161714]">Sanificazione Ambienti Roma</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/sanificazione-ambienti-roma/"]} />
       <HeroSection />
       <DistinctionSection />
       <MethodsSection />
       <TargetsSection />
       <UseCasesSection />
-      <CertificationSection />
       <FormSection />
       <FaqSection />
       <SiteFooter />

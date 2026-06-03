@@ -37,7 +37,7 @@ export function LunaHeaderHero() {
                 </h1>
                 <p className="mt-[18px] md:mt-[32px] max-w-[680px] text-[15px] md:text-[19px] leading-[1.5] md:leading-[1.55] text-[rgba(251,249,243,0.85)]">
                   Gestiamo le pulizie del tuo hotel, B&B o casa vacanza a Roma con squadre dedicate, standard
-                  alberghieri certificati e interventi programmati in base ai tuoi check-in. Zero preoccupazioni, zero
+                  alberghieri professionali e interventi programmati in base ai tuoi check-in. Zero preoccupazioni, zero
                   turn-over da gestire.
                 </p>
 
@@ -63,7 +63,7 @@ export function LunaHeaderHero() {
         <div className="mx-auto w-full max-w-[1440px] px-[12px] md:px-0">
           <TrustStatsStrip
             items={[
-              { value: "[X]", label: "Strutture servite a Roma", sublabel: "tra hotel, B&B e affitti brevi" },
+              { value: "120+", label: "Strutture servite a Roma", sublabel: "tra hotel, B&B e affitti brevi" },
               { value: "24h", label: "Intervento entro 24h", sublabel: "su urgenze e straordinari" },
               { value: "✓", label: "Personale formato e assicurato", sublabel: "briefing prima di ogni intervento" },
               { value: "0€", label: "Preventivo gratuito senza impegno", sublabel: "sopralluogo gratuito" },

@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PuliziaAmbientiDegradatiRomaPageBody } from "@/components/luna/pulizie-straordinarie-roma/ambienti-degradati/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizia Ambienti Molto Sporchi e Degradati Roma | Intervento Discreto — Luna Service",
   description:
     "Pulizia professionale di ambienti molto sporchi o in stato di degrado a Roma. Intervento discreto, senza giudizi, con la massima riservatezza. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-straordinarie-roma/ambienti-degradati/",
-  },
-};
-
+  path: "/pulizie-straordinarie-roma/ambienti-degradati/",
+});
 export default function PuliziaAmbientiDegradatiRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,25 +65,7 @@ export default function PuliziaAmbientiDegradatiRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Straordinarie Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizia Ambienti Molto Sporchi e Degradati Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/ambienti-degradati/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-straordinarie-roma/ambienti-degradati/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

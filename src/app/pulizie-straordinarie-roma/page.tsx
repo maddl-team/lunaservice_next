@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PulizieStraordinarieRomaPageBody } from "@/components/luna/pulizie-straordinarie-roma/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Straordinarie Roma | Interventi Urgenti e Specializzati — Luna Service",
   description:
     "Pulizie straordinarie a Roma: sgrosso post ristrutturazione, balconi con escrementi di piccioni, cantine allagate, ambienti degradati. Intervento rapido, preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-straordinarie-roma/",
-  },
-};
-
+  path: "/pulizie-straordinarie-roma/",
+});
 export default function PulizieStraordinarieRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,19 +65,7 @@ export default function PulizieStraordinarieRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Straordinarie Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-straordinarie-roma/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

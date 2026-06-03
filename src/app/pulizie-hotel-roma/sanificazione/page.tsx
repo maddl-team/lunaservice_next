@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { SanificazioneHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/sanificazione/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Sanificazione Camere Hotel Roma | Ozono e Nebulizzazione Professionale — Luna Service",
   description:
     "Sanificazione professionale delle camere del tuo hotel a Roma con ozono e nebulizzazione. Protocollo certificato, documentazione inclusa, efficace su batteri e virus.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/sanificazione/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/sanificazione/",
+});
 export default function SanificazioneCamereHotelRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,20 +65,7 @@ export default function SanificazioneCamereHotelRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Sanificazione Camere Hotel Roma",
-        item: "https://www.lunaservice.it/pulizie-hotel-roma/sanificazione/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/sanificazione/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

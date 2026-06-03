@@ -1,25 +1,16 @@
-import type { Metadata } from "next";
 import { PreventivoHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/preventivo/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Preventivo Pulizie Hotel Roma | Gratuito e Senza Impegno — Luna Service",
   description:
     "Richiedi un preventivo gratuito per le pulizie del tuo hotel a Roma. Sopralluogo incluso, proposta personalizzata entro 48 ore. Nessun costo fisso, nessun impegno.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/preventivo/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/preventivo/",
+});
 export default function PreventivoPulizieHotelRomaPage() {
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-      { "@type": "ListItem", position: 3, name: "Preventivo", item: "https://www.lunaservice.it/pulizie-hotel-roma/preventivo/" },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/preventivo/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

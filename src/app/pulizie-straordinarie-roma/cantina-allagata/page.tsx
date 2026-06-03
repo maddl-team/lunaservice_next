@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PuliziaCantinaAllagataRomaPageBody } from "@/components/luna/pulizie-straordinarie-roma/cantina-allagata/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizia Cantina Allagata Roma | Intervento Urgente e Professionale — Luna Service",
   description:
     "Cantina allagata a Roma? Luna Service interviene in 24–48 ore: rimozione acqua, pulizia fango, asciugatura e igienizzazione professionale. Preventivo gratuito, massima urgenza.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-straordinarie-roma/cantina-allagata/",
-  },
-};
-
+  path: "/pulizie-straordinarie-roma/cantina-allagata/",
+});
 export default function PuliziaCantinaAllagataRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,25 +65,7 @@ export default function PuliziaCantinaAllagataRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Straordinarie Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizia Cantina Allagata Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/cantina-allagata/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-straordinarie-roma/cantina-allagata/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

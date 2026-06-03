@@ -1,3 +1,5 @@
+import { siteWhatsAppHref } from "@/lib/contact";
+
 export type NavLink = {
   label: string;
   href: string;
@@ -105,5 +107,5 @@ export const legalNavigation: NavLink[] = [
   { label: "Note Legali", href: "/note-legali/" },
 ];
 
-export const whatsappHref = "https://wa.me/";
+export const whatsappHref = siteWhatsAppHref;
 export const contactHref = "/contatti/";

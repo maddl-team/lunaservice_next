@@ -1,6 +1,9 @@
 "use client";
 
+import { whatsappHref } from "@/components/luna/navigation";
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import { useState } from "react";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
@@ -85,8 +88,7 @@ function HeroVariantD() {
           <div className="relative z-10 mx-auto w-full max-w-[1440px] px-[20px] md:px-[56px] py-[40px] md:py-[64px]">
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="md:pr-[42px]">
-              <SectionBadge dark>Proposta D · Split Right Image</SectionBadge>
-              <h2 className="mt-[18px] m-0 font-serif text-[34px] md:text-[50px] leading-[1.02] tracking-[-0.025em]">
+              <h2 className="m-0 font-serif text-[34px] md:text-[50px] leading-[1.02] tracking-[-0.025em]">
                 {hotelPageContent.hero.title}
               </h2>
               <p className="mt-[18px] text-[16px] md:text-[19px] leading-[1.55] text-[rgba(251,249,243,0.85)]">
@@ -375,7 +377,7 @@ function HotelQuoteSection() {
         <div className="mt-[20px]">
           <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
-        <Link href="https://wa.me/" className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">
+        <Link href={whatsappHref} className="mt-[14px] inline-flex text-[14px] text-[#161714] underline">
           {hotelPageContent.form.whatsapp}
         </Link>
       </LeadFormShell>
@@ -415,13 +417,7 @@ export function HotelPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li className="text-[#161714]">Pulizie Hotel Roma</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/pulizie-hotel-roma/"]} />
       <HeroVariantD />
       <LongCopySection />
       <IncludedServicesSection />

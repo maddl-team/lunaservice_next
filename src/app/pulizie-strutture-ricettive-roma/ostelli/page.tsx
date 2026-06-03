@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PulizieOstelliRomaPageBody } from "@/components/luna/pulizie-strutture-ricettive-roma/ostelli/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Ostelli e Dormitori Roma | Servizio Professionale ad Alto Volume — Luna Service",
   description:
     "Servizio di pulizia professionale per ostelli, dormitori e strutture per gruppi a Roma. Squadre dimensionate sui volumi, interventi rapidi, standard igienici garantiti.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/ostelli/",
-  },
-};
-
+  path: "/pulizie-strutture-ricettive-roma/ostelli/",
+});
 export default function PulizieOstelliRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,25 +65,7 @@ export default function PulizieOstelliRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Strutture Ricettive Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizie Ostelli e Dormitori Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/ostelli/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-strutture-ricettive-roma/ostelli/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

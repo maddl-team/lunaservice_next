@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { BagniHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/bagni/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Bagni Hotel Roma | Igienizzazione Professionale Camere e Aree Comuni — Luna Service",
   description:
     "Pulizia e igienizzazione professionale dei bagni del tuo hotel a Roma. Protocolli certificati, prodotti specifici per ogni superficie, verifica qualità a fine intervento.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/bagni/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/bagni/",
+});
 export default function PulizieBagniHotelRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -58,15 +57,7 @@ export default function PulizieBagniHotelRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-      { "@type": "ListItem", position: 3, name: "Pulizie Bagni Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/bagni/" },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/bagni/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

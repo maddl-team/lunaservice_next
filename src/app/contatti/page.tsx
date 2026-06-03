@@ -1,15 +1,15 @@
-import type { Metadata } from "next";
 import { ContattiPageBody } from "@/components/luna/contatti/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
+import { sitePhoneE164 } from "@/lib/contact";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Contatti | Luna Service — Impresa di Pulizie Roma",
   description:
     "Contatta Luna Service per un preventivo gratuito sulle pulizie professionali a Roma. Rispondiamo entro poche ore. Disponibili anche su WhatsApp.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/contatti/",
-  },
-};
-
+  path: "/contatti/",
+});
 export default function ContattiPage() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -17,21 +17,14 @@ export default function ContattiPage() {
     name: "Luna Service",
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "[numero]",
+      telephone: `+${sitePhoneE164}`,
       contactType: "customer service",
       availableLanguage: "Italian",
       areaServed: "Roma",
     },
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Contatti", item: "https://www.lunaservice.it/contatti/" },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/contatti/"]);
 
   return (
     <main className="mx-auto w-full max-w-[1440px] bg-[var(--background)] text-[#161714]">

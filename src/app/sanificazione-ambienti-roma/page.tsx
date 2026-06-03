@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { SanificazioneAmbientiRomaPageBody } from "@/components/luna/sanificazione-ambienti-roma/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Sanificazione Ambienti Roma | Ozono e Nebulizzazione Professionale — Luna Service",
   description:
     "Sanificazione professionale di ambienti a Roma con ozono e nebulizzazione. Hotel, uffici, condomini, privati. Certificazione dell'intervento rilasciata. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/sanificazione-ambienti-roma/",
-  },
-};
-
+  path: "/sanificazione-ambienti-roma/",
+});
 export default function SanificazioneAmbientiRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,19 +65,7 @@ export default function SanificazioneAmbientiRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Sanificazione Ambienti Roma",
-        item: "https://www.lunaservice.it/sanificazione-ambienti-roma/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/sanificazione-ambienti-roma/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

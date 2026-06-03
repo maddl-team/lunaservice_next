@@ -3,6 +3,13 @@ import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 import { BrandLogoMark } from "@/components/luna/brand";
 import { contactHref, footerNavigation, legalNavigation, whatsappHref } from "@/components/luna/navigation";
+import {
+  siteAddressFull,
+  siteEmail,
+  sitePhoneDisplay,
+  siteTelHref,
+  siteVat,
+} from "@/lib/contact";
 import { lunaEffects, lunaLayout, lunaRadii, lunaTokens, lunaTypography } from "@/components/luna/design-tokens";
 
 export { BrandLogoMark, SiteLogo, SITE_LOGO_PATH } from "@/components/luna/brand";
@@ -118,9 +125,10 @@ type ServiceCardProps = {
   tag: string;
   body: string;
   img: string;
+  href: string;
 };
 
-export function ServiceCard({ featured = false, n, title, tag, body, img }: ServiceCardProps) {
+export function ServiceCard({ featured = false, n, title, tag, body, img, href }: ServiceCardProps) {
   if (!featured) {
     return (
       <article
@@ -137,9 +145,12 @@ export function ServiceCard({ featured = false, n, title, tag, body, img }: Serv
           </div>
           <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.02em]">{title}</h3>
           <p className="mt-[12px] flex-1 text-[14px] leading-[1.55] text-[rgba(251,249,243,0.7)] opacity-85">{body}</p>
-          <a className="mt-[20px] inline-flex cursor-pointer items-center gap-[6px] text-[13px] text-[#99cc33]">
+          <Link
+            href={href}
+            className="mt-[20px] inline-flex items-center gap-[6px] text-[13px] text-[#99cc33] transition-opacity hover:opacity-80"
+          >
             Scopri il servizio →
-          </a>
+          </Link>
         </div>
       </article>
     );
@@ -164,12 +175,15 @@ export function ServiceCard({ featured = false, n, title, tag, body, img }: Serv
             </span>
           ))}
         </div>
-        <a className="mt-[32px] inline-flex cursor-pointer items-center gap-[10px] text-[14px] font-medium">
+        <Link
+          href={href}
+          className="mt-[32px] inline-flex items-center gap-[10px] text-[14px] font-medium transition-opacity hover:opacity-80"
+        >
           Scopri il servizio
           <span className="inline-flex h-[28px] w-[28px] items-center justify-center rounded-full bg-[#1a1f0d] text-[#99cc33]">
             →
           </span>
-        </a>
+        </Link>
       </div>
       <div className="relative min-h-[480px] h-full self-stretch">
         <Image src={img} alt={title} fill className="object-cover" sizes="(max-width: 1536px) 33vw, 480px" />
@@ -216,7 +230,7 @@ export function ReviewCard({
       <blockquote className="m-0 flex-1 font-serif text-[20px] leading-[1.4] tracking-[-0.005em]">&quot;{quote}&quot;</blockquote>
       <figcaption className="mt-[28px] flex items-center gap-[14px] border-t border-t-[rgba(0,0,0,0.08)] pt-[24px]">
         <div className="flex h-[44px] w-[44px] items-center justify-center rounded-full bg-[#161714] font-serif text-[16px] text-[#99cc33]">
-          {author.charAt(1) || "A"}
+          {author.charAt(0) || "A"}
         </div>
         <div>
           <div className="text-[14px] font-medium">{author}</div>
@@ -503,14 +517,18 @@ export function SiteFooter() {
               Impresa di pulizie professionali a Roma, specializzata in hotel, strutture ricettive e condomini.
               <br />
               <br />
-              Via [indirizzo], Roma 00100
+              {siteAddressFull}
               <br />
-              P.IVA [da inserire]
+              P.IVA {siteVat}
               <br />
               <br />
-              <a className="text-[#99cc33]">preventivi@lunaservice.it</a>
+              <a href={`mailto:${siteEmail}`} className="text-[#99cc33]">
+                {siteEmail}
+              </a>
               <br />
-              +39 06 0000 0000
+              <a href={siteTelHref} className="text-[#99cc33]">
+                {sitePhoneDisplay}
+              </a>
             </div>
           </div>
           {footerNavigation.map((col) => (

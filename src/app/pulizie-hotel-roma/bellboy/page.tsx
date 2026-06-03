@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { BellboyHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/bellboy/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Servizio Bellboy Hotel Roma | Portabagagli e Assistenza Ospiti — Luna Service",
   description:
     "Servizio bellboy professionale per hotel a Roma: portabagagli, assistenza agli ospiti, gestione arrivi e partenze. Personale formato su standard alberghieri. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/bellboy/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/bellboy/",
+});
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -65,20 +64,7 @@ const faqSchema = {
   ],
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-    { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Servizio Bellboy Hotel Roma",
-      item: "https://www.lunaservice.it/pulizie-hotel-roma/bellboy/",
-    },
-  ],
-};
+const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/bellboy/"]);
 
 const serviceSchema = {
   "@context": "https://schema.org",

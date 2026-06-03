@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { siteEmail } from "@/lib/contact";
 
 export type LeadFormState = { ok: boolean; error: string | null };
 
@@ -33,7 +34,7 @@ const ALLOWED_SOURCES = new Set([
   "pulizie-hotel-roma-supervisore-zona",
 ]);
 
-const DEFAULT_TO = "info@maddl.agency";
+const DEFAULT_TO = siteEmail;
 
 function isValidEmail(s: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);

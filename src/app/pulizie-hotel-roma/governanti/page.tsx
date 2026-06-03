@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { GovernantiHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/governanti/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Servizio Governanti Hotel Roma | Figure Qualificate per Housekeeping — Luna Service",
   description:
     "Governanti d'albergo professionali a Roma: coordinamento housekeeping, controllo qualità camere, gestione del personale di piano. Esperienza certificata, preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/governanti/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/governanti/",
+});
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -65,20 +64,7 @@ const faqSchema = {
   ],
 };
 
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-    { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-    {
-      "@type": "ListItem",
-      position: 3,
-      name: "Servizio Governanti Hotel Roma",
-      item: "https://www.lunaservice.it/pulizie-hotel-roma/governanti/",
-    },
-  ],
-};
+const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/governanti/"]);
 
 const serviceSchema = {
   "@context": "https://schema.org",

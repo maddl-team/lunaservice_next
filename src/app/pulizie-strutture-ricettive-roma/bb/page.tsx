@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PulizieBbRomaPageBody } from "@/components/luna/pulizie-strutture-ricettive-roma/bb/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie B&B Roma | Servizio Professionale per Bed and Breakfast — Luna Service",
   description:
     "Servizio di pulizia professionale per B&B a Roma. Interventi tra check-out e check-in, cambio biancheria, standard alberghieri. Preventivo gratuito su misura.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/bb/",
-  },
-};
-
+  path: "/pulizie-strutture-ricettive-roma/bb/",
+});
 export default function PulizieBbRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,25 +65,7 @@ export default function PulizieBbRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Strutture Ricettive Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizie B&B Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/bb/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-strutture-ricettive-roma/bb/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

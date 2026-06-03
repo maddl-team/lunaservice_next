@@ -1,15 +1,22 @@
-import type { Metadata } from "next";
 import { ChiSiamoPageBody } from "@/components/luna/chi-siamo/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
+import {
+  siteAddressLocality,
+  siteAddressRegion,
+  siteAddressStreet,
+  siteEmail,
+  sitePhoneE164,
+  sitePostalCode,
+} from "@/lib/contact";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Chi Siamo | Luna Service — Impresa di Pulizie Professionali a Roma",
   description:
     "Luna Service è l'impresa di pulizie professionali a Roma specializzata in hotel, strutture ricettive e condomini. Scopri chi siamo, come lavoriamo e perché ci scelgono.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/chi-siamo/",
-  },
-};
-
+  path: "/chi-siamo/",
+});
 export default function ChiSiamoPage() {
   const organizationSchema = {
     "@context": "https://schema.org",
@@ -22,14 +29,14 @@ export default function ChiSiamoPage() {
     image: "https://www.lunaservice.it/images/team.jpg",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "[indirizzo]",
-      addressLocality: "Roma",
-      addressRegion: "RM",
-      postalCode: "[CAP]",
+      streetAddress: siteAddressStreet,
+      addressLocality: siteAddressLocality,
+      addressRegion: siteAddressRegion,
+      postalCode: sitePostalCode,
       addressCountry: "IT",
     },
-    telephone: "[numero]",
-    email: "[email]",
+    telephone: `+${sitePhoneE164}`,
+    email: siteEmail,
     areaServed: {
       "@type": "City",
       name: "Roma",
@@ -41,14 +48,7 @@ export default function ChiSiamoPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Chi Siamo", item: "https://www.lunaservice.it/chi-siamo/" },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/chi-siamo/"]);
 
   return (
     <main className="mx-auto w-full max-w-[1440px] bg-[var(--background)] text-[#161714]">

@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { AreeComuniHotelRomaPageBody } from "@/components/luna/pulizie-hotel-roma/aree-comuni/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Aree Comuni Hotel Roma | Reception, Lobby e Spazi Condivisi — Luna Service",
   description:
     "Pulizia professionale di reception, lobby, corridoi, sale colazione e tutte le aree comuni del tuo hotel a Roma. Interventi calibrati sui flussi ospiti, supervisore dedicato.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/aree-comuni/",
-  },
-};
-
+  path: "/pulizie-hotel-roma/aree-comuni/",
+});
 export default function PulizieAreeComuniHotelRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -58,20 +57,7 @@ export default function PulizieAreeComuniHotelRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizie Aree Comuni Hotel Roma",
-        item: "https://www.lunaservice.it/pulizie-hotel-roma/aree-comuni/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/aree-comuni/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

@@ -1,6 +1,9 @@
 "use client";
 
+import { whatsappHref } from "@/components/luna/navigation";
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import { useState } from "react";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
@@ -137,7 +140,7 @@ function HeroGovernanti() {
                 <div className="mt-[24px] flex flex-col sm:flex-row gap-[12px]">
                   <PrimaryCtaButton>Richiedi il preventivo per il tuo hotel</PrimaryCtaButton>
                   <a
-                    href="https://wa.me/"
+                    href={whatsappHref}
                     className="inline-flex items-center justify-center rounded-[999px] border border-[rgba(255,255,255,0.35)] px-[26px] py-[18px] text-[15px] text-[#fbf9f3]"
                   >
                     Scrivici su WhatsApp
@@ -427,35 +430,10 @@ function FormSection() {
         <div className="mt-[16px]">
           <FormSubmitPrimaryButton>Richiedi il servizio di governante</FormSubmitPrimaryButton>
         </div>
-        <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
+        <a href={whatsappHref} className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Hai un&apos;urgenza? Scrivici subito su WhatsApp — gestiamo le sostituzioni anche con poche ore di preavviso →
         </a>
       </LeadFormShell>
-      <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
-        <Link href="/pulizie-hotel-roma/" className="underline">
-          /pulizie-hotel-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/facchinaggio/" className="underline">
-          /pulizie-hotel-roma/facchinaggio/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/bellboy/" className="underline">
-          /pulizie-hotel-roma/bellboy/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/supervisore-zona/" className="underline">
-          /pulizie-hotel-roma/supervisore-zona/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/camere/" className="underline">
-          /pulizie-hotel-roma/camere/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/preventivo/" className="underline">
-          /pulizie-hotel-roma/preventivo/
-        </Link>
-      </div>
     </SectionShell>
   );
 }
@@ -493,15 +471,7 @@ export function GovernantiHotelRomaPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li>Pulizie Hotel Roma</li>
-          <li>›</li>
-          <li className="text-[#161714]">Servizio Governanti Hotel Roma</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/pulizie-hotel-roma/governanti/"]} />
       <HeroGovernanti />
       <RoleSection />
       <ResponsibilitiesSection />

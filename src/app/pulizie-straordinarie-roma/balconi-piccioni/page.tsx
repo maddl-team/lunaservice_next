@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PuliziaBalconiPiccioniRomaPageBody } from "@/components/luna/pulizie-straordinarie-roma/balconi-piccioni/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizia Balconi Escrementi Piccioni Roma | Rimozione Guano Professionale — Luna Service",
   description:
     "Rimozione professionale escrementi di piccioni da balconi e terrazzi a Roma. Intervento con DPI certificati, igienizzazione completa, documentazione inclusa. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-straordinarie-roma/balconi-piccioni/",
-  },
-};
-
+  path: "/pulizie-straordinarie-roma/balconi-piccioni/",
+});
 export default function PuliziaBalconiPiccioniRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,25 +65,7 @@ export default function PuliziaBalconiPiccioniRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Straordinarie Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizia Balconi Escrementi Piccioni Roma",
-        item: "https://www.lunaservice.it/pulizie-straordinarie-roma/balconi-piccioni/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-straordinarie-roma/balconi-piccioni/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

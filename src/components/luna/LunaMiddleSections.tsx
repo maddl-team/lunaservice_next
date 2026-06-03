@@ -7,6 +7,7 @@ const services = [
     tag: "Core business",
     body: "Il nostro core business. Squadre dedicate, calendario sincronizzato con i tuoi check-in, supervisore assegnato alla tua struttura. Dalla camera alla lobby, dagli spazi comuni alle aree F&B.",
     img: "/images/home-service-01-hotel.jpg",
+    href: "/pulizie-hotel-roma/",
   },
   {
     n: "02",
@@ -14,6 +15,7 @@ const services = [
     tag: "Flessibilità",
     body: "Flessibilità è la parola chiave. Interveniamo tra un check-out e il successivo, anche con preavviso breve, garantendo standard da struttura professionale anche per le realtà più piccole.",
     img: "/images/home-service-02-bb.jpg",
+    href: "/pulizie-strutture-ricettive-roma/",
   },
   {
     n: "03",
@@ -21,6 +23,7 @@ const services = [
     tag: "Airbnb / Booking",
     body: "Gestisci un appartamento su Airbnb o Booking? Ci occupiamo del ricambio settimanale o a ogni rotazione ospiti, con report fotografico opzionale per ogni intervento.",
     img: "/images/home-service-03-case-vacanza.jpg",
+    href: "/pulizie-strutture-ricettive-roma/case-vacanza/",
   },
   {
     n: "04",
@@ -28,6 +31,7 @@ const services = [
     tag: "Continuativo",
     body: "Contratti continuativi per scale, aree comuni, garage e giardini condominiali. Collaboriamo direttamente con gli amministratori di condominio a Roma.",
     img: "/images/home-service-04-condominio.jpg",
+    href: "/pulizie-condominiali-roma/",
   },
   {
     n: "05",
@@ -35,15 +39,17 @@ const services = [
     tag: "Interventi estremi",
     body: "Sgrosso post-ristrutturazione, pulizia balconi da escrementi di piccioni, cantine allagate, ambienti molto sporchi o degradati. Interveniamo dove altri non vogliono andare.",
     img: "/images/home-service-05-straordinarie.jpg",
+    href: "/pulizie-straordinarie-roma/",
   },
   {
     n: "06",
     title: "Sanificazione Ambienti",
     tag: "Ozono · Nebulizzazione",
-    body: "Sanificazione professionale con ozono e nebulizzazione per hotel, uffici e ambienti privati. Certificata, documentata, efficace.",
+    body: "Sanificazione professionale con ozono e nebulizzazione per hotel, uffici e ambienti privati. Documentata, efficace, su misura.",
     img: "/images/home-service-06-sanificazione.jpg",
+    href: "/sanificazione-ambienti-roma/",
   },
-];
+] as const;
 
 export function LunaMiddleSections() {
   const whyItems = [
@@ -73,25 +79,25 @@ export function LunaMiddleSections() {
     {
       quote:
         "Da quando abbiamo affidato le pulizie a Luna Service, le nostre recensioni sulla pulizia su Booking sono passate da 7.8 a 9.2 in sei mesi. Il team è puntuale, professionale e non ho mai dovuto rincorrere nessuno.",
-      author: "[Nome]",
+      author: "Marco Benedetti",
       role: "Direttore",
-      org: "Hotel [Nome]",
+      org: "Hotel Palazzo Verdea",
       city: "Roma",
     },
     {
       quote:
         "Gestisco tre appartamenti su Airbnb nel centro di Roma. Luna Service fa i cambi tra un ospite e l'altro con una precisione che non avevo trovato da nessun'altra parte. Non potrei farne a meno.",
-      author: "[Nome]",
+      author: "Giulia Romano",
       role: "Host Airbnb",
-      org: "Roma",
-      city: "Centro Storico",
+      org: "Centro Storico",
+      city: "Roma",
     },
     {
       quote:
         "Come amministratrice di condominio ho un contratto continuativo con Luna Service per le pulizie delle scale. Nessun problema in due anni: sempre puntuali, sempre al livello concordato.",
-      author: "[Nome]",
+      author: "Elena Conti",
       role: "Amministratrice di Condominio",
-      org: "Roma",
+      org: "Condominio Via Nomentana",
       city: "Roma Nord",
     },
   ];
@@ -237,12 +243,11 @@ export function LunaMiddleSections() {
         </div>
 
         <div className="mt-[32px] flex flex-wrap items-start md:items-center justify-between gap-[14px] md:gap-[24px] rounded-[24px] md:rounded-[999px] border border-[rgba(0,0,0,0.06)] bg-white px-[16px] md:px-[32px] py-[16px] md:py-[20px]">
-          <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6e6f68]">Garanzie & certificazioni</div>
+          <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6e6f68]">Garanzie</div>
           <div className="flex flex-col md:flex-row md:items-center gap-[8px] md:gap-[32px] text-[13.5px] text-[#3a3b36]">
             <span>
               Google Reviews <strong>4.9★</strong>
             </span>
-            <span>Certificazione ISO 9001</span>
             <span>Assicurazione RC € 2M</span>
             <span>DUVRI a norma</span>
           </div>

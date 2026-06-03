@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PulizieCaseVacanzaRomaPageBody } from "@/components/luna/pulizie-strutture-ricettive-roma/case-vacanza/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Case Vacanza Roma | Affitti Brevi e Airbnb — Luna Service",
   description:
     "Servizio di pulizia professionale per case vacanza e affitti brevi a Roma. Interventi tra check-out e check-in, report fotografico, gestione da remoto. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/case-vacanza/",
-  },
-};
-
+  path: "/pulizie-strutture-ricettive-roma/case-vacanza/",
+});
 export default function PulizieCaseVacanzaRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -74,25 +73,7 @@ export default function PulizieCaseVacanzaRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Strutture Ricettive Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizie Case Vacanza Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/case-vacanza/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-strutture-ricettive-roma/case-vacanza/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

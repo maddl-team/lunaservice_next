@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import {
   InputField,
   SectionShell,
@@ -10,6 +12,18 @@ import {
   TextareaField,
 } from "@/components/luna/ui";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
+import {
+  siteAddressFull,
+  siteEmail,
+  siteHoursFull,
+  siteHoursWeekday,
+  siteHoursSaturday,
+  siteMapsEmbedQuery,
+  sitePhoneDisplay,
+  siteTelHref,
+  siteVat,
+  siteWhatsAppHref,
+} from "@/lib/contact";
 
 function WhatsAppIcon() {
   return (
@@ -110,8 +124,8 @@ function ContactChannelsSection() {
                 <span className="inline-flex items-center gap-[6px] align-middle">
                   <WhatsAppIcon />
                   <span aria-hidden="true">→</span>
-                  <a href="https://wa.me/" className="underline text-[#161714]">
-                    [Numero WhatsApp]
+                  <a href={siteWhatsAppHref} className="underline text-[#161714]">
+                    {sitePhoneDisplay}
                   </a>
                 </span>{" "}
                 Risposta di solito entro pochi minuti · Operativi tutti i giorni
@@ -120,22 +134,28 @@ function ContactChannelsSection() {
             <div>
               <p className="m-0 font-medium text-[#161714]">Telefono</p>
               <p className="mt-[8px] m-0">
-                [Numero di telefono] Lun–Ven [orario] · Sab [orario]
+                <a href={siteTelHref} className="underline text-[#161714]">
+                  {sitePhoneDisplay}
+                </a>{" "}
+                · {siteHoursWeekday} · {siteHoursSaturday}
               </p>
             </div>
             <div>
               <p className="m-0 font-medium text-[#161714]">Email</p>
               <p className="mt-[8px] m-0">
-                [indirizzo email] Per richieste dettagliate o documentazione formale
+                <a href={`mailto:${siteEmail}`} className="underline text-[#161714]">
+                  {siteEmail}
+                </a>{" "}
+                Per richieste dettagliate o documentazione formale
               </p>
             </div>
             <div>
               <p className="m-0 font-medium text-[#161714]">Sede</p>
-              <p className="mt-[8px] m-0">Luna Service [Indirizzo completo], Roma</p>
+              <p className="mt-[8px] m-0">Luna Service — {siteAddressFull}</p>
               <div className="mt-[14px] overflow-hidden rounded-[18px] border border-[rgba(0,0,0,0.08)] bg-[#e8e6df]">
                 <iframe
                   title="Mappa Luna Service Roma"
-                  src="https://maps.google.com/maps?q=Roma%2C%20Italia&z=12&output=embed"
+                  src={`https://maps.google.com/maps?q=${siteMapsEmbedQuery}&z=15&output=embed`}
                   className="h-[220px] w-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -144,7 +164,7 @@ function ContactChannelsSection() {
             </div>
             <div>
               <p className="m-0 font-medium text-[#161714]">Partita IVA</p>
-              <p className="mt-[8px] m-0">[numero]</p>
+              <p className="mt-[8px] m-0">{siteVat}</p>
             </div>
           </div>
         </div>
@@ -189,7 +209,7 @@ function HoursSection() {
       <div className="mt-[24px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
         <article className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px]">
           <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.02em] text-[#161714]">
-            Orari standard Lun–Ven: [orario] · Sab: [orario] · Dom: su appuntamento per urgenze
+            Orari standard {siteHoursFull}
           </h3>
         </article>
         <article className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px]">
@@ -209,13 +229,7 @@ export function ContattiPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li className="text-[#161714]">Contatti</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/contatti/"]} />
       <HeroSection />
       <ContactChannelsSection />
       <RoutingSection />

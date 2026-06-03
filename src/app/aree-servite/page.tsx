@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { AreeServitePageBody } from "@/components/luna/aree-servite/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Aree Servite a Roma | Impresa di Pulizie Luna Service — Zone e Quartieri",
   description:
     "Luna Service opera su tutta Roma e provincia: centro storico, quartieri residenziali e periferia. Scopri le zone coperte e richiedi il preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/aree-servite/",
-  },
-};
-
+  path: "/aree-servite/",
+});
 export default function AreeServitePage() {
   const localBusinessSchema = {
     "@context": "https://schema.org",
@@ -21,14 +20,7 @@ export default function AreeServitePage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Aree Servite", item: "https://www.lunaservice.it/aree-servite/" },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/aree-servite/"]);
 
   return (
     <main className="mx-auto w-full max-w-[1440px] bg-[var(--background)] text-[#161714]">

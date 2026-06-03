@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { StruttureRicettiveRomaPageBody } from "@/components/luna/pulizie-strutture-ricettive-roma/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Strutture Ricettive Roma | B&B, Case Vacanza, Affittacamere — Luna Service",
   description:
     "Impresa di pulizie per strutture ricettive a Roma: B&B, case vacanza, affittacamere e ostelli. Servizio flessibile, interventi tra check-in e check-out, preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/",
-  },
-};
-
+  path: "/pulizie-strutture-ricettive-roma/",
+});
 export default function PulizieStruttureRicettiveRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,19 +65,7 @@ export default function PulizieStruttureRicettiveRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Strutture Ricettive Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-strutture-ricettive-roma/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

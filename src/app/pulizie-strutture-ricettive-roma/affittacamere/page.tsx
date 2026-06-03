@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PulizieAffittacamereRomaPageBody } from "@/components/luna/pulizie-strutture-ricettive-roma/affittacamere/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Affittacamere Roma | Servizio Professionale su Misura — Luna Service",
   description:
     "Servizio di pulizia professionale per affittacamere a Roma. Interventi flessibili tra check-in e check-out, discrezione garantita, preventivo gratuito su misura.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/affittacamere/",
-  },
-};
-
+  path: "/pulizie-strutture-ricettive-roma/affittacamere/",
+});
 export default function PulizieAffittacamereRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,25 +65,7 @@ export default function PulizieAffittacamereRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Strutture Ricettive Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: "Pulizie Affittacamere Roma",
-        item: "https://www.lunaservice.it/pulizie-strutture-ricettive-roma/affittacamere/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-strutture-ricettive-roma/affittacamere/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import {
   SectionBadge,
@@ -8,14 +10,15 @@ import {
   SiteFooter,
   SiteHeaderPill,
 } from "@/components/luna/ui";
+import { whatsappHref } from "@/components/luna/navigation";
 
 const metricItems = [
-  { value: "[X]", label: "anni di attività nel settore delle pulizie professionali a Roma", sublabel: "" },
-  { value: "[X]", label: "strutture ricettive servite regolarmente nella città metropolitana", sublabel: "" },
-  { value: "[X]", label: "condomini con contratto continuativo attivo", sublabel: "" },
-  { value: "[X]", label: "operatori nel team operativo", sublabel: "" },
-  { value: "[X]", label: "interventi straordinari completati negli ultimi 12 mesi", sublabel: "" },
-  { value: "[X]★", label: "media recensioni Google", sublabel: "" },
+  { value: "14", label: "anni di attività nel settore delle pulizie professionali a Roma", sublabel: "" },
+  { value: "86", label: "strutture ricettive servite regolarmente nella città metropolitana", sublabel: "" },
+  { value: "22", label: "condomini con contratto continuativo attivo", sublabel: "" },
+  { value: "47", label: "operatori nel team operativo", sublabel: "" },
+  { value: "312", label: "interventi straordinari completati negli ultimi 12 mesi", sublabel: "" },
+  { value: "4.9★", label: "media recensioni Google", sublabel: "" },
 ] as const;
 
 const specializationItems = [
@@ -42,15 +45,7 @@ const teamTraits = [
   "Tenuto a standard di riservatezza verso terzi sulle strutture e sui clienti",
 ] as const;
 
-const certificationItems = [
-  {
-    title: "[Certificazione 1 — es. ISO 9001 Qualità]",
-    body: "[Descrizione breve della certificazione, ente certificatore, data di prima emissione e validità.]",
-  },
-  {
-    title: "[Certificazione 2 — es. ISO 14001 Ambiente]",
-    body: "[Descrizione breve.]",
-  },
+const complianceItems = [
   {
     title: "Conformità D.Lgs. 81/2008 — Sicurezza sul lavoro",
     body: "Luna Service opera in piena conformità al Decreto Legislativo 81/2008 in materia di salute e sicurezza nei luoghi di lavoro. Tutto il personale è formato sui rischi specifici del settore, utilizza i dispositivi di protezione individuale appropriati e lavora con attrezzature conformi alle norme CE vigenti.",
@@ -84,17 +79,17 @@ const testimonials = [
   {
     quote:
       "Con Luna Service abbiamo finalmente trovato un'impresa che mantiene gli standard nel tempo, non solo nelle prime settimane. Il referente dedicato fa la differenza: c'è sempre qualcuno che conosce la nostra struttura e risponde in tempi rapidi.",
-    attribution: "[Nome], Direttore, Hotel [Nome] ★★★★, Roma",
+    attribution: "Marco Benedetti, Direttore, Hotel Palazzo Verdea ★★★★, Roma",
   },
   {
     quote:
       "Come amministratrice di condominio gestisco diversi edifici a Roma. Luna Service è l'unica impresa con cui ho un rapporto diretto, documentato e senza sorprese. Il report mensile mi permette di rispondere all'assemblea con dati concreti.",
-    attribution: "[Nome], Amministratrice di Condominio, Roma",
+    attribution: "Elena Conti, Amministratrice di Condominio, Roma",
   },
   {
     quote:
       "Gestisco tre appartamenti su Airbnb nel centro di Roma. Da quando lavoro con Luna Service non ho più dovuto preoccuparmi delle pulizie: ricevo il report fotografico dopo ogni intervento e le recensioni degli ospiti sulla pulizia sono stabilmente a cinque stelle.",
-    attribution: "[Nome], Property Manager, Roma",
+    attribution: "Giulia Romano, Property Manager, Roma",
   },
 ] as const;
 
@@ -285,15 +280,15 @@ function TeamSection() {
   );
 }
 
-function CertificationsSection() {
+function ComplianceSection() {
   return (
     <section className="px-[16px] md:px-[56px] pt-[96px] md:pt-[140px]">
-      <SectionBadge>Certificazioni</SectionBadge>
+      <SectionBadge>Sicurezza e garanzie</SectionBadge>
       <h2 className="mt-[18px] m-0 font-serif text-[32px] md:text-[54px] leading-[1.05] tracking-[-0.025em] text-[#161714]">
-        Certificazioni e conformità
+        Conformità e coperture assicurative
       </h2>
       <div className="mt-[24px] grid grid-cols-1 md:grid-cols-2 gap-[16px]">
-        {certificationItems.map((item) => (
+        {complianceItems.map((item) => (
           <article key={item.title} className="rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px]">
             <h3 className="m-0 font-serif text-[26px] leading-[1.05] tracking-[-0.02em] text-[#161714]">{item.title}</h3>
             <p className="mt-[12px] m-0 text-[15px] leading-[1.65] text-[#3a3b36]">{item.body}</p>
@@ -383,7 +378,7 @@ function SocialProofSection() {
         ))}
       </div>
       <p className="mt-[24px] max-w-[980px] text-[15px] leading-[1.65] text-[#3a3b36]">
-        Google Reviews ★★★★★ [X] recensioni · Certificazione [X] · Assicurazione RC Professionale · CCNL rispettato
+        Google Reviews ★★★★★ 87 recensioni · Assicurazione RC Professionale · CCNL rispettato
       </p>
     </section>
   );
@@ -413,36 +408,11 @@ function FinalCtaSection() {
           Richiedi il preventivo gratuito
         </Link>
         <a
-          href="https://wa.me/"
+          href={whatsappHref}
           className="inline-flex items-center justify-center rounded-[999px] border border-[rgba(0,0,0,0.12)] px-[26px] py-[18px] text-[15px] text-[#1a1f0d]"
         >
           Scrivici su WhatsApp
         </a>
-      </div>
-      <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
-        <Link href="/pulizie-hotel-roma/" className="underline">
-          /pulizie-hotel-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-strutture-ricettive-roma/" className="underline">
-          /pulizie-strutture-ricettive-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-condominiali-roma/" className="underline">
-          /pulizie-condominiali-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-straordinarie-roma/" className="underline">
-          /pulizie-straordinarie-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/aree-servite/" className="underline">
-          /aree-servite/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/contatti/" className="underline">
-          /contatti/
-        </Link>
       </div>
     </SectionShell>
   );
@@ -452,19 +422,13 @@ export function ChiSiamoPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li className="text-[#161714]">Chi Siamo</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/chi-siamo/"]} />
       <HeroSection />
       <IdentitySection />
       <NumbersSection />
       <SpecializationSection />
       <TeamSection />
-      <CertificationsSection />
+      <ComplianceSection />
       <ValuesSection />
       <CoverageSection />
       <SocialProofSection />

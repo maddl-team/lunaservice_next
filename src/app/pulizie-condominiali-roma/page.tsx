@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { PulizieCondominialiRomaPageBody } from "@/components/luna/pulizie-condominiali-roma/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Condominiali Roma | Servizio Professionale per Amministratori — Luna Service",
   description:
     "Impresa di pulizie condominiali a Roma per scale, aree comuni, garage e giardini. Contratti continuativi per amministratori di condominio. Preventivo gratuito.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-condominiali-roma/",
-  },
-};
-
+  path: "/pulizie-condominiali-roma/",
+});
 export default function PulizieCondominialiRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -66,19 +65,7 @@ export default function PulizieCondominialiRomaPage() {
     ],
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Pulizie Condominiali Roma",
-        item: "https://www.lunaservice.it/pulizie-condominiali-roma/",
-      },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-condominiali-roma/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
 import { HotelPageBody } from "@/components/luna/pulizie-hotel-roma/sections";
+import { createBreadcrumbSchema } from "@/lib/breadcrumbs";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import { hotelPageContent } from "@/components/luna/pulizie-hotel-roma/content";
+import { createPageMetadata } from "@/lib/metadata";
 
-export const metadata: Metadata = {
+export const metadata = createPageMetadata({
   title: "Pulizie Hotel Roma | Servizio Professionale per Alberghi — Luna Service",
   description:
-    "Impresa di pulizie per hotel a Roma con squadre dedicate, standard alberghieri certificati e calendario sincronizzato ai tuoi check-in. Preventivo gratuito con sopralluogo.",
-  alternates: {
-    canonical: "https://www.lunaservice.it/pulizie-hotel-roma/",
-  },
-};
-
+    "Impresa di pulizie per hotel a Roma con squadre dedicate, standard alberghieri professionali e calendario sincronizzato ai tuoi check-in. Preventivo gratuito con sopralluogo.",
+  path: "/pulizie-hotel-roma/",
+});
 export default function PulizieHotelRomaPage() {
   const faqSchema = {
     "@context": "https://schema.org",
@@ -25,14 +24,7 @@ export default function PulizieHotelRomaPage() {
     })),
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.lunaservice.it/" },
-      { "@type": "ListItem", position: 2, name: "Pulizie Hotel Roma", item: "https://www.lunaservice.it/pulizie-hotel-roma/" },
-    ],
-  };
+  const breadcrumbSchema = createBreadcrumbSchema(pageBreadcrumbs["/pulizie-hotel-roma/"]);
 
   const serviceSchema = {
     "@context": "https://schema.org",

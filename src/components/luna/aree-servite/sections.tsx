@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import {
   InputField,
@@ -215,13 +217,7 @@ export function AreeServitePageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li className="text-[#161714]">Aree Servite</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/aree-servite/"]} />
       <HeroSection />
       <CoverageSection />
       <WhyLocationSection />

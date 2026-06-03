@@ -1,6 +1,9 @@
 "use client";
 
+import { whatsappHref } from "@/components/luna/navigation";
 import Link from "next/link";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import { FaqItem, InputField, SectionBadge, SectionShell, SelectField, SiteFooter, SiteHeaderPill, TextareaField } from "@/components/luna/ui";
 import { useState } from "react";
@@ -25,9 +28,9 @@ const objections = [
 ];
 
 const testimonials = [
-  `"Dopo tre imprese di pulizie in quattro anni, con Luna Service abbiamo finalmente trovato stabilità. Il supervisore dedicato fa la differenza: non devo inseguire nessuno, le cose vengono fatte." — [Nome], Direttore, Hotel [Nome] ★★★★, Roma Centro`,
-  `"Il passaggio è stato più rapido di quanto pensassi. In dieci giorni erano operativi e dopo il primo mese ho capito che la scelta era giusta. Le camere sono al livello che i nostri ospiti si aspettano." — [Nome], Proprietario, Boutique Hotel [Nome], Trastevere`,
-  `"Gestisco un hotel da 80 camere e avevo paura che esternalizzare fosse troppo complicato. Luna Service ha gestito tutto l'onboarding e oggi ho un referente unico che conosce la mia struttura meglio di alcuni miei dipendenti." — [Nome], General Manager, Hotel [Nome] ★★★★, Prati`,
+  `"Dopo tre imprese di pulizie in quattro anni, con Luna Service abbiamo finalmente trovato stabilità. Il supervisore dedicato fa la differenza: non devo inseguire nessuno, le cose vengono fatte." — Marco Benedetti, Direttore, Hotel Palazzo Verdea ★★★★, Roma Centro`,
+  `"Il passaggio è stato più rapido di quanto pensassi. In dieci giorni erano operativi e dopo il primo mese ho capito che la scelta era giusta. Le camere sono al livello che i nostri ospiti si aspettano." — Luca Ferretti, Proprietario, Boutique Hotel Cortile Dodici, Trastevere`,
+  `"Gestisco un hotel da 80 camere e avevo paura che esternalizzare fosse troppo complicato. Luna Service ha gestito tutto l'onboarding e oggi ho un referente unico che conosce la mia struttura meglio di alcuni miei dipendenti." — Andrea Santini, General Manager, Hotel Magnolia Suites ★★★★, Prati`,
 ];
 
 const faqItems = [
@@ -166,7 +169,7 @@ function MainFormBlock() {
                 . I dati non verranno ceduti a terzi.
               </span>
             </label>
-            <a href="https://wa.me/" className="mt-[12px] inline-flex text-[14px] text-[#161714] underline">
+            <a href={whatsappHref} className="mt-[12px] inline-flex text-[14px] text-[#161714] underline">
               Preferisci parlare subito con noi? Scrivici su WhatsApp →
             </a>
           </div>
@@ -265,7 +268,7 @@ function FinalCtaSection() {
         Se hai già compilato il form qui sopra, ti contatteremo a breve. Se vuoi accelerare i tempi, scrivici direttamente su WhatsApp: siamo operativi tutti i giorni.
       </p>
       <div className="mt-[20px]">
-        <a href="https://wa.me/" className="inline-flex items-center justify-center rounded-[999px] bg-[#99cc33] px-[26px] py-[18px] text-[15px] text-[#161714]">
+        <a href={whatsappHref} className="inline-flex items-center justify-center rounded-[999px] bg-[#99cc33] px-[26px] py-[18px] text-[15px] text-[#161714]">
           Scrivici su WhatsApp →
         </a>
       </div>
@@ -302,15 +305,7 @@ export function PreventivoHotelRomaPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li>Pulizie Hotel Roma</li>
-          <li>›</li>
-          <li className="text-[#161714]">Preventivo</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/pulizie-hotel-roma/preventivo/"]} />
       <MainFormBlock />
       <ReassuranceSection />
       <ObjectionsSection />

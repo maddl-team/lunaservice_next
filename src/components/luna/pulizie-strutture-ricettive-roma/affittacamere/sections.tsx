@@ -1,6 +1,9 @@
 "use client";
 
+import { whatsappHref } from "@/components/luna/navigation";
 import Image from "next/image";
+import { PageBreadcrumb } from "@/components/luna/PageBreadcrumb";
+import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import Link from "next/link";
 import { useState } from "react";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
@@ -114,7 +117,7 @@ function HeroSection() {
                 <div className="mt-[24px] flex flex-col sm:flex-row gap-[12px]">
                   <PrimaryCtaButton>Richiedi il preventivo per il tuo affittacamere</PrimaryCtaButton>
                   <a
-                    href="https://wa.me/"
+                    href={whatsappHref}
                     className="inline-flex items-center justify-center rounded-[999px] border border-[rgba(255,255,255,0.35)] px-[26px] py-[18px] text-[15px] text-[#fbf9f3]"
                   >
                     Scrivici su WhatsApp
@@ -396,31 +399,10 @@ function FormSection() {
         <div className="mt-[16px]">
           <FormSubmitPrimaryButton>Richiedi il preventivo gratuito</FormSubmitPrimaryButton>
         </div>
-        <a href="https://wa.me/" className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
+        <a href={whatsappHref} className="mt-[10px] inline-flex text-[14px] text-[#161714] underline">
           Preferisci parlare direttamente? Scrivici su WhatsApp →
         </a>
       </LeadFormShell>
-      <div className="mt-[18px] text-[14px] text-[#1a1f0d]">
-        <Link href="/pulizie-strutture-ricettive-roma/" className="underline">
-          /pulizie-strutture-ricettive-roma/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-strutture-ricettive-roma/bb/" className="underline">
-          /pulizie-strutture-ricettive-roma/bb/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-strutture-ricettive-roma/case-vacanza/" className="underline">
-          /pulizie-strutture-ricettive-roma/case-vacanza/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-strutture-ricettive-roma/ostelli/" className="underline">
-          /pulizie-strutture-ricettive-roma/ostelli/
-        </Link>{" "}
-        ·{" "}
-        <Link href="/pulizie-hotel-roma/preventivo/" className="underline">
-          /pulizie-hotel-roma/preventivo/
-        </Link>
-      </div>
     </SectionShell>
   );
 }
@@ -458,15 +440,7 @@ export function PulizieAffittacamereRomaPageBody() {
   return (
     <>
       <SiteHeaderPill />
-      <nav aria-label="Breadcrumb" className="px-[16px] md:px-[56px] pt-[10px] md:pt-[16px]">
-        <ol className="flex items-center gap-[8px] text-[13px] text-[#6e6f68]">
-          <li>Home</li>
-          <li>›</li>
-          <li>Pulizie Strutture Ricettive Roma</li>
-          <li>›</li>
-          <li className="text-[#161714]">Pulizie Affittacamere Roma</li>
-        </ol>
-      </nav>
+      <PageBreadcrumb items={pageBreadcrumbs["/pulizie-strutture-ricettive-roma/affittacamere/"]} />
       <HeroSection />
       <ContextSection />
       <ServicesSection />
