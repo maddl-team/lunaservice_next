@@ -10,7 +10,7 @@ const SILKTIDE_CSS_INTEGRITY =
 const SILKTIDE_JS_INTEGRITY =
   "sha384-j4NIMOecmtzMWe9GJADIIe5hTlHG63aiTQ/2XorW10RNyQJg+IU+xwFVDy45wBah";
 
-/** Consent default + Silktide CSS/JS. init() is in SilktideConsentInit (layout body). */
+/** Consent default + Silktide CSS/JS. init() lives only in GTM (Consent Initialization). */
 export function ConsentHead() {
   return (
     <>

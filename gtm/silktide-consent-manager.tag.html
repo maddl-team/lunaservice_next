@@ -1,29 +1,56 @@
 <!--
-  DEPRECATO per questo progetto: silktideConsentManager.init() è già nel sito Next.js
-  (SilktideConsentInit). NON creare questo tag in GTM per evitare doppia inizializzazione.
+  =============================================================================
+  GTM — Tag Custom HTML: "Consent Manager (Silktide)"
+  Container: GTM-528N8WMW
+  =============================================================================
 
-  GTM — Tag Custom HTML: "Consent Manager (Silktide)" — solo se init NON è nel sito
+  Il sito Next.js carica già (in <head>, prima di GTM):
+    - consent default (gtag consent default)
+    - silktide-consent-manager.css
+    - silktide-consent-manager.js
+
+  Questo tag contiene SOLO override CSS opzionali + silktideConsentManager.init().
+  NON includere qui CSS/JS esterni Silktide → evita doppia inizializzazione.
+
+  --- TAG: Consent Manager (Silktide) ---
+  Tipo: Custom HTML
   Trigger: Consent Initialization - All Pages
   Advanced settings:
     - Tag firing options: Once per page
     - Consent settings: No additional consent required
 
-  NON includere CSS/JS Silktide qui (già caricati dal sito Next.js).
-  NON duplicare questo tag altrove.
-
-  --- Trigger aggiuntivo da creare ---
+  --- TRIGGER: STCM Consent Update (creare se assente) ---
   Nome: STCM Consent Update
   Tipo: Custom Event
   Event name: stcm_consent_update
+  Fire on: All Custom Events
 
-  --- Tag GA4 (configurazione conservativa) ---
-  Consent settings → Require additional consent: analytics_storage
-  Trigger: aggiungere STCM Consent Update oltre al trigger di pagina
+  --- TAG GA4 (configurazione conservativa) ---
+  Per ogni tag GA4 (Configuration / Event):
+    Advanced settings → Consent settings
+      → Require additional consent for tag to fire
+      → analytics_storage
+    Triggers: mantieni il trigger di pagina ESISTENTE
+              + aggiungi "STCM Consent Update"
 
-  --- Tag Google Ads / remarketing ---
-  Consent settings → Require additional consent:
-    ad_storage, ad_user_data, ad_personalization
-  Trigger: aggiungere STCM Consent Update
+  --- TAG Google Ads / remarketing ---
+  Per ogni tag Ads / conversioni / remarketing:
+    Advanced settings → Consent settings
+      → Require additional consent for tag to fire
+      → ad_storage
+      → ad_user_data
+      → ad_personalization
+    Triggers: trigger di pagina ESISTENTE + "STCM Consent Update"
+
+  --- CHECKLIST ANTI-DOPPIA-INIT ---
+  [ ] init() SOLO in questo tag GTM (non nel codice Next.js)
+  [ ] Un solo tag "Consent Manager (Silktide)" nel container
+  [ ] Nessun altro tag Custom HTML che chiama silktideConsentManager.init()
+  [ ] CSS/JS Silktide caricati solo dal sito (ConsentHead.tsx)
+
+  Dopo la pubblicazione: finestra incognito → banner visibile; in Preview GTM
+  deve comparire stcm_consent_update dopo Accetta/Rifiuta/Salva.
+  =============================================================================
 -->
 
 <style>
