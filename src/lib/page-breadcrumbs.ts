@@ -104,6 +104,9 @@ export const pageBreadcrumbs = {
   "/chi-siamo/": [home, { label: "Chi Siamo", href: "/chi-siamo/" }],
   "/aree-servite/": [home, { label: "Aree Servite", href: "/aree-servite/" }],
   "/contatti/": [home, { label: "Contatti", href: "/contatti/" }],
+  "/privacy-policy/": [home, { label: "Privacy Policy", href: "/privacy-policy/" }],
+  "/cookie-policy/": [home, { label: "Cookie Policy", href: "/cookie-policy/" }],
+  "/note-legali/": [home, { label: "Note Legali", href: "/note-legali/" }],
 } as const satisfies Record<string, readonly BreadcrumbItem[]>;
 
 export type PageBreadcrumbPath = keyof typeof pageBreadcrumbs;

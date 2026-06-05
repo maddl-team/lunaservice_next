@@ -1,0 +1,92 @@
+<!--
+  GTM — Tag Custom HTML: "Consent Manager (Silktide)"
+  Trigger: Consent Initialization - All Pages
+  Advanced settings:
+    - Tag firing options: Once per page
+    - Consent settings: No additional consent required
+
+  NON includere CSS/JS Silktide qui (già caricati dal sito Next.js).
+  NON duplicare questo tag altrove.
+
+  --- Trigger aggiuntivo da creare ---
+  Nome: STCM Consent Update
+  Tipo: Custom Event
+  Event name: stcm_consent_update
+
+  --- Tag GA4 (configurazione conservativa) ---
+  Consent settings → Require additional consent: analytics_storage
+  Trigger: aggiungere STCM Consent Update oltre al trigger di pagina
+
+  --- Tag Google Ads / remarketing ---
+  Consent settings → Require additional consent:
+    ad_storage, ad_user_data, ad_personalization
+  Trigger: aggiungere STCM Consent Update
+-->
+
+<style>
+  #stcm-wrapper .stcm-credit-link {
+    display: none;
+  }
+</style>
+
+<script>
+  window.silktideConsentManager.init({
+    backdrop: {
+      show: true,
+    },
+    icon: {
+      position: "bottomLeft",
+    },
+    prompt: {
+      position: "bottomCenter",
+    },
+    consentTypes: [
+      {
+        id: "essential",
+        label: "Necessari",
+        description:
+          "<p>Questi cookie sono necessari per il corretto funzionamento del sito web e non possono essere disattivati. Servono, ad esempio, a memorizzare le preferenze sul consenso e a garantire funzioni tecniche essenziali.</p>",
+        required: true,
+      },
+      {
+        id: "analytics",
+        label: "Statistici / Analytics",
+        description:
+          "<p>Questi cookie ci aiutano a migliorare il sito monitorando quali pagine sono più visitate e come i visitatori si muovono nel sito. Sono attivati solo con il tuo consenso.</p>",
+        required: false,
+        defaultValue: false,
+        gtag: "analytics_storage",
+      },
+      {
+        id: "marketing",
+        label: "Marketing",
+        description:
+          "<p>Questi cookie consentono attività pubblicitarie e di remarketing, anche tramite partner come Google. Sono attivati solo con il tuo consenso.</p>",
+        required: false,
+        defaultValue: false,
+        gtag: ["ad_storage", "ad_user_data", "ad_personalization"],
+      },
+    ],
+    text: {
+      prompt: {
+        description:
+          '<p>Utilizziamo cookie e tecnologie simili per migliorare la tua esperienza, analizzare il traffico e — solo se acconsenti — attività di marketing. Puoi accettare, rifiutare o personalizzare le scelte. Leggi la <a href="/privacy-policy/">Privacy Policy</a> e la <a href="/cookie-policy/">Cookie Policy</a>.</p>',
+        acceptAllButtonText: "Accetta",
+        acceptAllButtonAccessibleLabel: "Accetta tutti i cookie",
+        rejectNonEssentialButtonText: "Rifiuta",
+        rejectNonEssentialButtonAccessibleLabel: "Rifiuta i cookie non essenziali",
+        preferencesButtonText: "Personalizza",
+        preferencesButtonAccessibleLabel: "Apri le preferenze sui cookie",
+      },
+      preferences: {
+        title: "Personalizza le tue preferenze sui cookie",
+        description:
+          '<p>Rispettiamo il tuo diritto alla privacy. Puoi scegliere quali categorie di cookie consentire. Le preferenze si applicano a tutto il sito. Maggiori informazioni nella <a href="/cookie-policy/">Cookie Policy</a> e nella <a href="/privacy-policy/">Privacy Policy</a>.</p>',
+        saveButtonText: "Salva",
+        saveButtonAccessibleLabel: "Salva le preferenze sui cookie",
+        creditLinkText: "",
+        creditLinkAccessibleLabel: "",
+      },
+    },
+  });
+</script>

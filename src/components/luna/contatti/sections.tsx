@@ -104,7 +104,7 @@ function ContactChannelsSection() {
             </div>
             <p className="mt-[12px] m-0 text-[12px] leading-[1.6] text-[#6e6f68]">
               Inviando questo modulo acconsenti al trattamento dei tuoi dati secondo la nostra{" "}
-              <Link href="/privacy-policy" className="underline text-[#161714]">
+              <Link href="/privacy-policy/" className="underline text-[#161714]">
                 Privacy Policy
               </Link>
               .

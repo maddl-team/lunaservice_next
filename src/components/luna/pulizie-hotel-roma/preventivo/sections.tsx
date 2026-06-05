@@ -163,7 +163,7 @@ function MainFormBlock() {
               <input type="checkbox" name="privacy" value="1" required className="mt-[3px] h-[16px] w-[16px] shrink-0 accent-[#99cc33]" />
               <span>
                 Acconsento al trattamento dei miei dati personali secondo la{" "}
-                <Link href="/privacy-policy" className="underline text-[#161714]">
+                <Link href="/privacy-policy/" className="underline text-[#161714]">
                   Privacy Policy
                 </Link>
                 . I dati non verranno ceduti a terzi.

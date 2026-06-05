@@ -2,6 +2,8 @@ import { siteNavigation } from "@/components/luna/navigation";
 
 export const siteUrl = "https://www.lunaservice.it";
 
+const legalPaths = ["/privacy-policy/", "/cookie-policy/", "/note-legali/"] as const;
+
 const hubPaths = new Set([
   "/pulizie-hotel-roma/",
   "/pulizie-strutture-ricettive-roma/",
@@ -24,6 +26,10 @@ export function getPublicPaths(): string[] {
     }
   }
 
+  for (const path of legalPaths) {
+    paths.add(path);
+  }
+
   return [...paths].sort((a, b) => a.localeCompare(b));
 }
 
@@ -35,10 +41,12 @@ export function toAbsoluteUrl(path: string): string {
 export function getSitemapPriority(path: string): number {
   if (path === "/") return 1;
   if (hubPaths.has(path)) return 0.9;
+  if ((legalPaths as readonly string[]).includes(path)) return 0.3;
   return 0.8;
 }
 
-export function getSitemapChangeFrequency(path: string): "weekly" | "monthly" {
+export function getSitemapChangeFrequency(path: string): "weekly" | "monthly" | "yearly" {
+  if ((legalPaths as readonly string[]).includes(path)) return "yearly";
   if (path === "/" || hubPaths.has(path)) return "weekly";
   return "monthly";
 }

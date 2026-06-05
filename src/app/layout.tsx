@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
+import { ConsentHead } from "@/components/analytics/ConsentHead";
+import { GoogleTagManagerHead, GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -49,7 +51,14 @@ export default function RootLayout({
       lang="it"
       className={`${sans.variable} ${display.variable} ${mono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <ConsentHead />
+        <GoogleTagManagerHead />
+      </head>
+      <body className="min-h-full flex flex-col">
+        <GoogleTagManagerNoscript />
+        {children}
+      </body>
     </html>
   );
 }

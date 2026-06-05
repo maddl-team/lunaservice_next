@@ -141,7 +141,7 @@ export function LunaBottomSections() {
                   <input type="checkbox" name="privacy" value="1" required className="mt-[4px]" />
                   <span>
                     Ho letto la{" "}
-                    <Link href="/privacy-policy" className="text-[#161714] underline">
+                    <Link href="/privacy-policy/" className="text-[#161714] underline">
                       Privacy Policy
                     </Link>{" "}
                     e acconsento al trattamento dei miei dati personali (GDPR · Reg. UE 2016/679).
