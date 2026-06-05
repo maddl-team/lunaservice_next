@@ -10,7 +10,7 @@ const SILKTIDE_CSS_INTEGRITY =
 const SILKTIDE_JS_INTEGRITY =
   "sha384-j4NIMOecmtzMWe9GJADIIe5hTlHG63aiTQ/2XorW10RNyQJg+IU+xwFVDy45wBah";
 
-/** Consent default + Silktide assets. init() lives only in GTM (Consent Initialization). */
+/** Consent default + Silktide CSS/JS. init() is in SilktideConsentInit (layout body). */
 export function ConsentHead() {
   return (
     <>
@@ -46,13 +46,16 @@ export function ConsentHead() {
           __html: `#stcm-wrapper {
   --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
   --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
-  --primaryColor: #99cc33;
+  --primaryColor: #09C300;
   --backgroundColor: #ffffff;
   --textColor: #4b494b;
   --backdropBackgroundColor: #00000033;
   --backdropBackgroundBlur: 0px;
-  --iconColor: #99cc33;
+  --iconColor: #09c300;
   --iconBackgroundColor: #ffffff;
+}
+#stcm-wrapper .stcm-credit-link {
+  display: none;
 }`,
         }}
       />

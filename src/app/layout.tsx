@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope, Plus_Jakarta_Sans } from "next/font/google";
 import { ConsentHead } from "@/components/analytics/ConsentHead";
 import { GoogleTagManagerHead, GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
+import { SilktideConsentInit } from "@/components/analytics/SilktideConsentInit";
 import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <GoogleTagManagerNoscript />
+        <SilktideConsentInit />
         {children}
       </body>
     </html>
