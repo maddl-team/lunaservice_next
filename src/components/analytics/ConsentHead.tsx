@@ -22,15 +22,35 @@ export function ConsentHead() {
           function stcmConsentGranted(key) {
             try { return localStorage.getItem('stcm.consent.' + key) === 'true'; } catch (e) { return false; }
           }
-          gtag('consent', 'default', {
-            analytics_storage: stcmConsentGranted('analytics') ? 'granted' : 'denied',
-            ad_storage: stcmConsentGranted('marketing') ? 'granted' : 'denied',
-            ad_user_data: stcmConsentGranted('marketing') ? 'granted' : 'denied',
-            ad_personalization: stcmConsentGranted('marketing') ? 'granted' : 'denied',
+          function stcmHasStoredChoice() {
+            try { return localStorage.getItem('stcm.hasConsented') === '1'; } catch (e) { return false; }
+          }
+          function stcmSignal(key) {
+            if (!stcmHasStoredChoice()) return null;
+            return stcmConsentGranted(key) ? 'granted' : 'denied';
+          }
+          var analyticsDefault = stcmSignal('analytics');
+          var marketingDefault = stcmSignal('marketing');
+          var shared = {
             functionality_storage: 'granted',
             security_storage: 'granted',
             wait_for_update: 500
-          });
+          };
+          // Resto del mondo: granted finché l'utente non sceglie (o finché Silktide non aggiorna in SEE).
+          gtag('consent', 'default', Object.assign({}, shared, {
+            analytics_storage: analyticsDefault !== null ? analyticsDefault : 'granted',
+            ad_storage: marketingDefault !== null ? marketingDefault : 'granted',
+            ad_user_data: marketingDefault !== null ? marketingDefault : 'granted',
+            ad_personalization: marketingDefault !== null ? marketingDefault : 'granted'
+          }));
+          // SEE + UK + CH: denied finché l'utente non accetta dal banner.
+          gtag('consent', 'default', Object.assign({}, shared, {
+            region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'],
+            analytics_storage: analyticsDefault !== null ? analyticsDefault : 'denied',
+            ad_storage: marketingDefault !== null ? marketingDefault : 'denied',
+            ad_user_data: marketingDefault !== null ? marketingDefault : 'denied',
+            ad_personalization: marketingDefault !== null ? marketingDefault : 'denied'
+          }));
         `}
       </Script>
       <link
@@ -54,7 +74,8 @@ export function ConsentHead() {
   --iconColor: #09c300;
   --iconBackgroundColor: #ffffff;
 }
-#stcm-wrapper .stcm-credit-link {
+#stcm-wrapper .stcm-credit-link,
+#stcm-wrapper .stcm-logo {
   display: none;
 }`,
         }}

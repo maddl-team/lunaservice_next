@@ -25,22 +25,21 @@
   Event name: stcm_consent_update
   Fire on: All Custom Events
 
-  --- TAG GA4 (configurazione conservativa) ---
-  Per ogni tag GA4 (Configuration / Event):
-    Advanced settings → Consent settings
-      → Require additional consent for tag to fire
-      → analytics_storage
-    Triggers: mantieni il trigger di pagina ESISTENTE
-              + aggiungi "STCM Consent Update"
+  --- CONSENT DEFAULT REGIONALE (Opzione A) ---
+  NON aggiungere in GTM un tag "Consent default": è già nel sito (ConsentHead.tsx)
+  prima di GTM, con granted fuori SEE/UK/CH e denied in SEE/UK/CH.
 
-  --- TAG Google Ads / remarketing ---
-  Per ogni tag Ads / conversioni / remarketing:
-    Advanced settings → Consent settings
-      → Require additional consent for tag to fire
-      → ad_storage
-      → ad_user_data
-      → ad_personalization
-    Triggers: trigger di pagina ESISTENTE + "STCM Consent Update"
+  --- TAG GA4 / Google Tag (nativi) ---
+  Consent settings: NON usare "Require additional consent" (Consent Mode basta).
+  Trigger: solo Initialization / All Pages (o eventi specifici). NON collegare
+  "STCM Consent Update" ai tag Google nativi.
+
+  --- TAG terze parti (Meta, Hotjar, ecc.) ---
+  Usa "Require additional consent" + trigger "STCM Consent Update" solo qui.
+
+  --- TAG Google Ads / remarketing (se presenti) ---
+  Consent settings: ad_storage, ad_user_data, ad_personalization.
+  Trigger: pagina + "STCM Consent Update" se il tag non è gestito da Consent Mode.
 
   --- CHECKLIST ANTI-DOPPIA-INIT ---
   [ ] init() SOLO in questo tag GTM (non nel codice Next.js)
@@ -54,7 +53,8 @@
 -->
 
 <style>
-  #stcm-wrapper .stcm-credit-link {
+  #stcm-wrapper .stcm-credit-link,
+  #stcm-wrapper .stcm-logo {
     display: none;
   }
 </style>
