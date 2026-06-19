@@ -16,7 +16,7 @@ export default function CookiePolicyPage() {
       <LegalPageShell title="Cookie Policy" breadcrumbs={pageBreadcrumbs["/cookie-policy/"]}>
         <p>
           Questa Cookie Policy spiega come Luna Service utilizza cookie e tecnologie simili sul sito{" "}
-          <strong>www.lunaservice.it</strong>. Per il trattamento dei dati personali in generale, consulta anche la{" "}
+          <strong>lunaserviceroma.it</strong>. Per il trattamento dei dati personali in generale, consulta anche la{" "}
           <Link href="/privacy-policy/" className="text-[#161714] underline">
             Privacy Policy
           </Link>

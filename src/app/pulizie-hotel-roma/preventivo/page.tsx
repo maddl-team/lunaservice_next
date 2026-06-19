@@ -21,7 +21,7 @@ export default function PreventivoPulizieHotelRomaPage() {
     provider: {
       "@type": "Organization",
       name: "Luna Service",
-      url: "https://www.lunaservice.it/",
+      url: "https://lunaserviceroma.it/",
     },
   };
 

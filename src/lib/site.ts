@@ -1,6 +1,6 @@
 import { siteNavigation } from "@/components/luna/navigation";
 
-export const siteUrl = "https://www.lunaservice.it";
+export const siteUrl = "https://lunaserviceroma.it";
 
 const legalPaths = ["/privacy-policy/", "/cookie-policy/", "/note-legali/"] as const;
 

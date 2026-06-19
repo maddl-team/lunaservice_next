@@ -76,7 +76,7 @@ export default function PuliziaBalconiPiccioniRomaPage() {
     provider: {
       "@type": "Organization",
       name: "Luna Service",
-      url: "https://www.lunaservice.it/",
+      url: "https://lunaserviceroma.it/",
     },
   };
 

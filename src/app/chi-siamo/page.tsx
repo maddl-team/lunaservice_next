@@ -24,9 +24,9 @@ export default function ChiSiamoPage() {
     name: "Luna Service",
     description:
       "Impresa di pulizie professionali a Roma specializzata in hotel, strutture ricettive, condomini e interventi straordinari.",
-    url: "https://www.lunaservice.it",
-    logo: "https://www.lunaservice.it/images/logo.png",
-    image: "https://www.lunaservice.it/images/team.jpg",
+    url: "https://lunaserviceroma.it",
+    logo: "https://lunaserviceroma.it/images/lunaservicelogo.jpg",
+    image: "https://lunaserviceroma.it/images/pages/chi-siamo-hero.jpg",
     address: {
       "@type": "PostalAddress",
       streetAddress: siteAddressStreet,

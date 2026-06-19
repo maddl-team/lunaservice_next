@@ -3,7 +3,7 @@ export const sitePhoneE164 = "393518349789";
 
 export const sitePhoneDisplay = "+39 351 834 9789";
 
-export const siteEmail = "info@lunaservice.it";
+export const siteEmail = "lunaserviceroma@gmail.com";
 
 export const siteWhatsAppHref = `https://wa.me/${sitePhoneE164}`;
 

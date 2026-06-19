@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
         <p>
           La presente informativa descrive come Luna Service S.r.l. (di seguito anche &quot;Luna Service&quot; o
           &quot;Titolare&quot;) tratta i dati personali degli utenti che visitano il sito{" "}
-          <strong>www.lunaservice.it</strong> e che utilizzano i moduli di contatto, in conformità al Regolamento (UE)
+          <strong>lunaserviceroma.it</strong> e che utilizzano i moduli di contatto, in conformità al Regolamento (UE)
           2016/679 (GDPR) e alla normativa italiana applicabile.
         </p>
 
