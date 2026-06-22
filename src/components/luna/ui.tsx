@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
+import { AgencyCredit } from "@/components/luna/AgencyCredit";
 import { BrandLogoMark } from "@/components/luna/brand";
 import { contactHref, footerNavigation, legalNavigation, whatsappHref } from "@/components/luna/navigation";
 import {
@@ -536,9 +537,12 @@ export function SiteFooter() {
           ))}
           <FooterLinkColumn title="Legale" links={legalNavigation} />
         </div>
-        <div className="flex flex-col md:flex-row gap-[6px] md:gap-0 justify-between border-t border-t-[rgba(255,255,255,0.12)] pt-[20px] md:pt-[28px] text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)]">
-          <span>© 2026 Luna Service S.r.l. — Tutti i diritti riservati</span>
-          <span>Impresa di pulizie professionali · Roma · Italia</span>
+        <div className="border-t border-t-[rgba(255,255,255,0.12)] pt-[20px] md:pt-[28px] text-[11px] md:text-[12px] text-[rgba(255,255,255,0.5)]">
+          <div className="flex flex-col md:flex-row gap-[6px] md:gap-0 justify-between">
+            <span>© 2026 Luna Service S.r.l. — Tutti i diritti riservati</span>
+            <span>Impresa di pulizie professionali · Roma · Italia</span>
+          </div>
+          <AgencyCredit />
         </div>
       </footer>
     </section>
