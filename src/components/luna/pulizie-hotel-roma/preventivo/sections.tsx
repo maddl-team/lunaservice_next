@@ -7,6 +7,10 @@ import { pageBreadcrumbs } from "@/lib/page-breadcrumbs";
 import { FormSubmitPrimaryButton, LeadFormShell } from "@/components/luna/LeadFormShell";
 import { FaqItem, InputField, SectionBadge, SectionShell, SelectField, SiteFooter, SiteHeaderPill, TextareaField } from "@/components/luna/ui";
 import { useState } from "react";
+import {
+  formatGoogleReviewAttribution,
+  preventivoGoogleReviews,
+} from "@/lib/google-reviews";
 
 const objections = [
   {
@@ -25,12 +29,6 @@ const objections = [
     q: '"E se il servizio non rispetta le aspettative?"',
     a: "Ogni contratto con Luna Service include una clausola di verifica qualità. Se dopo i primi 30 giorni il servizio non è al livello concordato, interveniamo senza costi aggiuntivi per correggere. La nostra reputazione dipende dai risultati, non dai contratti firmati.",
   },
-];
-
-const testimonials = [
-  `"Dopo tre imprese di pulizie in quattro anni, con Luna Service abbiamo finalmente trovato stabilità. Il supervisore dedicato fa la differenza: non devo inseguire nessuno, le cose vengono fatte." — Marco Benedetti, Direttore, Hotel Palazzo Verdea ★★★★, Roma Centro`,
-  `"Il passaggio è stato più rapido di quanto pensassi. In dieci giorni erano operativi e dopo il primo mese ho capito che la scelta era giusta. Le camere sono al livello che i nostri ospiti si aspettano." — Luca Ferretti, Proprietario, Boutique Hotel Cortile Dodici, Trastevere`,
-  `"Gestisco un hotel da 80 camere e avevo paura che esternalizzare fosse troppo complicato. Luna Service ha gestito tutto l'onboarding e oggi ho un referente unico che conosce la mia struttura meglio di alcuni miei dipendenti." — Andrea Santini, General Manager, Hotel Magnolia Suites ★★★★, Prati`,
 ];
 
 const faqItems = [
@@ -239,12 +237,14 @@ function SocialProofSection() {
     <section className="px-[16px] md:px-[56px] pt-[90px] md:pt-[120px]">
       <SectionBadge>Social proof</SectionBadge>
       <h2 className="mt-[18px] m-0 font-serif text-[26px] md:text-[50px] leading-[1.04] tracking-[-0.025em] text-[#161714]">
-        Cosa dicono gli albergatori che lavorano con noi
+        Cosa dicono i nostri clienti su Google
       </h2>
       <div className="mt-[22px] grid grid-cols-1 md:grid-cols-3 gap-[16px]">
-        {testimonials.map((t) => (
-          <figure key={t} className="m-0 rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
-            <blockquote className="m-0 font-serif text-[20px] leading-[1.45] tracking-[-0.01em] text-[#161714]">{t}</blockquote>
+        {preventivoGoogleReviews.map((review) => (
+          <figure key={review.author} className="m-0 rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[20px] py-[20px]">
+            <blockquote className="m-0 font-serif text-[20px] leading-[1.45] tracking-[-0.01em] text-[#161714]">
+              &quot;{review.quote}&quot; — {formatGoogleReviewAttribution(review.author)}
+            </blockquote>
           </figure>
         ))}
       </div>

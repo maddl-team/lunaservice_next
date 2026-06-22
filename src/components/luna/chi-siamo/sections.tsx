@@ -11,6 +11,12 @@ import {
   SiteHeaderPill,
 } from "@/components/luna/ui";
 import { whatsappHref } from "@/components/luna/navigation";
+import {
+  chiSiamoGoogleReviews,
+  formatGoogleReviewAttribution,
+  googleReviewCount,
+  googleReviewRating,
+} from "@/lib/google-reviews";
 
 const metricItems = [
   { value: "14", label: "anni di attività nel settore delle pulizie professionali a Roma", sublabel: "" },
@@ -18,7 +24,7 @@ const metricItems = [
   { value: "22", label: "condomini con contratto continuativo attivo", sublabel: "" },
   { value: "47", label: "operatori nel team operativo", sublabel: "" },
   { value: "312", label: "interventi straordinari completati negli ultimi 12 mesi", sublabel: "" },
-  { value: "4.9★", label: "media recensioni Google", sublabel: "" },
+  { value: `${googleReviewRating}★`, label: "media recensioni Google", sublabel: "" },
 ] as const;
 
 const specializationItems = [
@@ -72,24 +78,6 @@ const valueItems = [
   {
     title: "La riservatezza come requisito operativo",
     body: "Lavoriamo all'interno di strutture alberghiere, abitazioni private, uffici aziendali, ambienti condominiali. La riservatezza verso terzi — su ciò che vediamo, su chi sono i nostri clienti, sulle caratteristiche degli ambienti in cui operiamo — è un requisito operativo del nostro lavoro, non una promessa generica. Il personale è formato su questo aspetto prima di iniziare qualsiasi collaborazione.",
-  },
-] as const;
-
-const testimonials = [
-  {
-    quote:
-      "Con Luna Service abbiamo finalmente trovato un'impresa che mantiene gli standard nel tempo, non solo nelle prime settimane. Il referente dedicato fa la differenza: c'è sempre qualcuno che conosce la nostra struttura e risponde in tempi rapidi.",
-    attribution: "Marco Benedetti, Direttore, Hotel Palazzo Verdea ★★★★, Roma",
-  },
-  {
-    quote:
-      "Come amministratrice di condominio gestisco diversi edifici a Roma. Luna Service è l'unica impresa con cui ho un rapporto diretto, documentato e senza sorprese. Il report mensile mi permette di rispondere all'assemblea con dati concreti.",
-    attribution: "Elena Conti, Amministratrice di Condominio, Roma",
-  },
-  {
-    quote:
-      "Gestisco tre appartamenti su Airbnb nel centro di Roma. Da quando lavoro con Luna Service non ho più dovuto preoccuparmi delle pulizie: ricevo il report fotografico dopo ogni intervento e le recensioni degli ospiti sulla pulizia sono stabilmente a cinque stelle.",
-    attribution: "Giulia Romano, Property Manager, Roma",
   },
 ] as const;
 
@@ -364,21 +352,23 @@ function SocialProofSection() {
       </h2>
       <p className="mt-[24px] max-w-[980px] text-[17px] leading-[1.7] text-[#3a3b36]">
         La reputazione di Luna Service si costruisce ogni giorno nelle strutture dei nostri clienti. Queste sono alcune
-        delle esperienze che ci hanno condiviso.
+        recensioni pubblicate su Google.
       </p>
       <div className="mt-[24px] grid grid-cols-1 md:grid-cols-3 gap-[16px]">
-        {testimonials.map((item) => (
+        {chiSiamoGoogleReviews.map((item) => (
           <blockquote
-            key={item.attribution}
+            key={item.author}
             className="m-0 rounded-[24px] border border-[rgba(0,0,0,0.06)] bg-white px-[24px] py-[24px]"
           >
             <p className="m-0 text-[15px] leading-[1.65] text-[#3a3b36]">&quot;{item.quote}&quot;</p>
-            <footer className="mt-[14px] text-[14px] leading-[1.55] text-[#6e6f68]">— {item.attribution}</footer>
+            <footer className="mt-[14px] text-[14px] leading-[1.55] text-[#6e6f68]">
+              — {formatGoogleReviewAttribution(item.author)}
+            </footer>
           </blockquote>
         ))}
       </div>
       <p className="mt-[24px] max-w-[980px] text-[15px] leading-[1.65] text-[#3a3b36]">
-        Google Reviews ★★★★★ 87 recensioni · Assicurazione RC Professionale · CCNL rispettato
+        Google Reviews ★★★★★ {googleReviewCount} recensioni · Assicurazione RC Professionale · CCNL rispettato
       </p>
     </section>
   );

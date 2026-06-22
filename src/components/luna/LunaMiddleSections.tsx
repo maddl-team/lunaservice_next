@@ -1,4 +1,9 @@
 import { FeatureCard, ReviewCard, SectionIntro, SectionShell, ServiceCard } from "@/components/luna/ui";
+import {
+  featuredGoogleReviewCards,
+  googleReviewCount,
+  googleReviewRating,
+} from "@/lib/google-reviews";
 
 const services = [
   {
@@ -72,33 +77,6 @@ export function LunaMiddleSections() {
       num: "04",
       title: "Preventivo gratuito con sopralluogo",
       body: "Prima di darti un prezzo, veniamo a vedere la struttura. Nessun preventivo alla cieca: ogni offerta è calcolata sulla tua realtà specifica.",
-    },
-  ];
-
-  const reviews = [
-    {
-      quote:
-        "Da quando abbiamo affidato le pulizie a Luna Service, le nostre recensioni sulla pulizia su Booking sono passate da 7.8 a 9.2 in sei mesi. Il team è puntuale, professionale e non ho mai dovuto rincorrere nessuno.",
-      author: "Marco Benedetti",
-      role: "Direttore",
-      org: "Hotel Palazzo Verdea",
-      city: "Roma",
-    },
-    {
-      quote:
-        "Gestisco tre appartamenti su Airbnb nel centro di Roma. Luna Service fa i cambi tra un ospite e l'altro con una precisione che non avevo trovato da nessun'altra parte. Non potrei farne a meno.",
-      author: "Giulia Romano",
-      role: "Host Airbnb",
-      org: "Centro Storico",
-      city: "Roma",
-    },
-    {
-      quote:
-        "Come amministratrice di condominio ho un contratto continuativo con Luna Service per le pulizie delle scale. Nessun problema in due anni: sempre puntuali, sempre al livello concordato.",
-      author: "Elena Conti",
-      role: "Amministratrice di Condominio",
-      org: "Condominio Via Nomentana",
-      city: "Roma Nord",
     },
   ];
 
@@ -227,17 +205,16 @@ export function LunaMiddleSections() {
         <div className="mb-[80px] text-center">
           <div className="mb-[28px] inline-flex items-center gap-[8px] rounded-[999px] border border-[rgba(0,0,0,0.08)] bg-white px-[14px] py-[6px] font-mono text-[11px] uppercase tracking-[0.08em] text-[#3a3b36]">
             <span className="inline-flex gap-[1px] text-[10px] text-[#99cc33]">★★★★★</span>
-            4.9 / 5 su Google · 87 recensioni
+            {googleReviewRating} / 5 su Google · {googleReviewCount} recensioni
           </div>
           <h2 className="m-0 font-serif text-[32px] md:text-[56px] leading-[1] tracking-[-0.025em]">Cosa dicono di noi</h2>
           <p className="mx-auto mt-[32px] max-w-[620px] text-[18px] leading-[1.55] text-[#3a3b36]">
-            Lavoriamo con hotel, gestori di B&B e amministratori di condominio a Roma da anni. Queste sono alcune delle
-            loro esperienze.
+            Recensioni pubblicate dai nostri clienti su Google per Luna Service | Impresa Pulizie Roma.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[16px]">
-          {reviews.map((review) => (
+          {featuredGoogleReviewCards.map((review) => (
             <ReviewCard key={review.quote.slice(0, 20)} {...review} />
           ))}
         </div>
@@ -246,7 +223,7 @@ export function LunaMiddleSections() {
           <div className="font-mono text-[11px] uppercase tracking-[0.08em] text-[#6e6f68]">Garanzie</div>
           <div className="flex flex-col md:flex-row md:items-center gap-[8px] md:gap-[32px] text-[13.5px] text-[#3a3b36]">
             <span>
-              Google Reviews <strong>4.9★</strong>
+              Google Reviews <strong>{googleReviewRating}★</strong>
             </span>
             <span>Assicurazione RC € 2M</span>
             <span>DUVRI a norma</span>
